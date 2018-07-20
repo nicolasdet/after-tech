@@ -1,0 +1,162 @@
+./vendor/bin/behat --init
+java -Dwebdriver.gecko.driver=E:\chromedriver.exe -jar selenium.jar
+./vendor/bin/behat
+
+
+Behat logiciel de test. 
+il ce dll via composer et fonctionne comme les test unitaire, on ecrit une syntax et il execute les tests
+Il s'utilise avec
+Mink
+
+---------------------------------------------------------------------------------------------------
+Behat 
+
+!   == commande
+->  == logiciel / software 
+
+composer.json :
+{
+	"behat/behat": "^3.3"
+}
+
+! composer update
+
+-> cmd / git bash
+! ./vendor/bin/behat --init
+
+une fois behat installer on a un dossier feature a la racine
+dans bootstrap > FeatureContext.php on a notre feature qui perme de lire "codagement" le code écrit dans basket.feature fichier dans lequel on écrit nos Bdd
+
+Le fichier Context fait réferences a des classe qui doivent étre dans l'autoloader si ce n'est pas le cas tel que : 
+
+composer.json :
+{
+    "autoload": {
+    	"psr-4": {
+    		"": "perso_nico/"
+    	}
+}
+si on modifie composer.json il faut l'upadte sinon on peut relancer les test direct
+
+! ./vendor/bin/behat
+
+
+
+pour organiser les features il faut ajouter Un fichier contexte 
+et pour que ce nouveau fichier contexte soit reconnus il faut ajouter un fichier behat.yml a la racine avec un context
+
+ON ajoute --lang=en pour langlais sur chaque commande
+-----------------------------------------------------------------------------------------------
+
+
+Mink 
+http://mink.behat.org/en/latest/
+
+composer require --dev behat/mink
+composer require --dev behat/mink-goutte-driver   OU  behat/mink-selenium2-driver
+
++ 
+
+behat/mink-extension
+
+
+
+crée un fichier WebContext.php dans Features/bootstrap/
+
+
+use Behat\MinkExtension\Context\MinkContext;
+
+Crée dans WebContext.php une classe WebContext qui extend MinkContext
+
+Ajouter WebContext au context dans le yml
+
+! ./vendor/bin/behat -dl 
+pour avoir la liste des definition
+--lang=en
+
+on doit dll MinkExtension "behat/mink-extension": "^2.3"
+on doit ajouter MinkExtension au extention de behat dans le yml 
+
+    extensions:
+
+      Behat\MinkExtension:
+
+        base_url: http://google.fr/
+        goutte: ~
+
+
+
+--------------------------------------------------------------------------------------------------
+
+selenium 
+
+avoir java est obligatoire 
+
+composer require behat/mink-selenium2-driver
+chercher selenium sur google
+dll selenium --> Selenium Standalone Server
+deplacer le .jar dl vers notre projet (c'est mieux) ou en global
+et le renomer en selenium.jar 
+ouvrir un bash (terminal) et aller dans le dossier contenent le jar 
+!java -jar selenium.jar
+
+
+Le serveur est lancer et tourne sur le port 4444
+donc localhost:4444
+
+on peut voir la liste des session sur  localhost:4444/wd/hub 
+
+
+
+# config 
+	 ajouter selenium2 au extention sur le behat.yml
+	         base_url: http://google.fr/
+        goutte: ~
+        selenium2: ~
+
+     exeption si on est sur une Vm et qu'on utilise selenium en local pour pas avoir a dll java sur la vm par exemple
+     il faut présiser l'url : 
+     selenium2: 
+     	wd_host: http://192.168.0.15:444/wd/hub  || ip de la machine sur le reseaux local
+
+
+ Dans les feature, la ou on écrit le sénario en texte on doit présicer certain tag 
+ du style @javascript  ce qui permet de lancer selenium seulement pour les test donc uniquement que quand on a besoin de js.
+
+-------------------------------
+
+complementaire
+
+npm install selenium-webdriver
+
+
+
+java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-3.0.0-beta2.jar
+
+
+Nouvelle : java -Dwebdriver.gecko.driver=E:\chromedriver.exe -jar selenium.jar
+
+
+        selenium2:
+          wd_host: "http://127.0.0.1:4444/wd/hub"
+          capabilities: 
+            marionette: null
+
+
+
+
+
+
+
+            ----------- example ----------------
+
+
+
+                    @javascript 
+        Scenario: Search
+            Given I am on the homepage
+            When I fill in "lst-ib" with "Grafikart"
+            And I Wait for 1 segonds
+            And I press "btnK" 
+            And I Wait for 1 segonds
+            Then I should see "Grafikart.fr"
