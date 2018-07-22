@@ -24,8 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-var_dump(ENVIRONMENT);
-//ENVIRONMENT
+
 if(ENVIRONMENT == 'development'){
 	$config['base_url'] = 'http://after-tech.local/';
 }else {
