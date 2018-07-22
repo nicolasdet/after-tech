@@ -1,1 +1,13 @@
 /*! Place your custom styles here */
+
+#menu2 {
+	background-color: #5a5a5a80;
+	padding: 1.357em 0;
+}
+
+.menu-horizontal > li:not(:hover) > a, .menu-horizontal > li:not(:hover) > span, .menu-horizontal > li:not(:hover) > .modal-instance > .modal-trigger {
+
+    opacity: 0.9;
+    font-size: 1.2em;
+
+}
