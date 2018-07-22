@@ -12,7 +12,7 @@ if (!function_exists('add_css'))
 		if (!is_array($css))
 		{
 			$file_type = (preg_match('/\.css$/i', $css) ? NULL : '.css');
-			$url = (!preg_match('#^www|^http|^//#', $css)) ? base_url('assets/css/'.$css.$file_type) : $css;
+			$url = (!preg_match('#^www|^http|^//#', $css)) ? base_url('public/assets/css/'.$css.$file_type) : $css;
 			return '<link rel="stylesheet" href="'.$url.'">'."\n";
 		}
 		else
@@ -27,7 +27,7 @@ if (!function_exists('add_css'))
 					$tab = '';
 				}
 				$file_type = (preg_match('/\.css$/i', $item) ? NULL : '.css');
-				$url = (!preg_match('#^www|^http|^//#', $item)) ? base_url('assets/css/'.$item.$file_type) : $item;
+				$url = (!preg_match('#^www|^http|^//#', $item)) ? base_url('public/assets/css/'.$item.$file_type) : $item;
 				$items[] = '<link rel="stylesheet" href="'.$url.'">'."\n".$tab;
 				$i++;
 			}
@@ -48,7 +48,7 @@ if (!function_exists('add_js'))
 		if (!is_array($js))
 		{
 			$file_type = (preg_match('/\.js$/i', $js) ? NULL : '.js');
-			$url = (!preg_match('#^www|^http|^//#', $js)) ? base_url('assets/js/'.$js.$file_type) : $js;
+			$url = (!preg_match('#^www|^http|^//#', $js)) ? base_url('public/assets/js/'.$js.$file_type) : $js;
 			return '<script src="'.$url.'"></script>'."\n";
 		}
 		else
@@ -63,7 +63,7 @@ if (!function_exists('add_js'))
 					$tab = '';
 				}
 				$file_type = (preg_match('/\.js$/i', $item) ? NULL : '.js');
-				$url = (!preg_match('#^www|^http|^//#', $item)) ? base_url('assets/js/'.$item.$file_type) : $item;
+				$url = (!preg_match('#^www|^http|^//#', $item)) ? base_url('public/assets/js/'.$item.$file_type) : $item;
 				$items[] = '<script src="'.$url.'"></script>'."\n".$tab;
 				$i++;
 			}

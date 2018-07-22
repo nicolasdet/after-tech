@@ -18,7 +18,7 @@ class MY_Controller extends CI_Controller
 	public function __construct($layout = 'main')
 	{
 		parent::__construct();
-
+ $this->output->set_header('Access-Control-Allow-Origin: *');
 
 
 		date_default_timezone_set('Europe/Paris');
@@ -45,9 +45,9 @@ class MY_Controller extends CI_Controller
 	public function loadAssets()
 	{
 
-		$this->theme->css('main');
-		$this->theme->js('jquery-3.2.0.min');
-		$this->theme->js('famille');
+		//$this->theme->css('main');
+		//$this->theme->js('jquery-3.2.0.min');
+		//$this->theme->js('famille');
 
 	}
 
