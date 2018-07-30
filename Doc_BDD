@@ -1,0 +1,53 @@
+
+## Architecture de la BDD
+
+
+# Users
+
+- id 
+- nom
+- prenom
+- email
+- password
+- status 
+
+# groupes
+
+- id
+- nom 
+- description
+- entreprise [ facultatif ]
+
+# entreprises 
+
+- id
+- nom 
+- description
+
+# groupes - users  [* _ *]
+
+- id 
+- id_user
+- id_entreprise
+
+# entreprises - user  [* _ 1]
+
+- id 
+- id_entreprise
+- id_user
+
+# events 
+
+- id
+- nom 
+- description [text]
+- date 	[date]
+- lieux [string]
+
+# events - groupes - entreprises 
+
+- id 
+- id_event
+- id_groupe     [ facultatif ]
+- id_entreprise [ facultatif ]
+- creator [bool]

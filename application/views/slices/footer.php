@@ -1,22 +1,5 @@
             <footer class="footer-3 text-center-xs space--xs ">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-inline list--hover">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <span class="type--fine-print">after-tech</span>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <span class="type--fine-print">after-tech</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
                     <!--end of row-->
                     <div class="row">
                         <div class="col-md-6">

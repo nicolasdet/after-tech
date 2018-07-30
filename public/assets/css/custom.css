@@ -11,3 +11,16 @@
     font-size: 1.2em;
 
 }
+
+
+.background-image-user {
+	height: 135vh;
+}
+
+.nav-sidebar-column {
+
+	overflow: hidden;
+}
+.bg--dark {
+	background: #252525cc;
+	}

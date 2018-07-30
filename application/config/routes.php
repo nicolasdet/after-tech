@@ -55,10 +55,12 @@ $route['translate_uri_dashes'] = FALSE;
 $route['php_cour'] = 'php_cour';
 
 
-
 //   Vrai route du projet Test
 $route['home'] = 'welcome';
 $route['default_controller'] = 'welcome';
+$route['user'] = 'users/user';
+
+
 
 
 $route['connect'] = 'connect';
@@ -66,5 +68,3 @@ $route['connect/logout'] = 'connect/logout';
 $route['connect/log'] = 'connect/log';
 
 
-
-$route['compte'] = 'landing';

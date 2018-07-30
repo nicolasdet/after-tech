@@ -18,7 +18,7 @@ class MY_Controller extends CI_Controller
 	public function __construct($layout = 'main')
 	{
 		parent::__construct();
- $this->output->set_header('Access-Control-Allow-Origin: *');
+ 		$this->output->set_header('Access-Control-Allow-Origin: *');
 
 
 		date_default_timezone_set('Europe/Paris');
@@ -44,7 +44,35 @@ class MY_Controller extends CI_Controller
 
 	public function loadAssets()
 	{
+		$this->theme->css('bootstrap');
+		$this->theme->css('stack-interface');
+		$this->theme->css('socicon');
+		$this->theme->css('lightbox.min');
+		$this->theme->css('flickity');
+		$this->theme->css('iconsmind');
+		$this->theme->css('jquery.steps');
+		$this->theme->css('theme');
+		$this->theme->css('custom');
+		$this->theme->css('font-rubiklato');
 
+		$this->theme->js('jquery-3.1.1.min');
+		$this->theme->js('flickity.min');
+		$this->theme->js('easypiechart.min');
+		$this->theme->js('parallax');
+		$this->theme->js('typed.min');
+		$this->theme->js('datepicker');
+		$this->theme->js('isotope.min');
+		$this->theme->js('ytplayer.min');
+		$this->theme->js('lightbox.min');
+		$this->theme->js('granim.min');
+		$this->theme->js('jquery.steps.min');
+		$this->theme->js('spectragram.min');
+		$this->theme->js('countdown.min');
+		$this->theme->js('twitterfetcher.min');
+		$this->theme->js('smooth-scroll.min');
+		$this->theme->js('scripts');
+		/*
+*/
 		//$this->theme->css('main');
 		//$this->theme->js('jquery-3.2.0.min');
 		//$this->theme->js('famille');
@@ -66,7 +94,7 @@ class MY_Controller extends CI_Controller
 
 	protected function _includeSlice()
 	{
-		$this->theme->slice(array('top', 'header', 'bottom', 'footer'));
+		$this->theme->slice(array('top', 'header', 'bottom', 'footer', 'users_top'));
 	}
 
 
