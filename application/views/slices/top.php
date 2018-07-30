@@ -140,18 +140,64 @@
                         </div>
                         <div class="col-lg-5 text-right text-left-xs text-left-sm order-lg-3">
                             <div class="bar__module">
-                                <a class="btn btn--sm type--uppercase" href="#">
+                                <span class="modal-instance">
+                                <a class="btn modal-trigger btn--sm btn--primary  type--uppercase" href="#">
                                     <span class="btn__text">
-                                        s'inscrire
+                                         ce connecter
                                     </span>
                                 </a>
-                                <a class="btn btn--sm btn--primary type--uppercase" href="#">
-                                    <span class="btn__text">
-                                        ce connecter
-                                    </span>
-                                </a>
+                                <div class="modal-container">
+                                    <div class="modal-content">
+                                        <section class="imageblock feature-large bg--white border--round ">
+                                            <div class="imageblock__content col-lg-5 col-md-3 pos-left">
+                                                <div class="background-image-holder">
+                                                    <img alt="image" src="public/assets/img/afterWorkPro.jpg" />
+                                                </div>
+                                            </div>
+                                            <div class="container">
+                                                <div class="row justify-content-end">
+                                                    <div class="col-lg-6 col-md-7">
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <h1>Connexion</h1>
+                                                                <hr class="short">
+                                                                
+                                                               <?php echo form_open('#', $LoginFormData['form']); ?>
+                                                                
+                                                                <div class="row">     
+                                          
+                                                                    <div class="col-12">   
+                                                                        <label> Email </label>
+                                                                        <?php echo form_input($LoginFormData['email']); ?>
+                                                                    </div>    
+                                          
+                                                                    <div class="col-12">  
+                                                                    <label> Mot de passe </label> 
+                                                                        <?php echo form_password($LoginFormData['password']); ?>
+                                                                    </div> 
+                            
+
+                                                                    <button class="btn btn--primary" type="submit" name="submit" value="submit" >S'inscrire </button>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <!--end of col-->
+                                                                    <button class=" mt-3 btn btn--alert"  >Mot de passe oublier </button>
+                                                        </div>
+                                                        <!--end of row-->
+                                                    </div>
+                                                </div>
+                                                <!--end of row-->
+                                            </div>
+                                            <!--end of container-->
+                                        </section>
+                                    </div>
+                                </div>
+                        
+</span>
                              <span class="modal-instance">
-                                <a class="btn modal-trigger btn btn--sm  type--uppercase" href="#">
+                                <a class="btn modal-trigger btn--sm  type--uppercase" href="#">
                                     <span class="btn__text">
                                         s'inscrire
                                     </span>
@@ -161,7 +207,7 @@
                                         <section class="imageblock feature-large bg--white border--round ">
                                             <div class="imageblock__content col-lg-5 col-md-3 pos-left">
                                                 <div class="background-image-holder">
-                                                    <img alt="image" src="img/cowork-8.jpg" />
+                                                    <img alt="image" src="public/assets/img/meeting-bar.jpg" />
                                                 </div>
                                             </div>
                                             <div class="container">
@@ -169,30 +215,43 @@
                                                     <div class="col-lg-6 col-md-7">
                                                         <div class="row">
                                                             <div class="col-md-11 col-lg-10">
-                                                                <h1>Ideal for design conscious startups.</h1>
+                                                                <h1>Rejoignez le meilleur site d'after-work</h1>
                                                                 <p class="lead">
-                                                                    Start building a beautiful site for your startup &mdash; right in the comfort of your browser.
+                                                                    Affilier vous à un groupe ou une entreprise et profitez des after works.
                                                                 </p>
                                                                 <hr class="short">
-                                                                <form>
-                                                                    <div class="row">
-                                                                        <div class="col-12">
-                                                                            <input type="email" name="Email Address" placeholder="Email Address" />
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <input type="password" name="Password" placeholder="Password" />
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <button type="submit" class="btn btn--primary type--uppercase">Create Account</button>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <span class="type--fine-print">By signing up, you agree to the
-                                                                                <a href="#">Terms of Service</a>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--end row-->
-                                                                </form>
+                                                                
+                                                               <?php echo form_open('#', $InscriptionFormData['form']); ?>
+                                                                
+                                                                <div class="row">   
+                                                                    <div class="col-12">   
+                                                                        <label> Nom </label>
+                                                                        <?php echo form_input($InscriptionFormData['nom']); ?>
+                                                                    </div>    
+                                                            
+                                                                    <div class="col-12">   
+                                                                        <label> Prenom </label>
+                                                                        <?php echo form_input($InscriptionFormData['prenom']); ?>
+                                                                    </div>    
+                                          
+                                                                    <div class="col-12">   
+                                                                        <label> Email </label>
+                                                                        <?php echo form_input($InscriptionFormData['email']); ?>
+                                                                    </div>    
+                                          
+                                                                    <div class="col-12">  
+                                                                    <label> Mot de passe </label> 
+                                                                        <?php echo form_password($InscriptionFormData['password']); ?>
+                                                                    </div> 
+                                          
+                                                                    <div class="col-12">  
+                                                                    <label> Recopiez le mot de passe </label> 
+                                                                        <?php echo form_password($InscriptionFormData['second-password']); ?>
+                                                                    </div> 
+
+                                                                    <button class=" mt-3 btn btn--primary" type="submit" name="submit" value="submit" >S'inscrire </button>
+
+                                                                </div>
                                                             </div>
                                                             <!--end of col-->
                                                         </div>

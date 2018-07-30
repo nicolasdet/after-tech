@@ -24,3 +24,13 @@
 .bg--dark {
 	background: #252525cc;
 	}
+
+p a, span a, label a {
+	text-decoration: none;
+}
+
+input[type], textarea, select {
+    -webkit-appearance: none;
+    background: #f6f6f6;
+    border: 1px solid #b7b7b7;
+}

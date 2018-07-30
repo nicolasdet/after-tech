@@ -29,7 +29,9 @@ class MY_Controller extends CI_Controller
 		if (ENVIRONMENT != 'production' && $this->input->get('debug') == 1)
 			$this->output->enable_profiler(true);
 
+		
 		$this->loadAssets();
+		$this->load->helper('form');
 		//$this->load->library('session');
 		
 	}
@@ -63,7 +65,7 @@ class MY_Controller extends CI_Controller
 		$this->theme->js('datepicker');
 		$this->theme->js('isotope.min');
 		$this->theme->js('ytplayer.min');
-		$this->theme->js('lightbox.min');
+		//$this->theme->js('lightbox.min');
 		$this->theme->js('granim.min');
 		$this->theme->js('jquery.steps.min');
 		$this->theme->js('spectragram.min');
