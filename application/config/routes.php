@@ -56,11 +56,11 @@ $route['php_cour'] = 'php_cour';
 
 
 //   Vrai route du projet Test
+$route['default_controller'] = 'welcome';
 $route['home'] = 'welcome';
+$route['contribution'] = 'contribution';
 $route['default_controller'] = 'welcome';
 $route['user'] = 'users/user';
-
-
 
 
 $route['connect'] = 'connect';
