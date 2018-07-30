@@ -150,6 +150,63 @@
                                         ce connecter
                                     </span>
                                 </a>
+                             <span class="modal-instance">
+                                <a class="btn modal-trigger btn btn--sm  type--uppercase" href="#">
+                                    <span class="btn__text">
+                                        s'inscrire
+                                    </span>
+                                </a>
+                                <div class="modal-container">
+                                    <div class="modal-content">
+                                        <section class="imageblock feature-large bg--white border--round ">
+                                            <div class="imageblock__content col-lg-5 col-md-3 pos-left">
+                                                <div class="background-image-holder">
+                                                    <img alt="image" src="img/cowork-8.jpg" />
+                                                </div>
+                                            </div>
+                                            <div class="container">
+                                                <div class="row justify-content-end">
+                                                    <div class="col-lg-6 col-md-7">
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <h1>Ideal for design conscious startups.</h1>
+                                                                <p class="lead">
+                                                                    Start building a beautiful site for your startup &mdash; right in the comfort of your browser.
+                                                                </p>
+                                                                <hr class="short">
+                                                                <form>
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <input type="email" name="Email Address" placeholder="Email Address" />
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <input type="password" name="Password" placeholder="Password" />
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <button type="submit" class="btn btn--primary type--uppercase">Create Account</button>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <span class="type--fine-print">By signing up, you agree to the
+                                                                                <a href="#">Terms of Service</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end row-->
+                                                                </form>
+                                                            </div>
+                                                            <!--end of col-->
+                                                        </div>
+                                                        <!--end of row-->
+                                                    </div>
+                                                </div>
+                                                <!--end of row-->
+                                            </div>
+                                            <!--end of container-->
+                                        </section>
+                                    </div>
+                                </div>
+                        
+</span>
                             </div>
                             <!--end module-->
                         </div>
