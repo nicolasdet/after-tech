@@ -33,6 +33,10 @@ class MY_Controller extends CI_Controller
 		$this->loadAssets();
 		$this->load->helper('form');
 		$this->load->helper('utils');
+		$this->load->library('form_validation');
+		$this->load->helper('custom_form');
+		$this->load->helper('url');
+		$this->load->helper('input');
 		//$this->load->library('session');
 		
 	}

@@ -1,7 +1,7 @@
 
 
     		
-
+<?php echo validation_errors(); ?>
         <div class="nav-container ">
             <div class="bar bar--sm visible-xs">
                 <div class="container">
@@ -210,9 +210,10 @@
                                                                     Affilier vous à un groupe ou une entreprise et profitez des after works.
                                                                 </p>
                                                                 <hr class="short">
-                                                                
-                                                               <?php echo form_open('#', $InscriptionFormData['form']); ?>
-                                                                
+                                                                <span></span>
+                                                                <form></form>
+                                                                <form method="POST" action="inscription" class="form" >
+                                                                <span></span>
                                                                 <div class="row">   
                                                                       <?=  drawInput($InscriptionFormData['nom']); ?>
                                                                       <?=  drawInput($InscriptionFormData['prenom']); ?>
@@ -224,6 +225,7 @@
                                                                     <button class=" mt-3 btn btn--primary" type="submit" name="submit" value="submit" >S'inscrire </button>
 
                                                                 </div>
+                                                            </form>
                                                             </div>
                                                             <!--end of col-->
                                                         </div>

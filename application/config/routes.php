@@ -61,6 +61,7 @@ $route['home'] = 'welcome';
 $route['contribution'] = 'contribution';
 $route['default_controller'] = 'welcome';
 $route['user'] = 'users/user';
+$route['inscription'] = 'Auth/inscription';
 
 
 $route['connect'] = 'connect';
