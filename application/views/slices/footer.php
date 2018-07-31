@@ -22,6 +22,22 @@
         
 		</div>
 
+
+<?php if(!empty(validation_errors())): ?>
+          <div class="modal-container" data-autoshow="500">
+                <div class="modal-content">
+                    <div class="boxed boxed--lg">
+                        <h2>Vous n'avez pas remplis le formulaire correctement : </h2>
+                        <hr class="short">
+                        <p class="lead">
+                            <?php echo validation_errors(); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+<?php endif; ?>
+
+
 		<?php
 			echo $js;
 
@@ -35,6 +51,8 @@
 				echo '</script>';
 			}
 		?>
+
+
 
 
 

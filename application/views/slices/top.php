@@ -1,7 +1,4 @@
 
-
-    		
-<?php echo validation_errors(); ?>
         <div class="nav-container ">
             <div class="bar bar--sm visible-xs">
                 <div class="container">
