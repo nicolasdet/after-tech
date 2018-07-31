@@ -163,21 +163,12 @@
                                                                 <hr class="short">
                                                                 
                                                                <?php echo form_open('#', $LoginFormData['form']); ?>
-                                                                
-                                                                <div class="row">     
-                                          
-                                                                    <div class="col-12">   
-                                                                        <label> Email </label>
-                                                                        <?php echo form_input($LoginFormData['email']); ?>
-                                                                    </div>    
-                                          
-                                                                    <div class="col-12">  
-                                                                    <label> Mot de passe </label> 
-                                                                        <?php echo form_password($LoginFormData['password']); ?>
-                                                                    </div> 
-                            
-
-                                                                    <button class="btn btn--primary" type="submit" name="submit" value="submit" >S'inscrire </button>
+                                                       
+                                                                <div class="row">    
+                                                                        <?=  drawInput($InscriptionFormData['email']); ?>
+                                                                        <?=  drawInput($InscriptionFormData['password']); ?>
+                                                                 
+                                                                 <button class="btn btn--primary" type="submit" name="submit" value="submit" >S'inscrire </button>
 
 
                                                                 </div>
@@ -194,8 +185,7 @@
                                         </section>
                                     </div>
                                 </div>
-                        
-</span>
+                            </span>
                              <span class="modal-instance">
                                 <a class="btn modal-trigger btn--sm  type--uppercase" href="#">
                                     <span class="btn__text">
@@ -224,30 +214,12 @@
                                                                <?php echo form_open('#', $InscriptionFormData['form']); ?>
                                                                 
                                                                 <div class="row">   
-                                                                    <div class="col-12">   
-                                                                        <label> Nom </label>
-                                                                        <?php echo form_input($InscriptionFormData['nom']); ?>
-                                                                    </div>    
-                                                            
-                                                                    <div class="col-12">   
-                                                                        <label> Prenom </label>
-                                                                        <?php echo form_input($InscriptionFormData['prenom']); ?>
-                                                                    </div>    
-                                          
-                                                                    <div class="col-12">   
-                                                                        <label> Email </label>
-                                                                        <?php echo form_input($InscriptionFormData['email']); ?>
-                                                                    </div>    
-                                          
-                                                                    <div class="col-12">  
-                                                                    <label> Mot de passe </label> 
-                                                                        <?php echo form_password($InscriptionFormData['password']); ?>
-                                                                    </div> 
-                                          
-                                                                    <div class="col-12">  
-                                                                    <label> Recopiez le mot de passe </label> 
-                                                                        <?php echo form_password($InscriptionFormData['second-password']); ?>
-                                                                    </div> 
+                                                                      <?=  drawInput($InscriptionFormData['nom']); ?>
+                                                                      <?=  drawInput($InscriptionFormData['prenom']); ?>
+                                                                      <?=  drawInput($InscriptionFormData['email']); ?>
+                                                                      <?=  drawInput($InscriptionFormData['password']); ?>
+                                                                      <?=  drawInput($InscriptionFormData['second-password']); ?>
+                                                           
 
                                                                     <button class=" mt-3 btn btn--primary" type="submit" name="submit" value="submit" >S'inscrire </button>
 

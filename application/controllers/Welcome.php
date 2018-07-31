@@ -9,6 +9,7 @@ class Welcome extends MY_Controller {
 	{       
 		
 		$this->load->helper('custom_form');
+		$this->load->helper('input');
 		$InscriptionFormData = getInscriptionForm();
 		$LoginFormData		 = getConnexionForm();
 

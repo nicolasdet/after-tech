@@ -32,6 +32,7 @@ class MY_Controller extends CI_Controller
 		
 		$this->loadAssets();
 		$this->load->helper('form');
+		$this->load->helper('utils');
 		//$this->load->library('session');
 		
 	}
