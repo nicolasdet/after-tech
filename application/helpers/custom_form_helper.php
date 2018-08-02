@@ -23,7 +23,6 @@ if (!function_exists('getInscriptionForm'))
 			       ),
 		);
 
-
 		$formData['prenom']   = array(
 				'name' => 'username',
 				'placeholder'=>'username',
@@ -62,13 +61,34 @@ if (!function_exists('getInscriptionForm'))
 				'label' => 'Mot de passe',
 				'wrapper' => 'col-12'
 		);
-		
+		$validationData['password'] = array (
+					'field' => 'password',
+			        'label' => 'Mot de passe',
+			        'rules' => 'trim|required|min_length[8]',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			             'min_length' => 'Le mot de passe doit faire 8 charractere minimum'
+			       ),
+		);
+
+
 		$formData['second-password']   = array(
 				'name' => 'second-password',
 				'placeholder'=>'mot de passe',
 				'label' => 'Recopiez le mot de passe',
 				'wrapper' => 'col-12'
-		);		
+		);
+		$validationData['second-password'] = array (
+					'field' => 'second-password',
+			        'label' => 'deuxieme mot de passe',
+			        'rules' => 'trim|required|min_length[8]|matches[password]',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			             'min_length' => 'Le mot de passe doit faire 8 charractere minimum',
+			             'matches' => 'les mot de passe ne sont pas identiques'
+			       ),
+		);
+		
 
 
 		if($form)
