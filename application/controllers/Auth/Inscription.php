@@ -16,21 +16,15 @@ class Inscription extends MY_Controller {
 		
 		if ($this->form_validation->run() == FALSE)
              {			
-             	/*
-					particulier, trouver comment isoler ce bout de code. Je penche pour la librairie
-             	*/
-             	$InscriptionFormData = getInscriptionForm();
-				$LoginFormData		 = getConnexionForm();
-				$this->theme->data('InscriptionFormData', $InscriptionFormData);
-				$this->theme->data('LoginFormData', $LoginFormData);
+             	$error_message = validation_errors();
+             	$this->session->set_userdata('error_message', $error_message);
 
-
-             	$this->render('welcome_message');
+				redirect('/');
              }
              else
              {
-             			$this->createUser();
-                       // redirect('/user');
+             	$this->createUser();
+                // redirect('/user');
              }
 
 		//$this->render('users/landing');

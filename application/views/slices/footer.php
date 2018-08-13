@@ -23,19 +23,21 @@
 		</div>
 
 
-<?php if(!empty(validation_errors())): ?>
+<?php if($this->session->has_userdata('error_message')): ?>
           <div class="modal-container" data-autoshow="500">
                 <div class="modal-content">
                     <div class="boxed boxed--lg">
                         <h2>Vous n'avez pas remplis le formulaire correctement : </h2>
                         <hr class="short">
                         <p class="lead">
-                            <?php echo validation_errors(); ?>
+                            <?php echo $this->session->userdata('error_message'); ?>
                         </p>
                     </div>
                 </div>
             </div>
-<?php endif; ?>
+<?php endif;
+        $this->session->unset_userdata('error_message');
+ ?>
 
 
 		<?php
