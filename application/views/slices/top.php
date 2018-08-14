@@ -159,7 +159,7 @@
                                                                 <h1>Connexion</h1>
                                                                 <hr class="short">
                                                                 
-                                                               <?php echo form_open('#', $LoginFormData['form']); ?>
+                                                               <?php echo form_open('/connexion', $LoginFormData['form']); ?>
                                                        
                                                                 <div class="row">    
                                                                         <?=  drawInput($InscriptionFormData['email']); ?>

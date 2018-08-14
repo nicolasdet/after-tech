@@ -29,14 +29,22 @@
                     <div class="boxed boxed--lg">
                         <h2>Vous n'avez pas remplis le formulaire correctement : </h2>
                         <hr class="short">
-                        <p class="lead">
-                            <?php echo $this->session->userdata('error_message'); ?>
+                        <p class="lead <?php 
+                            if($this->session->has_userdata('error_message_type')):
+                                echo $this->session->userdata('error_message_type');
+                            endif;
+                        ?> ">
+                            <?php
+
+                             echo $this->session->userdata('error_message');
+                              ?>
                         </p>
                     </div>
                 </div>
             </div>
 <?php endif;
         $this->session->unset_userdata('error_message');
+        $this->session->unset_userdata('error_message_type');
  ?>
 
 

@@ -1,5 +1,8 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+
+
+   
 if (!function_exists('getInscriptionForm'))
 {
  	function getInscriptionForm($form = true)
@@ -24,14 +27,14 @@ if (!function_exists('getInscriptionForm'))
 		);
 
 		$formData['prenom']   = array(
-				'name' => 'username',
-				'placeholder'=>'username',
+				'name' => 'prenom',
+				'placeholder'=>'prenom',
 				'label' => 'Prenom',
 				'wrapper' => 'col-12'
 		);
 		$validationData['prenom'] = array (
 					'field' => 'prenom',
-			        'label' => 'Prenom',
+			        'label' => 'prenom',
 			        'rules' => 'required',
 			        'errors' => array(
 			             'required' => 'Vous devez remplir le %s.',
@@ -51,12 +54,13 @@ if (!function_exists('getInscriptionForm'))
 			        'rules' => 'required|valid_email',
 			        'errors' => array(
 			             'required' => 'Vous devez remplir le %s.',
-			             'valid_email' => 'L\'email doit étre valise' 
+			             'valid_email' => 'L\'email doit étre valise'
 			       ),
 		);
 
 		$formData['password']   = array(
 				'name' => 'password',
+				'type' => 'password',
 				'placeholder'=>'mot de passe',
 				'label' => 'Mot de passe',
 				'wrapper' => 'col-12'
@@ -74,6 +78,7 @@ if (!function_exists('getInscriptionForm'))
 
 		$formData['second-password']   = array(
 				'name' => 'second-password',
+				'type' => 'password',
 				'placeholder'=>'mot de passe',
 				'label' => 'Recopiez le mot de passe',
 				'wrapper' => 'col-12'
@@ -96,12 +101,11 @@ if (!function_exists('getInscriptionForm'))
  
  		return $validationData;
  	}
+}
 
-
-
-
-
- 	function getConnexionForm()
+if (!function_exists('getConnexionForm'))
+{
+ 	function getConnexionForm($form = true)
  	{	
  		$formData = array();
 		$formData['form']  = array('class' => 'form');
@@ -113,16 +117,36 @@ if (!function_exists('getInscriptionForm'))
 				'label' => 'Email',
 				'wrapper' => 'col-12'
 		);
+		$validationData['email'] = array (
+					'field' => 'email',
+			        'label' => 'Email',
+			        'rules' => 'required|valid_email',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			             'valid_email' => 'L\'email doit étre valise'
+			       ),
+		);
+
 		$formData['password']   = array(
 				'name' => 'password',
 				'placeholder'=>'mot de passe',
 				'label' => 'Mot de passe',
 				'wrapper' => 'col-12'
 		);
+		$validationData['password'] = array (
+					'field' => 'password',
+			        'label' => 'Mot de passe',
+			        'rules' => 'trim|required',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			       ),
+		);
 
- 		return $formData;
+ 		if($form)
+ 			return $formData;
+ 
+ 		return $validationData;
  
  	}
-}
-
+ }
 ?>

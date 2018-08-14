@@ -103,7 +103,7 @@ $autoload['helper'] = ['stencil', 'url', 'my', 'custom_form', 'input', 'utils'];
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('config');
 
 /*
 | -------------------------------------------------------------------

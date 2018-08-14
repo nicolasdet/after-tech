@@ -9,27 +9,62 @@ class User extends MY_Model {
 	public $protected_attributes = array('user_id');
 
 
-	public function checkExisteEmail()
+	public function match_email($email)
 	{
+
+		$sql = '
+		SELECT  count(*) as nombre
+		FROM `user` 
+		WHERE user_email =   ? 
+		';
+
+		$row =  $this->db->query($sql, [$email])->row();
+
+		if(intval($row->nombre)  <= 0)
+		{
+			return true;
+		}
 		return false;
 	}
 
 	public function createUser($data)
 	{
-		if(!checkExisteEmail())
-		{
-			return false; 
-		}
 
-
+		$data['user_password'] = password_hash($data['user_password'], PASSWORD_DEFAULT);
 
 		$sql = '
 		INSERT INTO `user` 
-		( `nom`, `password`, `prenom`, `email`, `status`)
-		VALUES ( ? ,  ? , ? , ? ,  ? )
-		';
+		( user_nom , user_prenom, user_email, user_password, user_status)
+		VALUES ( ? ,  ? , ? , ? ,  ? ); ';
 
-		return $this->db->query($sql, [$data])->row();
+		$result = $this->db->query($sql, [
+			$data['user_nom'],$data['user_prenom'], $data['user_email'], $data['user_password'], $data['user_status']
+		]);
+
+		return $result;
+	}
+
+	public function connectUser($data)
+	{
+		$sql = 'SELECT user_id as id, user_password as password
+		FROM user
+		WHERE user_email = ?
+		; ';
+
+		$result = $this->db->query($sql, [
+			 $data['user_email'], 
+		])->row();
+
+		if(empty($result)){
+			return false;
+		}
+
+		if(!password_verify($data['user_password'], $result->password))
+		{
+			return false;
+		}
+
+		return $result->id;
 	}
 
 }

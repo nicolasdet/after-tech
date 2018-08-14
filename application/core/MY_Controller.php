@@ -20,6 +20,8 @@ class MY_Controller extends CI_Controller
 		parent::__construct();
  		$this->output->set_header('Access-Control-Allow-Origin: *');
 
+ 		$this->output->enable_profiler(true);
+
 
 		date_default_timezone_set('Europe/Paris');
 
