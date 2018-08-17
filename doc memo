@@ -1,0 +1,7 @@
+                                            <div class="col-md-12">
+                                                <div class="input-checkbox input-checkbox--switch">
+                                                    <input type="checkbox" name="public-profile" />
+                                                    <label></label>
+                                                </div>
+                                                <span>Allow my profile to be viewable by guests</span>
+                                            </div>

@@ -12,6 +12,7 @@ class MY_Controller extends CI_Controller
 	protected $tracking_active = false;
 	protected $tracking_page = '';
 	protected $tracking_params = [];
+	protected $error_message = '';
 
 	
 
@@ -19,7 +20,6 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
  		$this->output->set_header('Access-Control-Allow-Origin: *');
-
 
  		//$this->output->enable_profiler(true);
 
@@ -141,6 +141,19 @@ class MY_Controller extends CI_Controller
 		$this->jsCode[] = $code;
 	}
 
+
+	protected function error_check_email()
+	{
+            if(!$this->user->match_email($this->input->post('email')))
+            {
+                    $this->error_message .= "l'email existe deja.";
+            }
+	}
+
+	protected function error_check_form()
+	{
+
+	}
 
 	/**
 	 * Redirige toutes les requêtes vers leur équivalence avec URL en HTTPS, si on est sur l'environnement qui va bien

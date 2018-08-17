@@ -12,21 +12,17 @@ class Inscription extends MY_Controller {
 		 $confirmationData = getInscriptionForm(false);
 		 $this->form_validation->set_rules($confirmationData);
 
-
-        $error_message = "";  
-        if(!$this->user->match_email($this->input->post('email')))
-            {
-                    $error_message .= "l'email existe deja.";
-            }
+ 
+         $this->error_check_email();
         
-        if ($this->form_validation->run() == FALSE || $error_message != "")
+        if ($this->form_validation->run() == FALSE || $this->error_message != "")
             {   
 
 
-                $error_message .= validation_errors();
+                $this->error_message .= validation_errors();
 
                 $error_message_type = VALIDATION_MESSAGE_ERROR;            
-                $this->session->set_userdata('error_message', $error_message);
+                $this->session->set_userdata('error_message', $this->error_message);
                 $this->session->set_userdata('error_message_type', $error_message_type);
 				redirect('/');
             }
@@ -50,17 +46,17 @@ class Inscription extends MY_Controller {
 
         if($this->user->createUser($tabUser)){
 
-            $error_message = "Votre compte à bien ete crée."; 
+            $this->error_message = "Votre compte à bien ete crée."; 
             $error_message_type = VALIDATION_MESSAGE;
 
-            $this->session->set_userdata('error_message', $error_message);
+            $this->session->set_userdata('error_message', $this->error_message);
             $this->session->set_userdata('error_message_type', $error_message_type);
             return redirect('/');
         }
 
 
-         $error_message = "Problem lors de l'ajout utilisateur."; 
-         $this->session->set_userdata('error_message', $error_message);
+         $this->error_message = "Problem lors de l'ajout utilisateur."; 
+         $this->session->set_userdata('error_message', $this->error_message);
          return  redirect('/');
         
 

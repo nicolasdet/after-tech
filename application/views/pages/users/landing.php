@@ -8,7 +8,8 @@
                             <div class="boxed boxed--lg boxed--border">
                                 <a class="btn btn--primary btn--icon" id="change_user_info" href="/user/update">
                                     <span class="btn__text">
-                                        <i class="icon-Add-File"></i> Mes  informations </span>
+                                        <i class="icon-Add-File"></i> Mes  informations 
+                                    </span>
                                 </a>
                                 <div class="text-block text-center">
                                     <img alt="avatar" src="public/assets/img/avatar-round-3.png" class="image--md" />

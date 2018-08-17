@@ -4,6 +4,7 @@ class User extends MY_Model {
 
 	public $table = 'user';
 	public $primary_key = 'user_id';
+	public $timestamps = false;
 
 
 	public $protected_attributes = array('user_id');
@@ -39,6 +40,23 @@ class User extends MY_Model {
 
 		$result = $this->db->query($sql, [
 			$data['user_nom'],$data['user_prenom'], $data['user_email'], $data['user_password'], $data['user_status']
+		]);
+
+		return $result;
+	}
+
+	public function updateUser($data, $id)
+	{
+
+		$sql = '
+		UPDATE `user` 
+		SET  user_nom = ? , user_prenom = ? , user_email = ?
+		WHERE user_id = '. $id .' 
+
+		 ';
+
+		$result = $this->db->query($sql, [
+			$data['user_nom'],$data['user_prenom'], $data['user_email']
 		]);
 
 		return $result;

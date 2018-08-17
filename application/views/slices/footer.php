@@ -27,7 +27,7 @@
           <div class="modal-container" data-autoshow="500">
                 <div class="modal-content">
                     <div class="boxed boxed--lg">
-                        <h2>Vous n'avez pas remplis le formulaire correctement : </h2>
+                        <h2>Message : </h2>
                         <hr class="short">
                         <p class="lead <?php 
                             if($this->session->has_userdata('error_message_type')):

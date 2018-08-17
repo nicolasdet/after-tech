@@ -13,15 +13,14 @@ class Connexion extends MY_Controller {
 		 $confirmationData = getConnexionForm(false);
 		 $this->form_validation->set_rules($confirmationData);
 
-		 	$error_message = "";  
+
 		    if ($this->form_validation->run() == FALSE)
             {   
 
-
-                $error_message .= validation_errors();
+                $this->error_message .= validation_errors();
 
                 $error_message_type = VALIDATION_MESSAGE_ERROR;            
-                $this->session->set_userdata('error_message', $error_message);
+                $this->session->set_userdata('error_message', $this->error_message);
                 $this->session->set_userdata('error_message_type', $error_message_type);
 				redirect('/');
             }
@@ -47,10 +46,10 @@ class Connexion extends MY_Controller {
         	redirect('/user');
         }
 
-         $error_message = "Erreur d'email ou de mot de passe."; 
+         $this->error_message = "Erreur d'email ou de mot de passe."; 
          $error_message_type = VALIDATION_MESSAGE_ERROR;
 
-         $this->session->set_userdata('error_message', $error_message);
+         $this->session->set_userdata('error_message', $this->error_message);
          $this->session->set_userdata('error_message_type', $error_message_type);
          return  redirect('/');
 	}

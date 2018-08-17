@@ -3,7 +3,11 @@
 class MY_User_Controller extends MY_Controller
 {
 	/*
+
+
 */
+
+	protected $user;
 
 	public function __construct($layout = 'user')
 	{
@@ -31,11 +35,18 @@ class MY_User_Controller extends MY_Controller
 	protected function getUser()
 	{
 		$this->load->model('User', 'my_user');
-		$user = $this->my_user->get($this->session->userdata('user'));
+		$this->user = $this->my_user->get($this->session->userdata('user'));
 
-		$this->theme->data('user', $user);
+		$this->theme->data('user', $this->user);
 	}
 
+	protected function error_check_email()
+	{
+		 if(!$this->my_user->match_email($this->input->post('email')))
+            {
+                    $this->error_message .= "l'email existe deja.";
+            }
+     }
 
 
 }

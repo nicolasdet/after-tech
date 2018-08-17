@@ -140,7 +140,7 @@
                                 <span class="modal-instance">
                                 <a class="btn modal-trigger btn--sm btn--primary  type--uppercase" href="#">
                                     <span class="btn__text">
-                                         ce connecter
+                                         se connecter
                                     </span>
                                 </a>
                                 <div class="modal-container">
@@ -165,13 +165,13 @@
                                                                         <?=  drawInput($InscriptionFormData['email']); ?>
                                                                         <?=  drawInput($InscriptionFormData['password']); ?>
                                                                  
-                                                                 <button class="btn btn--primary" type="submit" name="submit" value="submit" >S'inscrire </button>
+                                                                 <button class="btn btn--primary" type="submit" name="submit" value="submit" >Se connecter </button>
 
 
                                                                 </div>
                                                             </div>
                                                             <!--end of col-->
-                                                                    <button class=" mt-3 btn btn--alert"  >Mot de passe oublier </button>
+                                                                    <button class=" mt-3 btn btn--alert p-2"  >Mot de passe oublié </button>
                                                         </div>
                                                         <!--end of row-->
                                                     </div>

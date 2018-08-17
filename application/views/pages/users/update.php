@@ -3,11 +3,15 @@
                     <div class="row mt-5">
                         <div class="col-lg-4">
                             <div class="boxed boxed--lg boxed--border">
+                                    <a class="btn btn--primary btn--icon mb-5" id="change_user_info" href="/user">
+                                        <span class="btn__text">
+                                             retour au profil
+                                        </span>
+                                    </a>
                                 <div class="text-block text-center">
                                     <img alt="avatar" src="public/assets/img/avatar-round-3.png" class="image--sm" />
-                                    <span class="h5">Lucas Banks</span>
-                                    <span>Pro Account</span>
-                                    <span class="label">Pro</span>
+                                    <span class="h5"><?= $user->user_nom." ".$user->user_prenom  ?></span>
+                                   
                                 </div>
                                 <hr>
                                 <div class="text-block">
@@ -15,12 +19,14 @@
                                         <li>
                                             <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#account-profile;hidden">Profile</a>
                                         </li>
+                                        <!--
                                         <li>
                                             <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#account-notifications;hidden">Email Notifications</a>
                                         </li>
                                         <li>
                                             <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#account-billing;hidden">Billing Details</a>
                                         </li>
+                                    -->
                                         <li>
                                             <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#account-password;hidden">Password</a>
                                         </li>
@@ -35,44 +41,18 @@
                             <div class="boxed boxed--lg boxed--border">
                                 <div id="account-profile" class="account-tab">
                                     <h4>Profile</h4>
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Real Name:</label>
-                                                <input type="text" name="name" value="Lucas Banks" />
+                                     <form method="POST" action="user/update/profile" class="form" >
+                                                                <span></span>
+                                                                <div class="row">  
+                                                                      <?=  drawInput($UpdateUserForm['nom']); ?>
+                                                                      <?=  drawInput($UpdateUserForm['prenom']); ?>
+                                                                      <?=  drawInput($UpdateUserForm['email']); ?>
+                                                 <div class="col-lg-3 col-md-4">
+                                                <button type="submit" class="btn btn--primary type--uppercase">Update Profile</button>
                                             </div>
-                                            <div class="col-md-6">
-                                                <label>Display Name:</label>
-                                                <input type="text" name="display-name" value="l_banks" />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label>Email Address:</label>
-                                                <input type="email" name="email" value="l_banks@stack.net" />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label>Location:</label>
-                                                <input type="text" name="location" value="Melbourne" />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label>Website:</label>
-                                                <input type="text" name="website" value="http://mrare.co" />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label>Bio:</label>
-                                                <textarea rows="4" name="bio"></textarea>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="input-checkbox input-checkbox--switch">
-                                                    <input type="checkbox" name="public-profile" />
-                                                    <label></label>
-                                                </div>
-                                                <span>Allow my profile to be viewable by guests</span>
-                                            </div>
-                                            <div class="col-lg-3 col-md-4">
-                                                <button type="submit" class="btn btn--primary type--uppercase">Save Profile</button>
-                                            </div>
+
                                         </div>
-                                    </form>
+                                  </form>
                                 </div>
                                 <div id="account-notifications" class="hidden account-tab">
                                     <h4>Email Notifications</h4>
