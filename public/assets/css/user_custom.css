@@ -1,0 +1,24 @@
+div[class*="col-"] .text-block + .text-block {
+    margin-top: 1.714em;
+}
+div[class*="col-"] .text-block + .text-block {
+    margin-top: 1.71428571em;
+}
+
+
+section.space--sm, footer.space--sm {
+    padding-top: 0.95238095em;
+    padding-bottom: 0.95238095em;
+}
+
+.background-image-user {
+	height: 155vh;
+}
+
+#change_user_info {
+	width: 138px;
+	display: flex;
+	padding: 10px 100px;
+	justify-content: center;
+	font-size: 0.95714286em;
+}

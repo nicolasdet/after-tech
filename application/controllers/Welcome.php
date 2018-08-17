@@ -5,8 +5,14 @@ class Welcome extends MY_Controller {
 
 
 
+
+
 	public function index($id = null)
 	{       
+		if($this->session->userdata('loged') || $this->session->userdata('user'))
+		{
+			redirect('/user');
+		}
 		
 		$InscriptionFormData = getInscriptionForm();
 		$LoginFormData		 = getConnexionForm();

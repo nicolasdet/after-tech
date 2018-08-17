@@ -5,6 +5,12 @@
 	padding: 1.357em 0;
 }
 
+section.space--xs, footer.space--xs {
+    padding-top: 1.71428571em !important;
+    padding-bottom: 1.71428571em !important;
+}
+
+
 .menu-horizontal > li:not(:hover) > a, .menu-horizontal > li:not(:hover) > span, .menu-horizontal > li:not(:hover) > .modal-instance > .modal-trigger {
 
     opacity: 0.9;
@@ -13,9 +19,6 @@
 }
 
 
-.background-image-user {
-	height: 135vh;
-}
 
 .nav-sidebar-column {
 
@@ -44,3 +47,12 @@ input[type], textarea, select {
 	color: #278c12 !important;
 	font-weight: bold !important;
 }
+
+
+div[class*="col-"] .text-block + .text-block {
+    margin-top: 1.714em;
+}
+div[class*="col-"] .text-block + .text-block {
+    margin-top: 1.71428571em;
+}
+

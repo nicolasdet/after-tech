@@ -3,7 +3,7 @@
 class User extends MY_Model {
 
 	public $table = 'user';
-	public $primary_key = 'con_id';
+	public $primary_key = 'user_id';
 
 
 	public $protected_attributes = array('user_id');

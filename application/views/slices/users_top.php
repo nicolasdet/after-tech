@@ -472,7 +472,7 @@
                     </ul>
                 </div>
                 <div class="text-block">
-                    <a class="btn block btn--primary type--uppercase" href="#">
+                    <a class="btn block btn--primary type--uppercase" href="/user?disconnect=disconnect">
                         <span class="btn__text">Ce déconnecter</span>
                     </a>
                 </div>
@@ -482,3 +482,9 @@
                 <i class="stack-menu"></i>
             </div>
         </div>
+
+               <div class="background-image-holder background-image-user">
+                    <img alt="background" src="public/assets/img/afterWorkHands.jpg" />
+                </div>
+
+

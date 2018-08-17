@@ -60,7 +60,8 @@ $route['default_controller'] = 'welcome';
 $route['home'] = 'welcome';
 $route['contribution'] = 'contribution';
 $route['default_controller'] = 'welcome';
-$route['user/(:num)'] = 'users/user/index/$1';
+$route['user'] = 'users/user_home';
+$route['user/update'] = 'users/user_update';
 $route['inscription'] = 'Auth/inscription';
 $route['connexion'] = 'Auth/connexion';
 

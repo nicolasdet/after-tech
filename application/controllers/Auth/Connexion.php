@@ -42,8 +42,9 @@ class Connexion extends MY_Controller {
         $user = $this->user->connectUser($tabUser);
         if(!empty($user)){
 
-
-        	redirect('/user/1');
+        	$this->session->set_userdata('loged', true);
+        	$this->session->set_userdata('user', $user);
+        	redirect('/user');
         }
 
          $error_message = "Erreur d'email ou de mot de passe."; 
