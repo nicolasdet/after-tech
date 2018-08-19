@@ -45,6 +45,24 @@ class User extends MY_Model {
 		return $result;
 	}
 
+	public function updateUserPassword($data, $id)
+	{
+		$data['user_password'] = password_hash($data['user_password'], PASSWORD_DEFAULT);
+
+		$sql = '
+		UPDATE `user` 
+		SET  user_password = ? 
+		WHERE user_id = '. $id .' 
+
+		 ';
+
+		$result = $this->db->query($sql, [
+			$data['user_password']
+		]);
+
+		return $result;
+	}
+
 	public function updateUser($data, $id)
 	{
 
@@ -83,6 +101,29 @@ class User extends MY_Model {
 		}
 
 		return $result->id;
+	}
+
+	public function MatchPassword($id, $password)
+	{
+		$sql = 'SELECT user_id as id, user_password as password
+		FROM user
+		WHERE user_id = ?
+		; ';
+
+		$result = $this->db->query($sql, [
+			 $id, 
+		])->row();
+
+		if(empty($result)){
+			return false;
+		}
+
+		if(!password_verify($password, $result->password))
+		{
+			return false;
+		}
+
+		return true;
 	}
 
 }

@@ -2,10 +2,6 @@
 
 class MY_User_Controller extends MY_Controller
 {
-	/*
-
-
-*/
 
 	protected $user;
 
@@ -28,7 +24,6 @@ class MY_User_Controller extends MY_Controller
 			redirect('/');
 		}
 
-		//$this->_checkConnection();
 		$this->getUser();
 	}
 
@@ -46,7 +41,15 @@ class MY_User_Controller extends MY_Controller
             {
                     $this->error_message .= "l'email existe deja.";
             }
-     }
+    }
 
+	protected function error_check_samePasswork()
+	{
+		if(!$this->my_user->MatchPassword($this->user->user_id, $this->input->post('password')))
+            {
+                  $this->error_message .= "le mot de passe est erroné.";	
+            }
+             
+	}
 
 }

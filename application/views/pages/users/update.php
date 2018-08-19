@@ -119,24 +119,16 @@
                                     </div>
                                 </div>
                                 <div id="account-password" class="hidden account-tab">
-                                    <h4>Password</h4>
-                                    <p>Passwords must be at least 6 characters in length.</p>
-                                    <form>
+                                    <h4>Mot de passe</h4>
+                                    <p>Le mot de passe doit faire 8charractere minimum</p>
+                                    <form method="POST" action="user/update/password" class="form" >
                                         <div class="row">
-                                            <div class="col-12">
-                                                <label>Old Password:</label>
-                                                <input type="password" name="old-password" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>New Password:</label>
-                                                <input type="password" name="new-password" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Retype New Password:</label>
-                                                <input type="password" name="new-password-confirm" />
-                                            </div>
-                                            <div class="col-lg-3 col-md-4">
-                                                <button type="submit" class="btn btn--primary type--uppercase">Save Password</button>
+                                            <?=  drawInput($UpdateUserPasswordForm['password']); ?>
+                                            <?=  drawInput($UpdateUserPasswordForm['new-password']); ?>
+                                            <?=  drawInput($UpdateUserPasswordForm['second-password']); ?>
+           
+                                            <div class="col-lg-6 col-md-7">
+                                                <button type="submit" class="btn btn--primary type--uppercase">Enregistrer le nouveau mot de passe</button>
                                             </div>
                                         </div>
                                     </form>

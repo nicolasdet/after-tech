@@ -216,5 +216,75 @@ if (!function_exists('getUpdateUserForm'))
  	}
  }
 
+if (!function_exists('getUpdateUserPasswordForm'))
+{
+ 	function getUpdateUserPasswordForm($form = true)
+ 	{	
+ 		$formData = array();
+ 		$validationData = array();
+
+
+		$formData['password']   = array(
+				'name' => 'password',
+				'type' => 'password',
+				'placeholder'=>'mot de passe',
+				'label' => 'Mot de passe',
+				'wrapper' => 'col-12'
+		);
+		$validationData['password'] = array (
+					'field' => 'password',
+			        'label' => 'Mot de passe',
+			        'rules' => 'trim|required|min_length[8]',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			             'min_length' => 'Le mot de passe doit faire 8 charractere minimum'
+			       ),
+		);
+
+		
+		$formData['new-password']   = array(
+				'name' => 'new-password',
+				'type' => 'password',
+				'placeholder'=>'mot de passe',
+				'label' => 'Nouveau mot de passe',
+				'wrapper' => 'col-6'
+		);
+		$validationData['new-password'] = array (
+					'field' => 'new-password',
+			        'label' => 'Nouveau mot de passe',
+			        'rules' => 'trim|required|min_length[8]',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			             'min_length' => 'Le mot de passe doit faire 8 charractere minimum'
+			       ),
+		);
+
+
+		$formData['second-password']   = array(
+				'name' => 'second-password',
+				'type' => 'password',
+				'placeholder'=>'recopier le mot de passe',
+				'label' => 'Recopiez le Nouveau mot de passe',
+				'wrapper' => 'col-6'
+		);
+		$validationData['second-password'] = array (
+					'field' => 'second-password',
+			        'label' => 'recopier le mot de passe',
+			        'rules' => 'trim|required|min_length[8]|matches[new-password]',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			             'min_length' => 'Le mot de passe doit faire 8 charractere minimum',
+			             'matches' => 'les mot de passe ne sont pas identiques'
+			       ),
+		);
+		
+
+ 		if($form)
+ 			return $formData;
+ 
+ 		return $validationData;
+ 
+ 	}
+ }
 
 ?>
