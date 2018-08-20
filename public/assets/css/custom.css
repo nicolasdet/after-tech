@@ -56,3 +56,15 @@ div[class*="col-"] .text-block + .text-block {
     margin-top: 1.71428571em;
 }
 
+
+#logo_user {
+    max-height: 15.321em;
+}
+
+.user_menu_title {
+    padding-left: 1em;
+}
+
+#user_btn_deconnecter {
+    margin-left: 2em;
+}
