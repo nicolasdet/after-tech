@@ -2,7 +2,7 @@
             <div class="nav-sidebar-column bg--dark">
                 <div class="text-center text-block">
                     <a href="index.html">
-                        <img alt="logo" id="logo_user" class="logo" src="public/assets/img/logo2.jpg" />
+                        <img alt="logo" id="logo_user" class="logo" src="public/assets/img/logo3.jpg" />
                     </a>
                 </div>
                 <hr>
@@ -33,12 +33,17 @@
                                 <div class="dropdown__content">
                                     <ul class="menu-vertical ml-5">
                                         <li>
-                                            <a href="user">
+                                            <a href="user/groupe">
                                                 Mes groupes
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="user/update">
+                                            <a href="user/groupe/recherche">
+                                                Rechercher un groupe
+                                            </a>
+                                        </li>  
+                                        <li>
+                                            <a href="user/groupe/create">
                                                 Crée un groupe
                                             </a>
                                         </li>                                     

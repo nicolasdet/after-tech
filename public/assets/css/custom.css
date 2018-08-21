@@ -17,9 +17,11 @@ section.space--xs, footer.space--xs {
     font-size: 1.2em;
 
 }
-
-
-
+/*
+.background-image-user {
+    z-index: -1;
+}
+*/
 .nav-sidebar-column {
 
 	overflow: hidden;
@@ -48,14 +50,12 @@ input[type], textarea, select {
 	font-weight: bold !important;
 }
 
-
 div[class*="col-"] .text-block + .text-block {
     margin-top: 1.714em;
 }
 div[class*="col-"] .text-block + .text-block {
     margin-top: 1.71428571em;
 }
-
 
 #logo_user {
     max-height: 15.321em;
@@ -67,4 +67,18 @@ div[class*="col-"] .text-block + .text-block {
 
 #user_btn_deconnecter {
     margin-left: 2em;
+}
+
+#user_groupe {
+    background-color: whitesmoke;
+    width: 60%;
+    margin: auto;
+    height: 80%;
+    padding-top: 56px;
+    top: 100px;
+    position: relative;
+}
+
+#user_groupe section {
+    padding-top: 1em;
 }

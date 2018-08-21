@@ -1,6 +1,6 @@
             <section class="bg--secondary space--sm">
                 <div class="container">
-                    <div class="row mt-5">
+                    <div class="row mt-5 pl-5">
                         <div class="col-lg-4">
                             <div class="boxed boxed--lg boxed--border">
                                     <a class="btn btn--primary btn--icon mb-5" id="change_user_info" href="/user">
