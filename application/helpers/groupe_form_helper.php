@@ -12,7 +12,7 @@ if (!function_exists('getCreateGroupeForm'))
 				'name' => 'nom',
 				'placeholder'=>'nom',
 				'label' => 'Nom',
-				'wrapper' => 'col-12'
+				'wrapper' => 'col-10'
 		);
 		$validationData['nom'] = array (
 					'field' => 'nom',
@@ -27,7 +27,7 @@ if (!function_exists('getCreateGroupeForm'))
 				'name' => 'detail',
 				'placeholder'=>'description',
 				'label' => 'description',
-				'wrapper' => 'col-12'
+				'wrapper' => 'col-10'
 		);
 		$validationData['detail'] = array (
 					'field' => 'detail',

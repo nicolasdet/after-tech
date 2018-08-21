@@ -25,7 +25,12 @@ class MY_User_Controller extends MY_Controller
 		}
 
 		$this->getUser();
+
+		$this->load->helper('groupe_form');
 	}
+
+
+
 
 	protected function getUser()
 	{

@@ -34,4 +34,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 vendor/
 user_guide/
 
-public/assets/img/upload
+public/assets/img/upload/groupes
+public/assets/img/upload/temporaire
+public/assets/img/upload/users

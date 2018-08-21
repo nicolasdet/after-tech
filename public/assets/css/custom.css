@@ -82,3 +82,15 @@ div[class*="col-"] .text-block + .text-block {
 #user_groupe section {
     padding-top: 1em;
 }
+
+#section_groupe_create {
+    padding-bottom: 1em !important;
+}
+#dropfile{
+width: 300px;
+height: 115px;
+border: 3px dashed #BBBBBB;
+line-height:50px;
+text-align: center;
+font-size: 1.2em;
+}
