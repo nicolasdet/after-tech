@@ -56,30 +56,31 @@ $route['php_cour'] = 'php_cour';
 
 
 //   Vrai route du projet Test
-$route['default_controller'] = 'welcome';
-$route['home'] = 'welcome';
-$route['contribution'] = 'contribution';
-$route['default_controller'] = 'welcome';
-$route['user'] = 'users/user_home';
-
-$route['user/groupe'] = 'users/groupe';
-$route['user/groupe/recherche'] = 'users/groupe_folder/recherche';
-$route['user/groupe/create'] = 'users/groupe_folder/create';
-$route['user/groupe/createGroupe'] = 'users/groupe_folder/create/createGroupe';
-
-$route['user/groupe/create/imgUpload'] = 'users/groupe_folder/create/img';
-$route['user/groupe/create/getImg'] = 'users/groupe_folder/create/getImg';
+$route['default_controller'] 			= 'welcome';
+$route['home'] 							= 'welcome';
+$route['contribution'] 					= 'contribution';
 
 
-$route['user/update'] = 'users/user_update';
-$route['user/update/profile'] = 'users/user_update/profile';
-$route['user/update/password'] = 'users/user_update/password';
+//groupes
+$route['user/groupe'] 					= 'groupe_folder/groupe';
+$route['user/groupe/(:num)'] 			= 'groupe_folder/detail/index/$1';
+$route['user/groupe/recherche'] 		= 'groupe_folder/recherche';
+$route['user/groupe/create'] 			= 'groupe_folder/create';
+$route['user/groupe/createGroupe'] 		= 'groupe_folder/create/createGroupe';
 
-$route['inscription'] = 'Auth/inscription';
-$route['connexion'] = 'Auth/connexion';
+//api
+$route['user/groupe/create/imgUpload'] 	= 'groupe_folder/create/img';
+$route['user/groupe/create/getImg'] 	= 'groupe_folder/create/getImg';
 
-$route['connect'] = 'connect';
-$route['connect/logout'] = 'connect/logout';
-$route['connect/log'] = 'connect/log';
+//user
+$route['user'] 							= 'users/home';
+$route['user/update'] 					= 'users/update';
+$route['user/update/profile'] 			= 'users/update/profile';
+$route['user/update/password'] 			= 'users/update/password';
+
+
+//
+$route['inscription'] 					= 'Auth/inscription';
+$route['connexion'] 					= 'Auth/connexion';
 
 

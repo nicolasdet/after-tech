@@ -1,6 +1,7 @@
+           <!-- 
             <footer class="footer-3 text-center-xs space--xs ">
                 <div class="container">
-                    <!--end of row-->
+                 
                     <div class="row">
                         <div class="col-md-6">
                             <p class="type--fine-print">
@@ -14,10 +15,11 @@
                             <a class="type--fine-print" href="#">Legal</a>
                         </div>
                     </div>
-                    <!--end of row-->
+                    
                 </div>
-                <!--end of container-->
+             
             </footer>
+        -->
         </div>
         
 		</div>
