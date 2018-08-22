@@ -65,7 +65,10 @@ $route['user'] = 'users/user_home';
 $route['user/groupe'] = 'users/groupe';
 $route['user/groupe/recherche'] = 'users/groupe_folder/recherche';
 $route['user/groupe/create'] = 'users/groupe_folder/create';
+$route['user/groupe/createGroupe'] = 'users/groupe_folder/create/createGroupe';
+
 $route['user/groupe/create/imgUpload'] = 'users/groupe_folder/create/img';
+$route['user/groupe/create/getImg'] = 'users/groupe_folder/create/getImg';
 
 
 $route['user/update'] = 'users/user_update';

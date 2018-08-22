@@ -13,7 +13,7 @@
     <section>
     	<div class="row d-flex justify-content-center">
     		<div class="col-md-7 d-flex justify-content-center">
-	          <form method="POST" action="inscription" class="form" >
+	          <form method="POST" action="user/groupe/createGroupe/" class="form" >
 	           <span></span>
 	           <div class="row d-flex justify-content-center">   
 	           <?=  drawInput($CreateGroupeFormData['nom']); ?>
@@ -30,8 +30,8 @@
 	           </form>
     		</div>
     		<div class="col-md-5 d-flex align-items-center  flex-column">
-    		
-    				<h3>telecharger une image</h3>
+                    <h3>telecharger une image</h3>
+    		        <img id="img_groupe_create" src="" alt="pas encore d'image">
 					<div id="dropfile" class="mt-5">Glisse / Dépose une image ici !</div>
     		
     		</div>

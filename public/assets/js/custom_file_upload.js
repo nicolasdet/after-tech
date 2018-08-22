@@ -1,4 +1,23 @@
-$(function() {});
+$(function() {
+
+  $.ajax({
+                       type: 'GET',
+                       url: 'user/groupe/create/getImg',
+                       success: function(data) {
+                                  // alert(data);
+                                  if(data != false){
+
+                                    console.log('la');
+                                    var randomNum = Math.floor(Math.random() * 1000000) + 1;
+                                    $('#img_groupe_create').attr("src", data+'?'+ randomNum);
+               
+                                  }
+                       },
+           
+            });
+
+
+});
 
 
  // les fonction si dessous gérent l'upload de l'image
@@ -82,9 +101,9 @@ function handleReaderLoad(evt) {
                        data: str,
                        success: function(data) {
                                   // alert(data);
-                                  console.log('la');
-                                   $('#img_puzzle').attr("src", data);
-                                   $('#bouton_previsualiser_pzl').prop("disabled", false);
+                                    console.log('la');
+                                    var randomNum = Math.floor(Math.random() * 1000000) + 1;
+                                   $('#img_groupe_create').attr("src", data+'?'+ randomNum);
                        },
                        error: function(e) {
                            $('#dropfile').text('Une erreur c\'est produite, veuillez réessayer ultérieurement');

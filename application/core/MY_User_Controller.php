@@ -25,6 +25,7 @@ class MY_User_Controller extends MY_Controller
 		}
 
 		$this->getUser();
+		$this->getGroupe();
 
 		$this->load->helper('groupe_form');
 	}
@@ -38,6 +39,11 @@ class MY_User_Controller extends MY_Controller
 		$this->user = $this->my_user->get($this->session->userdata('user'));
 
 		$this->theme->data('user', $this->user);
+	}
+
+	protected function getGroupe()
+	{
+		$this->load->model('Groupes', 'groupes');
 	}
 
 	protected function error_check_email()
