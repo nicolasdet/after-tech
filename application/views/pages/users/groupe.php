@@ -13,20 +13,18 @@
                         </div>
                     </div>
                     <div class="row">
+
+                             
+                    <?php   foreach ($listGroupes as $unGroupe) :  ?>   
                         <div class="col-md-3 col-6">
-                            <a href="#" class="feature">
-                                <img alt="Pic" src="public/assets/img/accom-3.jpg" />
-                                <h5 class="mb--0">Groupes Informatique Incos</h5>
+                   
+                            <a href="user/groupe/<?= $unGroupe->groupe->groupes_id ?>" class="feature">
+                                <img class="groupe_span" id="groupe-<?= $unGroupe->groupe->groupes_id ?>" alt="" src="" />
+                                <h5 class="mb--0"><?= $unGroupe->groupe->groupes_nom ?></h5>
                                 <div>Develloppeurs des incos</div>
                             </a>
                         </div>
-                        <div class="col-md-3 col-6">
-                            <a href="#" class="feature">
-                                <img alt="Pic" src="public/assets/img/accom-4.jpg" />
-                                <h5 class="mb--0">ESGI - hangout</h5>
-                                <div>Asso ESGI</div>
-                            </a>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </section>

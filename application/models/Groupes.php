@@ -24,4 +24,6 @@ class Groupes extends MY_Model {
 		
 		return $result;
 	}
+
+
 }

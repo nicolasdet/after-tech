@@ -43,6 +43,7 @@ class MY_User_Controller extends MY_Controller
 
 	protected function getGroupe()
 	{
+		$this->load->model('User_groupes', 'user_groupes');
 		$this->load->model('Groupes', 'groupes');
 	}
 

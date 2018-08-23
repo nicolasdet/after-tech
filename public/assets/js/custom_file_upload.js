@@ -2,7 +2,7 @@ $(function() {
 
   $.ajax({
                        type: 'GET',
-                       url: 'user/groupe/create/getImg',
+                       url: 'user/groupe/create/getImgCache',
                        success: function(data) {
                                   // alert(data);
                                   if(data != false){

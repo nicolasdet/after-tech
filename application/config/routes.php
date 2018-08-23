@@ -62,7 +62,7 @@ $route['contribution'] 					= 'contribution';
 
 
 //groupes
-$route['user/groupe'] 					= 'groupe_folder/groupe';
+$route['user/groupe'] 					= 'groupe_folder/groupe_controller';
 $route['user/groupe/(:num)'] 			= 'groupe_folder/detail/index/$1';
 $route['user/groupe/recherche'] 		= 'groupe_folder/recherche';
 $route['user/groupe/create'] 			= 'groupe_folder/create';
@@ -70,7 +70,7 @@ $route['user/groupe/createGroupe'] 		= 'groupe_folder/create/createGroupe';
 
 //api
 $route['user/groupe/create/imgUpload'] 	= 'groupe_folder/create/img';
-$route['user/groupe/create/getImg'] 	= 'groupe_folder/create/getImg';
+$route['user/groupe/create/getImgCache'] = 'groupe_folder/create/getImgCache';
 
 //user
 $route['user'] 							= 'users/home';

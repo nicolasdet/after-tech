@@ -8,6 +8,7 @@ class Create extends MY_User_Controller {
 	{
 		parent::__construct($layout);
 		$this->theme->js('custom_file_upload');
+		
 	}
 
 
@@ -55,9 +56,15 @@ class Create extends MY_User_Controller {
 
 			$tabUserGroupe['user_id'] 		= $this->session->userdata('user');
 			$tabUserGroupe['groupes_id']	= $groupeId;
+			$tabUserGroupe['status']		= 1;
 
 			$user_groupe = $this->user_groupes->insert($tabUserGroupe);
 			if(isset($user_groupe)){
+
+				$name = $this->session->userdata('image_groupe_cache');
+				if(file_exists("public/assets/img/upload/temporaire/".$name)){
+			 		rename("public/assets/img/upload/temporaire/".$name, "public/assets/img/upload/groupes/".$groupeId);
+				}
 
             $this->error_message = "Le groupe à bien été crée"; 
             $error_message_type = VALIDATION_MESSAGE;
@@ -93,6 +100,7 @@ class Create extends MY_User_Controller {
 		 $type = $this->input->get('type');
 		 $file = $this->input->post('file');
 		 $name = $this->session->userdata('user'). '.' .$type;
+		 $image_name = $this->session->set_userdata('image_groupe_cache', $name);
 		 
 		 // Encode it correctly
 		 $encodedData = str_replace(' ','+',$file);
@@ -103,21 +111,14 @@ class Create extends MY_User_Controller {
 		echo "public/assets/img/upload/temporaire/".$name;
 	}
 
-	public function getImg($id = null) {
+	public function getImgCache($id = null) {
 	
+		$name = $this->session->userdata('image_groupe_cache');
 
+		if(file_exists("public/assets/img/upload/temporaire/".$name)){
+			 echo "public/assets/img/upload/temporaire/".$name;
 
-		 $name = $this->session->userdata('user'). '.jpg';
-
-		 if (file_exists("public/assets/img/upload/temporaire/".$name)) {
-
-			    echo "public/assets/img/upload/temporaire/".$name;
-
-			} else {
-				$name = $this->session->userdata('user'). '.png';
-				 echo "public/assets/img/upload/temporaire/".$name;
-			}
-
+		}
 		return;
 	}
 	
