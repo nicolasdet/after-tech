@@ -86,3 +86,11 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 define('VALIDATION_MESSAGE', 'success');
 define('VALIDATION_MESSAGE_ERROR', 'danger');
+
+
+
+if(ENVIRONMENT == 'development'){
+	define('BASE_URL', 'http://after-tech.local/'); 
+}else {
+	define('BASE_URL', 'http://after-tech.fr/'); 
+}

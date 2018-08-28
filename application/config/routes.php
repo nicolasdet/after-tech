@@ -77,6 +77,7 @@ $route['user'] 							= 'users/home';
 $route['user/update'] 					= 'users/update';
 $route['user/update/profile'] 			= 'users/update/profile';
 $route['user/update/password'] 			= 'users/update/password';
+$route['user/update/do_upload'] 		= 'users/update/do_upload';
 
 
 //

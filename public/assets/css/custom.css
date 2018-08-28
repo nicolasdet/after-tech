@@ -157,3 +157,10 @@ align-items: flex-start;
     position: relative;
     top: 7px;
 }
+
+
+#upl_img_user {
+    -webkit-appearance: none;
+    background: #f6f6f6;
+    border: 1px solid white !important;
+}

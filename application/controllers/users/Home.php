@@ -10,6 +10,10 @@ class Home extends MY_User_Controller {
 	{       
 
 		//var_dump('ici');
+		$idUser = $this->session->userdata('user');
+
+		
+		$this->theme->data('idUser', $idUser);
 		$this->render('users/landing');
 	}
 

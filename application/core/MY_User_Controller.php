@@ -39,6 +39,8 @@ class MY_User_Controller extends MY_Controller
 		$this->user = $this->my_user->get($this->session->userdata('user'));
 
 		$this->theme->data('user', $this->user);
+		//$profileExt = pathinfo('./public/assets/img/upload/users/'.$this->session->userdata('user'), PATHINFO_EXTENSION);
+		//var_dump($profileExt);
 	}
 
 	protected function getGroupe()

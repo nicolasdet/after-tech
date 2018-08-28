@@ -12,7 +12,7 @@
                                     </span>
                                 </a>
                                 <div class="text-block text-center">
-                                    <img alt="avatar" src="public/assets/img/avatar-round-3.png" class="image--md" />
+                                    <img alt="avatar" src="public/assets/img/upload/users/{{idUser}}.png" class="image--md" />
                                     <span class="h3"><?= $user->user_nom." ".$user->user_prenom  ?></span>
                                     <span>fonction: </span>
                                 </div>

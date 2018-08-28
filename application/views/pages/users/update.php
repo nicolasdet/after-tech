@@ -9,7 +9,7 @@
                                         </span>
                                     </a>
                                 <div class="text-block text-center">
-                                    <img alt="avatar" src="public/assets/img/avatar-round-3.png" class="image--sm" />
+                                    <img alt="avatar" src="public/assets/img/upload/users/{{idUser}}.png" class="image--sm" />
                                     <span class="h5"><?= $user->user_nom." ".$user->user_prenom  ?></span>
                                    
                                 </div>
@@ -29,6 +29,9 @@
                                     -->
                                         <li>
                                             <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#account-password;hidden">Password</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#account-photo;hidden">Photo de profil</a>
                                         </li>
                                         <li>
                                             <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#account-delete;hidden">Delete Account</a>
@@ -89,32 +92,16 @@
                                         <!--end of row-->
                                     </form>
                                 </div>
-                                <div id="account-billing" class="hidden account-tab">
-                                    <h4>Billing Details</h4>
-                                    <div class="boxed boxed--border bg--secondary">
-                                        <h5>Payment Methods</h5>
-                                        <hr>
-                                        <form>
-                                            <ul>
-                                                <li class="row">
-                                                    <div class="col-md-6">
-                                                        <p>
-                                                            <i class="material-icons">credit_card</i>
-                                                            <span> Mastercard ending in
-                                                                <strong>4722</strong>
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-md-3 text-right text-left-xs">
-                                                        <button type="submit" class="btn bg--error">Remove</button>
-                                                    </div>
-                                                    <div class="col-md-3 text-right text-left-xs">
-                                                        <button type="submit" class="btn">Edit</button>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <hr>
-                                            <button type="submit" class="btn">Add New Method</button>
+                                <div id="account-photo" class="hidden account-tab">
+                                    <h4 class="pl-1">photo de profil</h4>
+                                    <div class="boxed boxed--border bg--secondary d-flex flex-column align-items-center justify-content-center">
+                                       
+                                    <img id="img_groupe_create" src="public/assets/img/upload/users/{{idUser}}.png" alt="pas encore d'image">
+                                     <div id="dropfile" class="mt-5 mb-5">Glisse / Dépose une image ici !</div>
+                                    <?php echo form_open_multipart('user/update/do_upload');?>
+                                        <input type="file" class="mt-1" id="upl_img_user" name="userfile" size="20" />
+                                        <br /><br />
+                                        <button type="submit" class="btn btn--primary" >telecharger l'image </button>
                                         </form>
                                     </div>
                                 </div>

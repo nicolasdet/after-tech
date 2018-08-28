@@ -10,7 +10,10 @@ class Update extends MY_User_Controller {
 	{       
 		$UpdateUserForm		 	= getUpdateUserForm($this->user);
 		$UpdateUserPasswordForm = getUpdateUserPasswordForm();
+		$idUser = $this->session->userdata('user');
 
+		
+		$this->theme->data('idUser', $idUser);
 		$this->theme->data('UpdateUserPasswordForm', $UpdateUserPasswordForm);
 		$this->theme->data('UpdateUserForm', $UpdateUserForm);
 		$this->render('users/update');
@@ -119,5 +122,40 @@ class Update extends MY_User_Controller {
 
 		redirect('/user/update');
 	}
+
+
+
+	 public function do_upload()
+        {
+                $config['upload_path']          = './public/assets/img/upload/users/';
+                $config['allowed_types']        = 'jpg|png';
+                $config['max_size']             = 100;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+                $config['overwrite']            = true;
+                $config['file_name']            = $this->user->user_id;
+                
+                
+
+                $this->load->library('upload');
+                $this->upload->initialize($config);
+
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+ 
+                        $error_message_type = VALIDATION_MESSAGE_ERROR;  
+						$this->error_message = $this->upload->display_errors(); 
+		    			$this->session->set_userdata('error_message', $this->error_message);
+		   				 $this->session->set_userdata('error_message_type', $error_message_type);
+
+                        redirect('/user/update');
+                }
+                else
+                {
+                        //$data = array('upload_data' => $this->upload->data());
+
+                        redirect('/user/update');
+                }
+        }
 
 }
