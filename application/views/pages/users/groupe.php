@@ -16,15 +16,26 @@
 
                              
                     <?php   foreach ($listGroupes as $unGroupe) :  ?>   
-                        <div class="col-md-3 col-6">
-                   
-                            <a href="user/groupe/<?= $unGroupe->groupe->groupes_id ?>" class="feature">
-                                <img class="groupe_span" id="groupe-<?= $unGroupe->groupe->groupes_id ?>" alt="" src="" />
-                                <h5 class="mb--0"><?= $unGroupe->groupe->groupes_nom ?></h5>
-                                <div>Develloppeurs des incos</div>
-                            </a>
-                        </div>
+                          <div class="masonry__item col-md-3 col-6" data-masonry-filter="Inspiration">
+                                        <article class="feature feature-1">
+                                            <a href="#" class="block">
+                                                 <img class="groupe_span" id="groupe-<?= $unGroupe->groupe->groupes_id ?>" alt="" src="" />
+                                            </a>
+                                            <div class="feature__body boxed boxed--border">
+                            
+                                                <h5><?= $unGroupe->groupe->groupes_nom ?></h5>
+                                                <a class="btn btn--primary btn--icon mt-5" id="change_user_info" href="/user/groupe/<?= $unGroupe->groupe->groupes_id ?>">
+                                                    <span class="btn__text">
+                                                        <i class="icon-Add-File"></i> Aller voir
+                                                    </span>
+                                                </a>
+                                  
+                                            </div>
+                                        </article>
+                            </div>
                         <?php endforeach; ?>
+
+
                     </div>
                 </div>
             </section>

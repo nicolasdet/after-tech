@@ -146,3 +146,14 @@ align-items: flex-start;
     border-right-color:#ddd;
     border-width:8px;
 }
+
+.sideMenuGroupe {
+    border: 1px solid ;
+}
+.bgWheat {
+    background-color: white;
+}
+.groupe_icon {
+    position: relative;
+    top: 7px;
+}
