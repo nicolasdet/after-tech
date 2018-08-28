@@ -75,6 +75,14 @@ class Stencil {
 			}
 		}
 		$this->data['content'] = $this->CI->load->view('pages/'.$page, $this->data, TRUE)."\n";
+
+		// custom Nicolas
+		foreach ($this->data as $key => $value) {
+			if(isset($value) && is_string($value)){
+				$this->data['content'] = str_replace("{{".$key."}}", $value, $this->data['content']);
+			}
+		}
+		// custom Nicolas
 		$this->CI->load->view('layouts/'.$this->layout, $this->data);
 	}
 
