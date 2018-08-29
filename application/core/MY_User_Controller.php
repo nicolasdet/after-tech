@@ -4,6 +4,7 @@ class MY_User_Controller extends MY_Controller
 {
 
 	protected $user;
+	protected $userImgPath;
 
 	public function __construct($layout = 'user')
 	{
@@ -28,6 +29,10 @@ class MY_User_Controller extends MY_Controller
 		$this->getGroupe();
 
 		$this->load->helper('groupe_form');
+
+
+
+
 	}
 
 
@@ -37,10 +42,15 @@ class MY_User_Controller extends MY_Controller
 	{
 		$this->load->model('User', 'my_user');
 		$this->user = $this->my_user->get($this->session->userdata('user'));
-
 		$this->theme->data('user', $this->user);
-		//$profileExt = pathinfo('./public/assets/img/upload/users/'.$this->session->userdata('user'), PATHINFO_EXTENSION);
-		//var_dump($profileExt);
+
+
+		if(file_exists('./public/assets/img/upload/users/'.$this->session->userdata('user').'.jpg')){
+			$this->userImgPath = './public/assets/img/upload/users/'.$this->session->userdata('user').'.jpg';
+		}else {
+			$this->userImgPath = './public/assets/img/upload/users/'.$this->session->userdata('user').'.png';
+		}
+
 	}
 
 	protected function getGroupe()
