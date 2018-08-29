@@ -76,16 +76,43 @@ class Stencil {
 		}
 		$this->data['content'] = $this->CI->load->view('pages/'.$page, $this->data, TRUE)."\n";
 
-		// custom Nicolas
+		$this->data['content'] = $this->CI->load->view('pages/'.$page, $this->data, TRUE)."\n";
+		$this->customTemplating();
+		$this->CI->load->view('layouts/'.$this->layout, $this->data);
+	}
+
+	public function customTemplating()
+	{
+		/*
+		# bench - vérifier que le templating ne ralentis pas l'app
+
+		$this->CI->benchmark->mark('code_start');
+		$this->CI->benchmark->mark('code_end');
+		echo $this->CI->benchmark->elapsed_time('code_start', 'code_end');
+
+		# debug idée d'échamepement du iff
+		@if($content)         le remplacer par if($content):
+		@elseif($content)	  le remplacer par elseif($content):
+		@else 				  le remplacer par esle:
+		@endif                le remplacer par endif;
+		$this->data['content'] = preg_replace("/(@if)(.*)/"    , "$0 --> if$2:"     , $this->data['content']);
+		$this->data['content'] = preg_replace("/(@elseif)(.*)/", "$0 --> elseif$2:" , $this->data['content']);
+		$this->data['content'] = preg_replace("/(@else)/"	   , "$0 --> else:"     , $this->data['content']);
+		$this->data['content'] = preg_replace("/(@endif)/"	   , "$0 --> endif;:"   , $this->data['content']);
+		*/
+		
+		# echapement des variables
 		foreach ($this->data as $key => $value) {
 			if(isset($value) && is_string($value)){
 				$this->data['content'] = str_replace("{{".$key."}}", $value, $this->data['content']);
 			}
-		}
-		// custom Nicolas
-		$this->CI->load->view('layouts/'.$this->layout, $this->data);
-	}
+		} #enlever les {{contenus}} non transformer.
+		$this->data['content'] = preg_replace("/{{(.*)}}/"	   , ''   , $this->data['content']);
 
+		# echapement des balises PHP autour du if / esleif / else {{(.*)}} et pregmatch sur  le endif
+
+
+	}
 	public function layout($layout)
 	{
 		$this->layout = $layout;
