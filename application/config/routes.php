@@ -56,32 +56,33 @@ $route['php_cour'] = 'php_cour';
 
 
 //   Vrai route du projet Test
-$route['default_controller'] 			= 'welcome';
-$route['home'] 							= 'welcome';
-$route['contribution'] 					= 'contribution';
+$route['default_controller'] 			 = 'welcome';
+$route['home'] 							 = 'welcome';
+$route['contribution'] 					 = 'contribution';
 
 
 //groupes
-$route['user/groupe'] 					= 'groupe_folder/groupe_controller';
-$route['user/groupe/(:num)'] 			= 'groupe_folder/detail/index/$1';
-$route['user/groupe/recherche'] 		= 'groupe_folder/recherche';
-$route['user/groupe/create'] 			= 'groupe_folder/create';
-$route['user/groupe/createGroupe'] 		= 'groupe_folder/create/createGroupe';
+$route['user/groupe'] 					 = 'groupe_folder/groupe_controller';
+$route['user/groupe/(:num)'] 			 = 'groupe_folder/detail/index/$1';
+$route['user/groupe/recherche'] 		 = 'groupe_folder/recherche';
+$route['user/groupe/recherche/all']      = 'groupe_folder/recherche/all';
+$route['user/groupe/create'] 			 = 'groupe_folder/create';
+$route['user/groupe/createGroupe'] 		 = 'groupe_folder/create/createGroupe';
 
 //api
-$route['user/groupe/create/imgUpload'] 	= 'groupe_folder/create/img';
+$route['user/groupe/create/imgUpload'] 	 = 'groupe_folder/create/img';
 $route['user/groupe/create/getImgCache'] = 'groupe_folder/create/getImgCache';
 
 //user
-$route['user'] 							= 'users/home';
-$route['user/update'] 					= 'users/update';
-$route['user/update/profile'] 			= 'users/update/profile';
-$route['user/update/password'] 			= 'users/update/password';
-$route['user/update/do_upload'] 		= 'users/update/do_upload';
+$route['user'] 							 = 'users/home';
+$route['user/update'] 					 = 'users/update';
+$route['user/update/profile'] 			 = 'users/update/profile';
+$route['user/update/password'] 			 = 'users/update/password';
+$route['user/update/do_upload'] 		 = 'users/update/do_upload';
 
 
 //
-$route['inscription'] 					= 'Auth/inscription';
-$route['connexion'] 					= 'Auth/connexion';
+$route['inscription'] 					 = 'Auth/inscription';
+$route['connexion'] 					 = 'Auth/connexion';
 
 

@@ -164,3 +164,23 @@ align-items: flex-start;
     background: #f6f6f6;
     border: 1px solid white !important;
 }
+
+.groupe_show_recherche {
+    padding: 5px;
+    border: 1px solid #898989;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.groupe_show_recherche:hover {
+    background-color: #ededed;
+}
+
+.height-400 {
+    height: 400px;
+}
+
+.img_groupe_recherche {
+    max-height: 250px;
+}

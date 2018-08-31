@@ -21,7 +21,7 @@ class MY_Controller extends CI_Controller
 		parent::__construct();
  		$this->output->set_header('Access-Control-Allow-Origin: *');
 
- 		//$this->output->enable_profiler(true);
+ 		$this->output->enable_profiler(true);
 
 
 		date_default_timezone_set('Europe/Paris');
@@ -66,6 +66,7 @@ class MY_Controller extends CI_Controller
 		$this->theme->css('font-rubiklato');
 
 		$this->theme->js('jquery-3.1.1.min');
+		$this->theme->js('jquery-ui.min');
 		$this->theme->js('flickity.min');
 		$this->theme->js('easypiechart.min');
 		$this->theme->js('parallax');
@@ -82,7 +83,6 @@ class MY_Controller extends CI_Controller
 		$this->theme->js('smooth-scroll.min');
 		$this->theme->js('scripts');
 		/*
-*/
 		//$this->theme->css('main');
 		//$this->theme->js('jquery-3.2.0.min');
 		//$this->theme->js('famille');
@@ -115,6 +115,7 @@ class MY_Controller extends CI_Controller
 		$this->theme->js('smooth-scroll.min');
 		$this->theme->js('scripts');
 
+*/
 	}
 
 	public function render($viewFile)
