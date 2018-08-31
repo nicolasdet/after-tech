@@ -19,18 +19,6 @@
                     <div class="row">
                         <form class="form-horizontal" method="GET" action="/user/groupe/recherche">
                         <?=  drawInput($getSearchGroupeForm['nom']); ?>
-                            <!--
-                            <div class="col-md-3">
-                                <label>Guests</label>
-                                <div class="input-select input-select--borderless">
-                                    <select name="guests">
-                                        <option value="1">1</option>
-                                        <option value="2" selected="">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                            </div>
-                             -->
                             <div class="col-md-3">
                                 <button type="submit" class="btn btn--primary">Search</button>
                             </div>
@@ -64,14 +52,26 @@
                     <div class="row">
 
                         <?php 
-                         if($listeGroupeDefault):
-                         foreach ($listeGroupeDefault as $unGroupe) :  ?>
 
-                        <div class="col-md-3 col-6 ">
+                         if($listeGroupeDefault):
+                         foreach ($listeGroupeDefault as $unGroupe) : #var_dump($unGroupe);  ?>
+
+                        <div class="col-md-3 col-6 mb-5 wrapper_groupe_show">
                             <a href="#" class="feature groupe_show_recherche height-400">
                                 <img class="groupe_span img_groupe_recherche" id="groupe-<?= $unGroupe->groupes_id ?>" alt="le groupe n'a pas d'image" src="" />
                                 <h5 class="mb--0"><?= $unGroupe->groupes_nom ?></h5>
                             </a>
+                            <?php if(!$unGroupe->currentUser): ?>
+                                 <a class="btn btn--primary btn--icon" id="" href="">
+                                                    <span class="btn__text">
+                                                         Envoyer une invitation
+                                                    </span>
+                                </a>
+                            <?php elseif($unGroupe->currentUser->status == "1"): ?>
+                                <h6 class="mb--0"><i class="material-icons groupe_icon">person</i>Administrateur</h6>
+                            <?php else: ?>
+                                <h6 class="mb--0"><i class="material-icons groupe_icon">person</i>Membre</h6>
+                            <?php endif; ?>
                         </div>
                         <?php endforeach; endif; ?>
 

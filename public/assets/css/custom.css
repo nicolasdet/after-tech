@@ -172,6 +172,7 @@ align-items: flex-start;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 0px !important;
 }
 .groupe_show_recherche:hover {
     background-color: #ededed;
@@ -183,4 +184,10 @@ align-items: flex-start;
 
 .img_groupe_recherche {
     max-height: 250px;
+}
+
+.wrapper_groupe_show {
+    justify-content: center;
+display: flex;
+flex-direction: column;
 }

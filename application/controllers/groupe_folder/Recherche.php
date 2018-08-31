@@ -14,19 +14,23 @@ class Recherche extends MY_User_Controller {
 	{
 		parent::__construct($layout);
 		$this->theme->js('custom_image_getter');
-		# on charge le formulaire 
 		
 	}
 
 	public function index($id = null)
 	{       
+		# on charge le formulaire 
 		$getSearchGroupeForm = getSearchGroupeForm();
+
 		# si on fait une recherche sur le nom OU pas
 		if($this->input->get('nom')){
 			$this->getLikeGroupe();
 		} else {
 			$this->listeGroupeDefault = $this->groupes->limit($this->groupeLimite)->get_all();
 		}
+
+		#pour chaque groupe on doit savoir si on est membre voir / admin
+		$this->loadUserGroupe();
 
 		$this->theme->data('getNomParam', $this->getNomParam);
 		$this->theme->data('getSearchGroupeForm', $getSearchGroupeForm);
@@ -52,7 +56,22 @@ class Recherche extends MY_User_Controller {
 		->where('groupes_nom like ', '%'.$this->getNomParam.'%')
 		->limit($this->groupeLimite)->get_all();
 
-		//var_dump($this->listeGroupeDefault);
+		return;
+	}
+
+	private function loadUserGroupe()
+	{
+		if(isset($this->listeGroupeDefault) && !empty($this->listeGroupeDefault))
+		{
+			foreach ($this->listeGroupeDefault as $key => $unGroupe) {
+				$idGroupe = $unGroupe->groupes_id;
+				$userGroupes = $this->user_groupes
+				->where(array('groupes_id' => $idGroupe, 'user_id' => $this->session->userdata('user')))
+				->get();
+				
+				$unGroupe->currentUser = $userGroupes;
+			}
+		}
 		return;
 	}
 
