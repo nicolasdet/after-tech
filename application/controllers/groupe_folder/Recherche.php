@@ -47,7 +47,7 @@ class Recherche extends MY_User_Controller {
 	}
 
 	public function getLikeGroupe()
-	{
+	{	#moteur de recherche
 		if($this->input->get('nom'))
 		{
 			$this->getNomParam = $this->input->get('nom');
@@ -60,7 +60,9 @@ class Recherche extends MY_User_Controller {
 	}
 
 	private function loadUserGroupe()
-	{
+	{	#pour chaque groupe on charge le status du user et si des invitations sont en cour
+		$this->load->model('Invitation_ug', 'invitation');
+
 		if(isset($this->listeGroupeDefault) && !empty($this->listeGroupeDefault))
 		{
 			foreach ($this->listeGroupeDefault as $key => $unGroupe) {
@@ -68,8 +70,18 @@ class Recherche extends MY_User_Controller {
 				$userGroupes = $this->user_groupes
 				->where(array('groupes_id' => $idGroupe, 'user_id' => $this->session->userdata('user')))
 				->get();
+
+				$userInvitation = $this->invitation
+				->where(array('groupes_id' => $idGroupe, 'user_id' => $this->session->userdata('user')))
+				->get();
 				
-				$unGroupe->currentUser = $userGroupes;
+				$unGroupe->currentUser    = $userGroupes;
+
+				if(!empty($userInvitation)){
+					$unGroupe->userInvitation = $userInvitation->type;
+				}else{
+					$unGroupe->userInvitation = 0;
+				}
 			}
 		}
 		return;

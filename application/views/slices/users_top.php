@@ -46,7 +46,12 @@
                                             <a href="user/groupe/create">
                                                 Crée un groupe
                                             </a>
-                                        </li>                                     
+                                        </li>    
+                                        <li>
+                                            <a href="user/groupe/invitation">
+                                                Mes invitations
+                                            </a>
+                                        </li>                                  
                                     </ul>
                                 </div>
                             </div>

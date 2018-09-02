@@ -87,6 +87,9 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 define('VALIDATION_MESSAGE', 'success');
 define('VALIDATION_MESSAGE_ERROR', 'danger');
 
+define('INVITATION_TYPE_USER',  1);
+define('INVITATION_TYPE_GROUPE', 2);
+define('INVITATION_STATUS_PENDING',  1);
 
 
 if(ENVIRONMENT == 'development'){

@@ -18,12 +18,42 @@ class Detail extends MY_User_Controller {
             $error_message_type = VALIDATION_MESSAGE_ERROR;
             $this->session->set_userdata('error_message', $this->error_message);
             $this->session->set_userdata('error_message_type', $error_message_type);
-			redirect('/user/groupe/recherche');
+			return redirect('/user/groupe/recherche');
 		}
 
 		$this->theme->data('admin', $admin);
 		$this->theme->data('groupe_detail' ,$Groupe_detail);
 		$this->render('users/groupe_detail');
+	}
+
+	public function invitation($id = null){
+		$this->load->model('Invitation_ug', 'invitation');
+
+		if(isset($id) && !empty($id))
+		{
+
+			$tabInvitation['user_id']		= intval($this->session->userdata('user'));
+			$tabInvitation['groupes_id']    = intval($id);
+			$tabInvitation['type'] 			= INVITATION_TYPE_USER; 
+			$tabInvitation['status'] 		= INVITATION_STATUS_PENDING;
+
+			if($this->invitation->insert($tabInvitation))
+			{
+			$this->error_message = "Votre demande à bien été envoyée."; 
+            $error_message_type = VALIDATION_MESSAGE;
+            $this->session->set_userdata('error_message', $this->error_message);
+            $this->session->set_userdata('error_message_type', $error_message_type);
+			return redirect('/user/groupe/recherche');
+			}
+
+			$this->error_message = "Une erreur c'est produite durant votre demande..."; 
+            $error_message_type = VALIDATION_MESSAGE_ERROR;
+            $this->session->set_userdata('error_message', $this->error_message);
+            $this->session->set_userdata('error_message_type', $error_message_type);
+			return redirect('/user/groupe/recherche');
+		}else {
+			return redirect('/user/groupe/recherche');
+		}
 	}
 
 }

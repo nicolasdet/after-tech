@@ -61,12 +61,27 @@
                                 <img class="groupe_span img_groupe_recherche" id="groupe-<?= $unGroupe->groupes_id ?>" alt="le groupe n'a pas d'image" src="" />
                                 <h5 class="mb--0"><?= $unGroupe->groupes_nom ?></h5>
                             </a>
-                            <?php if(!$unGroupe->currentUser): ?>
-                                 <a class="btn btn--primary btn--icon" id="" href="">
+                            <?php if(!$unGroupe->currentUser):  ?>
+                                <?php if(!$unGroupe->userInvitation):  ?>
+                                 <a class="btn btn--primary btn--icon" id="" href="/user/groupe/invitation/<?= $unGroupe->groupes_id ?>">
                                                     <span class="btn__text">
                                                          Envoyer une invitation
                                                     </span>
                                 </a>
+                                <?php elseif($unGroupe->userInvitation == INVITATION_TYPE_USER):  ?>
+                                <div class="btn btn-success btn--icon" id="" href="/user/groupe/invitation/<?= $unGroupe->groupes_id ?>">
+                                                    <span class="btn__text">
+                                                         Invitation envoyée
+                                                    </span>
+                                </div>
+                                <?php elseif($unGroupe->userInvitation == INVITATION_TYPE_GROUPE):  ?>
+                                <div class="btn btn-success btn--icon" id="" href="/user/groupe/invitation/<?= $unGroupe->groupes_id ?>">
+                                                    <span class="btn__text">
+                                                         Invitation reçut
+                                                    </span>
+                                </div>
+                                <?php endif;  ?>
+
                             <?php elseif($unGroupe->currentUser->status == "1"): ?>
                                 <h6 class="mb--0"><i class="material-icons groupe_icon">person</i>Administrateur</h6>
                             <?php else: ?>

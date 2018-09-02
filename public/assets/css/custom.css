@@ -191,3 +191,7 @@ align-items: flex-start;
 display: flex;
 flex-direction: column;
 }
+
+.button_invit {
+ padding: 0.5em !important;
+}
