@@ -25,4 +25,12 @@ class User_groupes extends MY_Model {
 
 		return $res->status;
 	}
+
+	public function getUsersGroupe($idGroupe)
+	{
+		$count =  $this->where('groupes_id', $idGroupe)->as_array()->count_rows();
+		$this->as_object();
+
+		return $count;
+	}
 }

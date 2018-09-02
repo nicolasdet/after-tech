@@ -11,18 +11,20 @@ class Detail extends MY_User_Controller {
 		
 	}
 
-
+	# @id = id groupe
 	public function index($id = null)
-	{    
+	{   
 		# js, charger l'image en ajax
 		$this->theme->js('custom_image_getter');
 		# on charge le formulaire de recherche d'utilisateur
-		$getSearchUserForm = getSearchUserForm();
+		$getSearchUserForm 		    = getSearchUserForm();
 		
 		# informations du groupe
-		$Groupe_detail 		 = $this->groupes->get($id);
-		$admin 		  		 = $this->user_groupes->isAdmin($id, $this->session->userdata('user'));
-		$invitationsGroupe   = $this->invitation
+		$Groupe_detail 		 		= $this->groupes->get($id);
+		$Groupe_detail->membres 	= $this->user_groupes->getUsersGroupe($id);
+		$admin 		  		 		= $this->isAdminOfGroup($id);
+
+		$invitationsGroupe = $this->invitation
 		->with_groupe()
 		->with_user_invit()
 		->where('groupes_id', $id)
@@ -49,7 +51,9 @@ class Detail extends MY_User_Controller {
 		$this->render('users/groupe_detail');
 	}
 
-	// on crée une invitation du coter user
+	// on crée une invitation du coter user (cette fonction n'a rien à faire la... mais bon elle est au dessus de ça soeur)
+	# @id = id du groupe
+	# todo Faire une fonction de vérification 
 	public function invitation($id = null){
 		
 
@@ -81,6 +85,7 @@ class Detail extends MY_User_Controller {
 	}
 
 	# on crée une invitation du coté groupe
+	# faire une fonction de vérification
 	public function invitationGroupe($id = null)
 	{
 		$getSearchUserForm	= getSearchUserForm(false);

@@ -240,7 +240,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-8 hidden account-tab " id="detail-profile">
+                        <div class="col-lg-8  account-tab " id="detail-profile">
                             <div class="titleGroupe p-4 bgWheat"> 
                                   <ul class="row row--list clearfix text-center">
                                     <li class="col-md-4 col-6">
@@ -249,7 +249,7 @@
                                     </li>
                                     <li class="col-md-4 col-6">
                                         <span class="h6 type--uppercase type--fade">Membres</span>
-                                        <span class="h3">1</span>
+                                        <span class="h3"><?= $groupe_detail->membres ?></span>
                                     </li>
                                     <li class="col-md-4 col-6">
                                         <span class="h6 type--uppercase type--fade">Message</span>
@@ -258,7 +258,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-8  account-tab " id="detail-invitation">
+                        <div class="col-lg-8 hidden  account-tab " id="detail-invitation">
                             <div class="titleGroupe mt-4 p-4 bgWheat"> 
                                   <h4>Administration des invitations</h4>
                                   <hr />
@@ -276,7 +276,7 @@
                              <?php 
                                         if(!empty($invitationsGroupe)):
                                      ?>
-                        <table class="border--round table--alternate-row">
+                                <table class="border--round table--alternate-row">
                                 <thead>
                                     <tr>
                                         <th >id</th>
@@ -319,7 +319,7 @@
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                            </table>
+                                    </table>
 
                                 <?php else: ?>
                                     <p> pas d'invitations </p>

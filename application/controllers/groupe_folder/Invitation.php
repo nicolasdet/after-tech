@@ -13,7 +13,7 @@ class Invitation extends MY_User_Controller {
 
 
 	public function index($id = null)
-	{       
+	{   # on recupere la liste des invitations du User et les info du groupe associer.
 		$listeInvitations = $this->invitation
 		->with_groupe()
 		->where(array(
@@ -26,23 +26,49 @@ class Invitation extends MY_User_Controller {
 		$this->render('users/groupe_inscription');
 	}
 
+	#### todo - verifications ###
+	# User accepte invitation on l'insere dans le groupe puis supprime l'invitation
+	# @id = id groupe
 	public function ok($id = null)
 	{
 		if(!empty($id))
-		{
-			//if($this->user_groupes-> )
+		{	
+			$dataUserGroupe['user_id'] 		= $this->session->userdata('user');
+			$dataUserGroupe['groupes_id']	= $id;
+			if($this->user_groupes->insert($dataUserGroupe) !== false){
+
+				$this->error_message .= 'Vous faite maintenent partis du groupe';
+                $error_message_type = VALIDATION_MESSAGE;    
+                $this->session->set_userdata('error_message', $this->error_message);
+                $this->session->set_userdata('error_message_type', $error_message_type);
+
+                return $this->annule($id, 'user/groupe/'.$id);
+			}else {
+
+ 				$this->error_message .= 'Une erreur c\'est produite';
+                $error_message_type = VALIDATION_MESSAGE_ERROR;    
+                $this->session->set_userdata('error_message', $this->error_message);
+                $this->session->set_userdata('error_message_type', $error_message_type);
+			}
+
+
 		}
 
-		redirect("/user/groupe/invitation");
+		return redirect("/user/groupe/invitation");
 	}
 
-	public function refuser($id = null)
+	# Suppression d'une invitation 
+	# @id = id groupe     @redir = redirection au return
+	public function annule($id = null, $redir = null)
 	{
 		if(!empty($id))
 		{
-
+			$this->invitation->where(array('groupes_id' => $id, 'user_id' => $this->session->userdata('user')))->delete();
 		}
 
-		redirect("/user/groupe/invitation");
+		if($redir){
+			return redirect($redir);
+		}
+		return redirect("/user/groupe/invitation");
 	}
 }

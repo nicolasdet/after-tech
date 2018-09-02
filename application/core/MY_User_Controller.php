@@ -76,4 +76,10 @@ class MY_User_Controller extends MY_Controller
              
 	}
 
+	public function isAdminOfGroup($idGroupe)
+	{
+		$admin  = $this->user_groupes->isAdmin($idGroupe, $this->session->userdata('user'));
+		return $admin;
+	}
+
 }
