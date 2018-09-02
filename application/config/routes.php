@@ -62,14 +62,15 @@ $route['contribution'] 					 = 'contribution';
 
 
 //groupes
-$route['user/groupe'] 					 = 'groupe_folder/groupe_controller';
-$route['user/groupe/(:num)'] 			 = 'groupe_folder/detail/index/$1';
-$route['user/groupe/invitation/(:num)']  = 'groupe_folder/detail/invitation/$1';
-$route['user/groupe/recherche'] 		 = 'groupe_folder/recherche';
-$route['user/groupe/recherche/all']      = 'groupe_folder/recherche/all';
-$route['user/groupe/create'] 			 = 'groupe_folder/create';
-$route['user/groupe/createGroupe'] 		 = 'groupe_folder/create/createGroupe';
-$route['user/groupe/invitation'] 		 = 'groupe_folder/invitation';
+$route['user/groupe'] 					 				 = 'groupe_folder/groupe_controller';
+$route['user/groupe/(:num)'] 			 				 = 'groupe_folder/detail/index/$1';
+$route['user/groupe/invitation/(:num)']  				 = 'groupe_folder/detail/invitation/$1';
+$route['user/groupe/invitation-groupe/(:num)']  		 = 'groupe_folder/detail/invitationGroupe/$1';
+$route['user/groupe/recherche'] 		 				 = 'groupe_folder/recherche';
+$route['user/groupe/recherche/all']      				 = 'groupe_folder/recherche/all';
+$route['user/groupe/create'] 			 				 = 'groupe_folder/create';
+$route['user/groupe/createGroupe'] 		 				 = 'groupe_folder/create/createGroupe';
+$route['user/groupe/invitation'] 		 				 = 'groupe_folder/invitation';
 $route['user/groupe/invitation/ok/(:num)'] 				 = 'groupe_folder/invitation/ok/$1';
 $route['user/groupe/invitation/refuser/(:num)'] 		 = 'groupe_folder/invitation/refuser/$1';
 

@@ -76,3 +76,35 @@ if (!function_exists('getSearchGroupeForm'))
  		return $validationData;
  	}
 }
+
+
+if (!function_exists('getSearchUserForm'))
+{
+ 	function getSearchUserForm($form = true)
+ 	{
+ 		$formData = array();
+ 		$validationData = array();
+
+		$formData['form']  = array('class' => 'form');
+		$formData['nom']   = array(
+				'name' => 'nom',
+				'placeholder'=>'Nom de l\'utilisateur ',
+				'label' => 'Nom de l\'utilisateur rechercher',
+				'wrapper' => 'col-md-6'
+		);
+		$validationData['nom'] = array (
+					'field' => 'nom',
+			        'label' => 'Nom',
+			        'rules' => 'required',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			       ),
+		);
+
+
+		if($form)
+ 			return $formData;
+ 
+ 		return $validationData;
+ 	}
+}
