@@ -13,8 +13,13 @@ class Detail extends MY_User_Controller {
 		$Groupe_detail = $this->groupes->get($id);
 		$admin 		   = $this->user_groupes->isAdmin($id, $this->session->userdata('user'));
 
-		if($admin === false) 
-			redirect('/user/groupe');
+		if($admin === false) {	
+			$this->error_message = "Vous n'étes pas membre du groupe"; 
+            $error_message_type = VALIDATION_MESSAGE_ERROR;
+            $this->session->set_userdata('error_message', $this->error_message);
+            $this->session->set_userdata('error_message_type', $error_message_type);
+			redirect('/user/groupe/recherche');
+		}
 
 		$this->theme->data('admin', $admin);
 		$this->theme->data('groupe_detail' ,$Groupe_detail);

@@ -57,7 +57,7 @@
                          foreach ($listeGroupeDefault as $unGroupe) : #var_dump($unGroupe);  ?>
 
                         <div class="col-md-3 col-6 mb-5 wrapper_groupe_show">
-                            <a href="#" class="feature groupe_show_recherche height-400">
+                            <a href="/user/groupe/<?= $unGroupe->groupes_id ?>" class="feature groupe_show_recherche height-400">
                                 <img class="groupe_span img_groupe_recherche" id="groupe-<?= $unGroupe->groupes_id ?>" alt="le groupe n'a pas d'image" src="" />
                                 <h5 class="mb--0"><?= $unGroupe->groupes_nom ?></h5>
                             </a>
