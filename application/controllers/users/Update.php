@@ -137,11 +137,13 @@ class Update extends MY_User_Controller {
                 
                 
 
+
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
                 if ( ! $this->upload->do_upload('userfile'))
                 {
+                		# Insertion en BDD de l'image dans le champs user_img
  
                         $error_message_type = VALIDATION_MESSAGE_ERROR;  
 						$this->error_message = $this->upload->display_errors(); 
