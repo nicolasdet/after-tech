@@ -9,7 +9,7 @@
                                         </span>
                                     </a>
                                 <div class="text-block text-center">
-                                    <img alt="avatar" src="public/assets/img/upload/users/{{idUser}}.png" class="image--sm" />
+                                    <img alt="avatar" src="<?= $user->user_img ?>" class="image--sm" />
                                     <span class="h5"><?= $user->user_nom." ".$user->user_prenom  ?></span>
                                    
                                 </div>
@@ -96,7 +96,7 @@
                                     <h4 class="pl-1">photo de profil</h4>
                                     <div class="boxed boxed--border bg--secondary d-flex flex-column align-items-center justify-content-center">
                                        
-                                    <img id="img_groupe_create" src="public/assets/img/upload/users/{{idUser}}.png" alt="pas encore d'image">
+                                    <img id="img_groupe_create" src="<?= $user->user_img ?>" alt="pas encore d'image">
                                      <div id="dropfile" class="mt-5 mb-5">Glisse / Dépose une image ici !</div>
                                     <?php echo form_open_multipart('user/update/do_upload');?>
                                         <input type="file" class="mt-1" id="upl_img_user" name="userfile" size="20" />

@@ -9,7 +9,6 @@ class MY_User_Controller extends MY_Controller
 	public function __construct($layout = 'user')
 	{
 		parent::__construct($layout);
-
 		$this->theme->css('user_custom');
 
 		if(isset($_GET['disconnect'])){
@@ -27,29 +26,14 @@ class MY_User_Controller extends MY_Controller
 
 		$this->getUser();
 		$this->getGroupe();
-
 		$this->load->helper('groupe_form');
-
-
-
-
 	}
-
-
-
 
 	protected function getUser()
 	{
 		$this->load->model('User', 'my_user');
 		$this->user = $this->my_user->get($this->session->userdata('user'));
 		$this->theme->data('user', $this->user);
-
-
-		if(file_exists('./public/assets/img/upload/users/'.$this->session->userdata('user').'.jpg')){
-			$this->userImgPath = './public/assets/img/upload/users/'.$this->session->userdata('user').'.jpg';
-		}else {
-			$this->userImgPath = './public/assets/img/upload/users/'.$this->session->userdata('user').'.png';
-		}
 
 	}
 

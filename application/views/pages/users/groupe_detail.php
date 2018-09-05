@@ -111,11 +111,7 @@
 
     </div>
  </div>
-
-
 -->
-
-
             <section class="bg--secondary space--sm conversation">
                 <div class="container">
                     <div class="row">
@@ -142,7 +138,7 @@
                                         
                                         <?php if($admin):  ?>
                                         <li class="text-center">
-                                            <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#detail-chat;hidden"><i class="material-icons groupe_icon">person</i> Gestion</a>
+                                            <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#detail-gestion;hidden"><i class="material-icons groupe_icon">person</i> Gestion</a>
                                         </li>
                                         <li class="text-center">
                                             <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#detail-chat;hidden"><i class="material-icons groupe_icon">person</i>Crée un evenement</a>
