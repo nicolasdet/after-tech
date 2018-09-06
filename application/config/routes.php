@@ -64,6 +64,8 @@ $route['contribution'] 					 = 'contribution';
 //groupes
 $route['user/groupe'] 					 				 = 'groupe_folder/groupe_controller';
 $route['user/groupe/(:num)'] 			 				 = 'groupe_folder/detail/index/$1';
+$route['user/groupe/update/(:num)'] 			 		 = 'groupe_folder/update/index/$1';
+$route['user/groupe/update/do_upload/(:num)'] 		 	 = 'groupe_folder/update/do_upload/$1';
 $route['user/groupe/invitation/(:num)']  				 = 'groupe_folder/detail/invitation/$1';
 $route['user/groupe/invitation-groupe/(:num)']  		 = 'groupe_folder/detail/invitationGroupe/$1';
 $route['user/groupe/recherche'] 		 				 = 'groupe_folder/recherche';

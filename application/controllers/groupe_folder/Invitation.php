@@ -50,12 +50,11 @@ class Invitation extends MY_User_Controller {
                 $this->session->set_userdata('error_message', $this->error_message);
                 $this->session->set_userdata('error_message_type', $error_message_type);
 			}
-
-
 		}
 
 		return redirect("/user/groupe/invitation");
 	}
+	
 
 	# Suppression d'une invitation 
 	# @id = id groupe     @redir = redirection au return

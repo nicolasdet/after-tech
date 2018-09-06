@@ -46,6 +46,53 @@ if (!function_exists('getCreateGroupeForm'))
 }
 
 
+if (!function_exists('getUpdateGroupeForm'))
+{
+ 	function getUpdateGroupeForm($groupe, $form = true)
+ 	{
+ 		$formData = array();
+ 		$validationData = array();
+
+		$formData['form']  = array('class' => 'form');
+		$formData['nom']   = array(
+				'name' => 'nom',
+				'placeholder'=>'nom',
+				'label' => 'Nom',
+				'wrapper' => 'col-10',
+				'value' => isset($groupe->groupes_nom) ? $groupe->groupes_nom : ''
+		);
+		$validationData['nom'] = array (
+					'field' => 'nom',
+			        'label' => 'Nom',
+			        'rules' => 'required',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			       ),
+		);
+
+		$formData['detail']   = array(
+				'name' => 'detail',
+				'placeholder'=>'description',
+				'label' => 'description',
+				'wrapper' => 'col-10',
+				'value' => isset($groupe->groupes_description) ? $groupe->groupes_description : ''
+		);
+		$validationData['detail'] = array (
+					'field' => 'detail',
+			        'label' => 'description',
+			        'rules' => 'required',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			       ),
+		);
+
+		if($form)
+ 			return $formData;
+ 
+ 		return $validationData;
+ 	}
+}
+
 if (!function_exists('getSearchGroupeForm'))
 {
  	function getSearchGroupeForm($form = true)

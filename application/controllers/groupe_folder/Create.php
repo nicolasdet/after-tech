@@ -62,8 +62,13 @@ class Create extends MY_User_Controller {
 			if(isset($user_groupe)){
 
 				$name = $this->session->userdata('image_groupe_cache');
+				$type = $this->session->userdata('image_groupe_cache_type');
+
 				if(file_exists("public/assets/img/upload/temporaire/".$name)){
-			 		rename("public/assets/img/upload/temporaire/".$name, "public/assets/img/upload/groupes/".$groupeId);
+			 		rename("public/assets/img/upload/temporaire/".$name, "public/assets/img/upload/groupes/".$groupeId.".".$type);
+
+			 		$tabUserGroupeImg['groupes_img'] = "public/assets/img/upload/groupes/".$groupeId.".".$type;
+			 		$this->groupes->update($tabUserGroupeImg, $groupeId);
 				}
 
             $this->error_message = "Le groupe à bien été crée"; 
@@ -100,6 +105,8 @@ class Create extends MY_User_Controller {
 		 $type = $this->input->get('type');
 		 $file = $this->input->post('file');
 		 $name = $this->session->userdata('user'). '.' .$type;
+
+		 $image_name = $this->session->set_userdata('image_groupe_cache_type', $type);
 		 $image_name = $this->session->set_userdata('image_groupe_cache', $name);
 		 
 		 // Encode it correctly

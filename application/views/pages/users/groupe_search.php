@@ -58,7 +58,7 @@
 
                         <div class="col-md-3 col-6 mb-5 wrapper_groupe_show">
                             <a href="/user/groupe/<?= $unGroupe->groupes_id ?>" class="feature groupe_show_recherche height-400">
-                                <img class="groupe_span img_groupe_recherche" id="groupe-<?= $unGroupe->groupes_id ?>" alt="le groupe n'a pas d'image" src="" />
+                                <img class="groupe_span img_groupe_recherche" id="groupe-<?= $unGroupe->groupes_id ?>" alt="le groupe n'a pas d'image" src="<?= $unGroupe->groupes_img ?>" />
                                 <h5 class="mb--0"><?= $unGroupe->groupes_nom ?></h5>
                             </a>
                             <?php if(!$unGroupe->currentUser):  ?>

@@ -1,124 +1,10 @@
- 
-
-<!--
- <div id="user_groupe">
- 	  <section id="section_groupe_create">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-
-                            <h1>Groupe <?= $groupe_detail->groupes_nom ?></h1>
-                            <p>Groupe <?= $groupe_detail->groupes_description ?></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-    <div class="row" >
-    
-    <section class="col-md-10">
-        <div id="detail-profile" class="account-tab">
-            <div class="col-md-5 d-flex justify-content-center">
-                <img class="groupe_span image_groupe_detail padding11" id="groupe-<?= $groupe_detail->groupes_id ?>" alt="" src="" />
-            </div>
-        </div>
-        <div class="hidden groupes_events account-tab" id="detail-events" >
- 
-                            <div class="boxed boxed--border">
-                                <h4>Prochain evenement </h4>
-                                <ul class="pt-3">
-                                    <li class="clearfix">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-3 text-center">
-                                                <div class="icon-circle">
-                                                    <i class="icon icon--lg material-icons">comment</i>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-7">
-                                                <p>Pas d'évenement à venir</p>
-                                                <span class="type--fine-print"></span>
-                                                <p>
-                                                    clique ici pour en crée ou en rejoindre
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>        
-        </div>
-        <div class="hidden account-tab col-md-10 d-flex padding11 persoChatbox" id="detail-chat">
-               
-                       <div class="row chatBox">
-
-                        <div class="col-sm-12">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                        <strong>Nicolas</strong> <span class="text-muted">commented 5 days ago</span>
-                        </div>
-                        <div class="panel-body">
-                            Salut
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-12 mt-2">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                        <strong>kevin</strong> <span class="text-muted">commented 2 days ago</span>
-                        </div>
-                        <div class="panel-body">
-                       on se fait un after-work demain ?  
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        <div class="widget-area no-padding blank pt-2">
-                                    <div class="status-upload">
-                                        <form>
-                                            <textarea placeholder="Un message ? un after work ? " ></textarea>
-                                            <ul>
-                                    
-                                            </ul>
-                                            <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i>Envoyer</button>
-                                        </form>
-                                    </div>
-                        </div>              
-        </div>
-
-    </section>
-    <section class="col-md-2">
-                                    <div class="text-block">
-                                    <ul class="menu-vertical sideMenuGroupe">
-                                        <li class="text-center">
-                                            <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#detail-profile;hidden">Groupe</a>
-                                        </li>
-    
-                                        <li class="text-center">
-                                            <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#detail-events;hidden">Evennements</a>
-                                        </li>
-                                        <li class="text-center">
-                                            <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#detail-chat;hidden">Chat</a>
-                                        </li>
-                                        </li> 
-                                        <?php if($admin):  ?>
-                                        <li class="text-center">
-                                            <a href="#" data-toggle-class=".account-tab:not(.hidden);hidden|#detail-chat;hidden">Gestion</a>
-
-                                        <?php endif; ?>
-                                    </ul>
-                                </div>
-    </section>
-
-    </div>
- </div>
--->
-            <section class="bg--secondary space--sm conversation">
+           <section class="bg--secondary space--sm conversation">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="boxed boxed--lg boxed--border" data-scroll-class="180px:pos-fixed">
                                 <div class="text-block text-center">
-                                    <img class="groupe_span image_groupe_detail padding11" id="groupe-<?= $groupe_detail->groupes_id ?>" alt="" src="" />
+                                    <img class="groupe_span image_groupe_detail padding11" id="groupe-<?= $groupe_detail->groupes_id ?>" alt="" src="<?= isset($groupe_detail->groupes_img) ? $groupe_detail->groupes_img : '' ?>" />
                                     <span class="h4"><?= $groupe_detail->groupes_nom ?></span>
                                     <span class="h5"><?= $groupe_detail->groupes_description ?></span>
                                 </div>
@@ -236,7 +122,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-8  account-tab " id="detail-profile">
+                        <div class="col-lg-8 hidden account-tab " id="detail-profile">
                             <div class="titleGroupe p-4 bgWheat"> 
                                   <ul class="row row--list clearfix text-center">
                                     <li class="col-md-4 col-6">
@@ -320,6 +206,30 @@
                                 <?php else: ?>
                                     <p> pas d'invitations </p>
                                 <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="col-lg-8   account-tab " id="detail-gestion">
+                            <div class="titleGroupe mt-4 p-4 bgWheat"> 
+                                  <h4>Gestion du groupe</h4>
+                                  <hr />
+                                 <h5 class="mt-3">Modifier les informations gennerales</h5>
+                                  <form method="POST" action="user/groupe/update/<?= $groupe_detail->groupes_id ?>">
+                                     <?=  drawInput($getUpdateGroupeForm['nom']); ?>
+                                     <?=  drawInput($getUpdateGroupeForm['detail']); ?>
+                                 <div class="col-md-3">
+                                <button type="submit" class="btn btn--primary">modifier</button>
+                                </div>
+                            </form>
+
+                            <hr />
+                            <h5 class="mt-3">Modifier l'image</h5>
+<img class="groupe_span image_groupe_detail padding11" id="groupe-<?= $groupe_detail->groupes_id ?>" alt="" 
+src="<?= isset($groupe_detail->groupes_img) ? $groupe_detail->groupes_img : '' ?>" />
+                            <?php echo form_open_multipart("user/groupe/update/do_upload/".$groupe_detail->groupes_id);?>
+                                        <input type="file" class="mt-1" id="upl_img_user" name="userfile" size="20" />
+                                        <br /><br />
+                                        <button type="submit" class="btn btn--primary" >telecharger l'image </button>
+                                        </form>
                             </div>
                         </div>
 

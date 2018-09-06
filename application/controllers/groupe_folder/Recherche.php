@@ -13,7 +13,7 @@ class Recherche extends MY_User_Controller {
 	public function __construct($layout = 'user')
 	{
 		parent::__construct($layout);
-		$this->theme->js('custom_image_getter');
+		//$this->theme->js('custom_image_getter');
 		
 	}
 

@@ -22,8 +22,8 @@
                           <div class="masonry__item col-md-3 col-6" data-masonry-filter="Inspiration">
                                         <article class="feature feature-1">
                                             <div class="feature__body boxed boxed--border">
-                                            <a href="#" class="block">
-                                                 <img class="groupe_span" id="groupe-<?= $unGroupe->groupe->groupes_id ?>" alt="" src="" />
+                                            <a href="/user/groupe/<?= $unGroupe->groupe->groupes_id ?>" class="block">
+                                                 <img class="groupe_span" id="groupe-<?= $unGroupe->groupe->groupes_id ?>" alt="" src="<?= isset($unGroupe->groupe->groupes_img) ? $unGroupe->groupe->groupes_img : ''  ?>" />
                                             </a>
                             
                                                 <h5><?= $unGroupe->groupe->groupes_nom ?></h5>

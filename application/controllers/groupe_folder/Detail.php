@@ -15,24 +15,23 @@ class Detail extends MY_User_Controller {
 	public function index($id = null)
 	{   
 		# js, charger l'image en ajax
-		$this->theme->js('custom_image_getter');
-		# on charge le formulaire de recherche d'utilisateur
-		$getSearchUserForm 		    = getSearchUserForm();
+		//$this->theme->js('custom_image_getter');
 		
 		# informations du groupe
 		$Groupe_detail 		 		= $this->groupes->get($id);
 		$Groupe_detail->membres 	= $this->user_groupes->getUsersGroupe($id);
 		$admin 		  		 		= $this->isAdminOfGroup($id);
 
+		# on charge le formulaire de recherche d'utilisateur
+		$getSearchUserForm 		    = getSearchUserForm();
+		$getUpdateGroupeForm		= getUpdateGroupeForm($Groupe_detail);
+
+
 		$invitationsGroupe = $this->invitation
 		->with_groupe()
 		->with_user_invit()
 		->where('groupes_id', $id)
 		->get_all();
-
-
-
-		//de($invitationsGroupe);
 
 		# si il ne fait pas partis du groupe
 		if($admin === false) {	
@@ -45,11 +44,16 @@ class Detail extends MY_User_Controller {
 
 		# templating
 		$this->theme->data('invitationsGroupe', $invitationsGroupe);
+		$this->theme->data('getUpdateGroupeForm', $getUpdateGroupeForm);
 		$this->theme->data('getSearchUserForm', $getSearchUserForm);
 		$this->theme->data('admin', $admin);
 		$this->theme->data('groupe_detail' ,$Groupe_detail);
 		$this->render('users/groupe_detail');
 	}
+
+
+
+
 
 	// on crée une invitation du coter user (cette fonction n'a rien à faire la... mais bon elle est au dessus de ça soeur)
 	# @id = id du groupe
