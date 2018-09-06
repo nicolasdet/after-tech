@@ -54,6 +54,9 @@ class Invitation extends MY_User_Controller {
 
 		return redirect("/user/groupe/invitation");
 	}
+
+
+	
 	
 
 	# Suppression d'une invitation 

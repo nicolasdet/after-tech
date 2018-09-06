@@ -52,8 +52,36 @@ class Detail extends MY_User_Controller {
 	}
 
 
+	# supprimer un user d'un groupe 
+	public function supprimer($id_user, $id_groupe)
+	{
+		$admin = $this->isAdminOfGroup($id_groupe);
+		# si il ne fait pas partis du groupe
+		if($admin === false) {	
+			$this->error_message = "Vous n'étes pas membre du groupe"; 
+            $error_message_type = VALIDATION_MESSAGE_ERROR;
+            $this->session->set_userdata('error_message', $this->error_message);
+            $this->session->set_userdata('error_message_type', $error_message_type);
+			return $this->index();
+		}
 
-
+		if($this->user_groupes->delete([
+			'user_id' => $id_user,
+			'groupes_id' => $id_groupe ]))
+		{
+			$this->error_message = "L'utilisateur à bien été supprimer"; 
+            $error_message_type = VALIDATION_MESSAGE;
+            $this->session->set_userdata('error_message', $this->error_message);
+            $this->session->set_userdata('error_message_type', $error_message_type);
+			return $this->index($id_groupe);		
+		}else {
+			$this->error_message = "Une erreur c'est produite durant la suppression de l'utilisateur"; 
+            $error_message_type = VALIDATION_MESSAGE;
+            $this->session->set_userdata('error_message', $this->error_message);
+            $this->session->set_userdata('error_message_type', $error_message_type);
+			return $this->index($id_groupe);				
+		}
+	}
 
 	// on crée une invitation du coter user (cette fonction n'a rien à faire la... mais bon elle est au dessus de ça soeur)
 	# @id = id du groupe
