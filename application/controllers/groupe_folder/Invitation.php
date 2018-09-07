@@ -29,8 +29,34 @@ class Invitation extends MY_User_Controller {
 	#### todo - verifications ###
 	# User accepte invitation on l'insere dans le groupe puis supprime l'invitation
 	# @id = id groupe
-	public function ok($id = null)
+	public function ok($id = null, $id_user = null)
 	{
+		if(!empty($id_user))
+		{
+			$dataUserGroupe['user_id'] 		= $id_user;
+			$dataUserGroupe['groupes_id']	= $id;
+
+			if($this->user_groupes->insert($dataUserGroupe) !== false){
+
+				$this->error_message .= 'Vous avez accepter l\'utilisateur';
+                $error_message_type = VALIDATION_MESSAGE;    
+                $this->session->set_userdata('error_message', $this->error_message);
+                $this->session->set_userdata('error_message_type', $error_message_type);
+
+                return $this->annule($id, 'user/groupe/'.$id, $id_user);
+                
+			}else {
+
+ 				$this->error_message .= 'Une erreur c\'est produite';
+                $error_message_type = VALIDATION_MESSAGE_ERROR;    
+                $this->session->set_userdata('error_message', $this->error_message);
+                $this->session->set_userdata('error_message_type', $error_message_type);
+			}
+
+			return redirect("/user/groupe/".$id);
+		}
+
+
 		if(!empty($id))
 		{	
 			$dataUserGroupe['user_id'] 		= $this->session->userdata('user');
@@ -61,9 +87,15 @@ class Invitation extends MY_User_Controller {
 
 	# Suppression d'une invitation 
 	# @id = id groupe     @redir = redirection au return
-	public function annule($id = null, $redir = null)
-	{
-		if(!empty($id))
+	public function annule($id = null, $redir = null, $id_user = null)
+	{	
+		# on pourrais faire 'user_id' => !empty($id_user) ? $id_user ? $this->session->userdata('user')
+		# mais j'aime bien les if else c'est plus joli.... non en réalite ça laisse plus de possibiliter pour de futur modif
+		if(!empty($id_user))
+		{
+			$this->invitation->where(array('groupes_id' => $id, 'user_id' => $id_user))->delete();
+		}
+		else if(!empty($id))
 		{
 			$this->invitation->where(array('groupes_id' => $id, 'user_id' => $this->session->userdata('user')))->delete();
 		}

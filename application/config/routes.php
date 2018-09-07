@@ -76,6 +76,7 @@ $route['user/groupe/create'] 			 				 = 'groupe_folder/create';
 $route['user/groupe/createGroupe'] 		 				 = 'groupe_folder/create/createGroupe';
 $route['user/groupe/invitation'] 		 				 = 'groupe_folder/invitation';
 $route['user/groupe/invitation/ok/(:num)'] 				 = 'groupe_folder/invitation/ok/$1';
+$route['user/groupe/invitation/ok/(:num)/(:num)'] 		 = 'groupe_folder/invitation/ok/$1/$2';
 $route['user/groupe/invitation/refuser/(:num)'] 		 = 'groupe_folder/invitation/refuser/$1';
 
 //api

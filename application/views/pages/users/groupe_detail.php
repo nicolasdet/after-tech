@@ -183,7 +183,7 @@
                                         <?php if($uneIvitation->type == INVITATION_TYPE_USER): ?>
                                             <div class="row">
                                                  <a class="col-md-6" 
-                                                    href="user/groupe/invitation/ok/<?= $uneIvitation->groupe->groupes_id ?>">
+                                                    href="user/groupe/invitation/ok/<?= $uneIvitation->groupe->groupes_id ?>/<?= $uneIvitation->user_id ?>">
                                                   <button type="button" class="btn btn-success button_invit">Accepter</button>
                                                  </a>
                                                  <a class="col-md-6"
