@@ -14,8 +14,6 @@ class Detail extends MY_User_Controller {
 	# @id = id groupe
 	public function index($id = null)
 	{   
-		# js, charger l'image en ajax
-		//$this->theme->js('custom_image_getter');
 		
 		# informations du groupe
 		$Groupe_detail 		 		= $this->groupes->get($id);
@@ -35,10 +33,7 @@ class Detail extends MY_User_Controller {
 
 		# si il ne fait pas partis du groupe
 		if($admin === false) {	
-			$this->error_message = "Vous n'étes pas membre du groupe"; 
-            $error_message_type = VALIDATION_MESSAGE_ERROR;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+			$this->flash->setFlash("Vous n'étes pas membre du groupe", VALIDATION_MESSAGE_ERROR);
 			return redirect('/user/groupe/recherche');
 		}
 
@@ -58,10 +53,7 @@ class Detail extends MY_User_Controller {
 		$admin = $this->isAdminOfGroup($id_groupe);
 		# si il ne fait pas partis du groupe
 		if($admin === false) {	
-			$this->error_message = "Vous n'étes pas membre du groupe"; 
-            $error_message_type = VALIDATION_MESSAGE_ERROR;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+			$this->flash->setFlash("Vous n'étes pas membre du groupe", VALIDATION_MESSAGE_ERROR);
 			return $this->index();
 		}
 
@@ -69,16 +61,10 @@ class Detail extends MY_User_Controller {
 			'user_id' => $id_user,
 			'groupes_id' => $id_groupe ]))
 		{
-			$this->error_message = "L'utilisateur à bien été supprimer"; 
-            $error_message_type = VALIDATION_MESSAGE;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+			$this->flash->setFlash("L'utilisateur à bien été supprimer", VALIDATION_MESSAGE);
 			return $this->index($id_groupe);		
 		}else {
-			$this->error_message = "Une erreur c'est produite durant la suppression de l'utilisateur"; 
-            $error_message_type = VALIDATION_MESSAGE;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+		$this->flash->setFlash("Une erreur c'est produite durant la suppression de l'utilisateur", VALIDATION_MESSAGE_ERROR);
 			return $this->index($id_groupe);				
 		}
 	}
@@ -88,10 +74,8 @@ class Detail extends MY_User_Controller {
 	# todo Faire une fonction de vérification 
 	public function invitation($id = null){
 		
-
 		if(isset($id) && !empty($id))
 		{
-
 			$tabInvitation['user_id']		= intval($this->session->userdata('user'));
 			$tabInvitation['groupes_id']    = intval($id);
 			$tabInvitation['type'] 			= INVITATION_TYPE_USER; 
@@ -99,17 +83,11 @@ class Detail extends MY_User_Controller {
 
 			if($this->invitation->insert($tabInvitation))
 			{
-			$this->error_message = "Votre demande à bien été envoyée."; 
-            $error_message_type = VALIDATION_MESSAGE;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
-			return redirect('/user/groupe/recherche');
+				$this->flash->setFlash("Votre demande à bien été envoyée.", VALIDATION_MESSAGE);
+				return redirect('/user/groupe/recherche');
 			}
 
-			$this->error_message = "Une erreur c'est produite durant votre demande..."; 
-            $error_message_type = VALIDATION_MESSAGE_ERROR;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+            $this->flash->setFlash("Une erreur c'est produite durant votre demande...", VALIDATION_MESSAGE_ERROR);
 			return redirect('/user/groupe/recherche');
 		}else {
 			return redirect('/user/groupe/recherche');
@@ -126,9 +104,7 @@ class Detail extends MY_User_Controller {
 		if ($this->form_validation->run() == FALSE || $this->error_message != "")
             {     
                 $this->error_message .= validation_errors();
-                $error_message_type = VALIDATION_MESSAGE_ERROR;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash($this->error_message, VALIDATION_MESSAGE);
 
 				redirect('/user/groupe/'.$id);
             }
@@ -140,15 +116,10 @@ class Detail extends MY_User_Controller {
             	{
              		return $this->inviteUser($id, $userObj->user_id);
             	}else {
-            		$this->error_message .= 'l\'utilisateur n\'existe pas';
-               		$error_message_type = VALIDATION_MESSAGE_ERROR;    
-                	$this->session->set_userdata('error_message', $this->error_message);
-                	$this->session->set_userdata('error_message_type', $error_message_type);
-
-				redirect('/user/groupe/'.$id);
+            		$this->flash->setFlash("l\'utilisateur n\'existe pas", VALIDATION_MESSAGE_ERROR);
+					redirect('/user/groupe/'.$id);
             	}
             }
-
 		redirect('/user/groupe/'.$id);
 	}
 
@@ -162,15 +133,10 @@ class Detail extends MY_User_Controller {
 		$tabInvitation['status'] 		= INVITATION_STATUS_PENDING;
 
 		if($this->invitation->insert($tabInvitation)){
-					$this->error_message .= 'l`\'invitation à bien été envoyée. ';
-               		$error_message_type = VALIDATION_MESSAGE;    
-                	$this->session->set_userdata('error_message', $this->error_message);
-                	$this->session->set_userdata('error_message_type', $error_message_type);
+                	$this->flash->setFlash("l`\'invitation à bien été envoyée.", VALIDATION_MESSAGE);
 		}else{
 					$this->error_message .= 'Une erreur c\'est produite durant l\'envois de l\'invitation. ';
-               		$error_message_type = VALIDATION_MESSAGE_ERROR;    
-                	$this->session->set_userdata('error_message', $this->error_message);
-                	$this->session->set_userdata('error_message_type', $error_message_type);
+                	$this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 		}
 		return redirect('/user/groupe/'.$idGroupe);
 		

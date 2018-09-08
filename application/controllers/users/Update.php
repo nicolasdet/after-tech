@@ -31,9 +31,7 @@ class Update extends MY_User_Controller {
 		 if ($this->form_validation->run() == FALSE || $this->error_message != "")
             {     
                 $this->error_message .= validation_errors();
-                $error_message_type = VALIDATION_MESSAGE_ERROR;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 
 				return $this->index();
             }
@@ -55,9 +53,7 @@ class Update extends MY_User_Controller {
 		 if ($this->form_validation->run() == FALSE || $this->error_message != "")
             {     
                 $this->error_message .= validation_errors();
-                $error_message_type = VALIDATION_MESSAGE_ERROR;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 
 				return $this->index();
             }
@@ -84,17 +80,11 @@ class Update extends MY_User_Controller {
 
 		if($this->my_user->updateUser($tabUser, $this->user->user_id)) {
 
-            $this->error_message = "Votre compte à bien ete modifier"; 
-            $error_message_type = VALIDATION_MESSAGE;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+            $this->flash->setFlash("Votre compte à bien ete modifier", VALIDATION_MESSAGE);
 
 		}else {
 
-			$error_message_type = VALIDATION_MESSAGE_ERROR;  
-			$this->error_message = "Problem lors de la modification de l'utilisateur."; 
-		    $this->session->set_userdata('error_message', $this->error_message);
-		    $this->session->set_userdata('error_message_type', $error_message_type);
+		    $this->flash->setFlash("Problem lors de la modification de l'utilisateur.", VALIDATION_MESSAGE_ERROR);
 		}
 
 
@@ -108,16 +98,11 @@ class Update extends MY_User_Controller {
 
 		if($this->my_user->updateUserPassword($tabUser, $this->user->user_id))
 		{
-            $this->error_message = "Votre mot de passe à bien ete modifier"; 
-            $error_message_type = VALIDATION_MESSAGE;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);			
+            $this->flash->setFlash("Votre mot de passe à bien ete modifier", VALIDATION_MESSAGE);
+
 		}else {
 
-			$error_message_type = VALIDATION_MESSAGE_ERROR;  
-			$this->error_message = "Problem lors de la modification du mot de passe."; 
-		    $this->session->set_userdata('error_message', $this->error_message);
-		    $this->session->set_userdata('error_message_type', $error_message_type);
+		    $this->flash->setFlash("Problem lors de la modification du mot de passe.", VALIDATION_MESSAGE_ERROR);
 		}
 
 		redirect('/user/update');
@@ -136,28 +121,21 @@ class Update extends MY_User_Controller {
                 $config['file_name']            = $this->user->user_id;
                 
                 
-
-
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
                 if ( ! $this->upload->do_upload('userfile'))
                 {
 
-                		
- 
-                        $error_message_type = VALIDATION_MESSAGE_ERROR;  
-						$this->error_message = $this->upload->display_errors(); 
-		    			$this->session->set_userdata('error_message', $this->error_message);
-		   				 $this->session->set_userdata('error_message_type', $error_message_type);
+                    $error_message_type = VALIDATION_MESSAGE_ERROR;  
+		   			$this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 
-                        redirect('/user/update');
+                    redirect('/user/update');
                 }
                 else
                 {
                 	$data['user_img'] = $config['upload_path'].$this->upload->data('file_name');
                 	$this->my_user->update($data, $this->user->user_id);  
-                        //$data = array('upload_data' => $this->upload->data());
 
                     redirect('/user/update');
                 }

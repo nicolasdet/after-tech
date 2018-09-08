@@ -16,12 +16,8 @@ class Connexion extends MY_Controller {
 
 		    if ($this->form_validation->run() == FALSE)
             {   
-
                 $this->error_message .= validation_errors();
-
-                $error_message_type = VALIDATION_MESSAGE_ERROR;            
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 				redirect('/');
             }
             else
@@ -45,12 +41,7 @@ class Connexion extends MY_Controller {
         	$this->session->set_userdata('user', $user);
         	redirect('/user');
         }
-
-         $this->error_message = "Erreur d'email ou de mot de passe."; 
-         $error_message_type = VALIDATION_MESSAGE_ERROR;
-
-         $this->session->set_userdata('error_message', $this->error_message);
-         $this->session->set_userdata('error_message_type', $error_message_type);
+         $this->flash->setFlash("Erreur d'email ou de mot de passe.", VALIDATION_MESSAGE_ERROR);
          return  redirect('/');
 	}
 }

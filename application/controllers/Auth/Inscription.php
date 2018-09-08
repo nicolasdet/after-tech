@@ -17,13 +17,8 @@ class Inscription extends MY_Controller {
         
         if ($this->form_validation->run() == FALSE || $this->error_message != "")
             {   
-
-
                 $this->error_message .= validation_errors();
-
-                $error_message_type = VALIDATION_MESSAGE_ERROR;            
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 				redirect('/');
             }
             else
@@ -42,20 +37,13 @@ class Inscription extends MY_Controller {
         $tabUser['user_password'] = $this->input->post('password');
         $tabUser['user_status']   = 1;
 
-
-
         if($this->user->createUser($tabUser)){
 
-            $this->error_message = "Votre compte à bien ete crée."; 
-            $error_message_type = VALIDATION_MESSAGE;
-
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+            $this->flash->setFlash("Votre compte à bien ete crée.", VALIDATION_MESSAGE);
             return redirect('/');
         }
 
-
-         $this->error_message = "Problem lors de l'ajout utilisateur."; 
+         $this->flash->setFlash("Problem lors de l'ajout utilisateur.", VALIDATION_MESSAGE_ERROR);
          $this->session->set_userdata('error_message', $this->error_message);
          return  redirect('/');
         

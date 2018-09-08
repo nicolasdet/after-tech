@@ -23,10 +23,8 @@ class Update extends MY_User_Controller {
 
 		# si il ne fait pas partis du groupe
 		if($admin === false) {	
-			$this->error_message = "Vous n'étes pas membre du groupe"; 
-            $error_message_type = VALIDATION_MESSAGE_ERROR;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+
+			$this->flash->setFlash("Vous n'étes pas membre du groupe", VALIDATION_MESSAGE_ERROR);
 			return redirect('/user/groupe/recherche');
 		}
 
@@ -37,9 +35,7 @@ class Update extends MY_User_Controller {
 		if ($this->form_validation->run() == FALSE || $this->error_message != "")
             {     
                 $this->error_message .= validation_errors();
-                $error_message_type = VALIDATION_MESSAGE_ERROR;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+				$this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 
 				return redirect('/user/groupe/'.$id);
             }
@@ -59,17 +55,11 @@ class Update extends MY_User_Controller {
 
 		if($this->groupes->update($tabUser, $id)) {
 
-            $this->error_message = "Le groupe à bien ete modifier"; 
-            $error_message_type = VALIDATION_MESSAGE;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+            $this->flash->setFlash("Le groupe à bien ete modifier", VALIDATION_MESSAGE);
 
 		}else {
 
-			$error_message_type = VALIDATION_MESSAGE_ERROR;  
-			$this->error_message = "Problem lors de la modification du groupe."; 
-		    $this->session->set_userdata('error_message', $this->error_message);
-		    $this->session->set_userdata('error_message_type', $error_message_type);
+		    $this->flash->setFlash("Problem lors de la modification du groupe.", VALIDATION_MESSAGE);
 		}
 
 
@@ -94,11 +84,9 @@ class Update extends MY_User_Controller {
                 $this->upload->initialize($config);
 
                 if ( ! $this->upload->do_upload('userfile'))
-                {
-                        $error_message_type = VALIDATION_MESSAGE_ERROR;  
+  
 						$this->error_message = $this->upload->display_errors(); 
-		    			$this->session->set_userdata('error_message', $this->error_message);
-		   				$this->session->set_userdata('error_message_type', $error_message_type);
+		   				$this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 
                         return redirect('/user/groupe/'.$id);
                 }

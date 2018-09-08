@@ -20,6 +20,7 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
  		$this->output->set_header('Access-Control-Allow-Origin: *');
+ 		$this->flash = new Flash();
 
  		//$this->output->enable_profiler(true);
 

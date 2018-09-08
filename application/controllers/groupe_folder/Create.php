@@ -11,8 +11,6 @@ class Create extends MY_User_Controller {
 		
 	}
 
-
-
 	public function index($id = null)
 	{       
 		$CreateGroupeFormData = getCreateGroupeForm();
@@ -29,9 +27,7 @@ class Create extends MY_User_Controller {
 		if ($this->form_validation->run() == FALSE || $this->error_message != "")
             {     
                 $this->error_message .= validation_errors();
-                $error_message_type = VALIDATION_MESSAGE_ERROR;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
 
 				return $this->index();
             }
@@ -59,7 +55,8 @@ class Create extends MY_User_Controller {
 			$tabUserGroupe['status']		= 1;
 
 			$user_groupe = $this->user_groupes->insert($tabUserGroupe);
-			if(isset($user_groupe)){
+			if(isset($user_groupe))
+			{
 
 				$name = $this->session->userdata('image_groupe_cache');
 				$type = $this->session->userdata('image_groupe_cache_type');
@@ -71,29 +68,17 @@ class Create extends MY_User_Controller {
 			 		$this->groupes->update($tabUserGroupeImg, $groupeId);
 				}
 
-            $this->error_message = "Le groupe à bien été crée"; 
-            $error_message_type = VALIDATION_MESSAGE;
-            $this->session->set_userdata('error_message', $this->error_message);
-            $this->session->set_userdata('error_message_type', $error_message_type);
+            	$this->flash->setFlash("Le groupe à bien été crée", VALIDATION_MESSAGE);
 
-            return redirect('/user/groupe/'.$groupeId);
+            	return redirect('/user/groupe/'.$groupeId);
 
-		}
-			$error_message_type = VALIDATION_MESSAGE_ERROR;  
-			$this->error_message = "Problem lors de la création de l'administrateur du groupe."; 
-		    $this->session->set_userdata('error_message', $this->error_message);
-		    $this->session->set_userdata('error_message_type', $error_message_type);			
+			}
 
-
+		    $this->flash->setFlash("Problem lors de la création de l'administrateur du groupe.", VALIDATION_MESSAGE_ERROR);		
 		}else {
 
-			$error_message_type = VALIDATION_MESSAGE_ERROR;  
-			$this->error_message = "Problem lors de la création du groupe."; 
-		    $this->session->set_userdata('error_message', $this->error_message);
-		    $this->session->set_userdata('error_message_type', $error_message_type);
+		    $this->flash->setFlash("Problem lors de la création du groupe.", VALIDATION_MESSAGE_ERROR);
 		}
-
-
 		
 		return redirect('/user/groupe/create');
 	}

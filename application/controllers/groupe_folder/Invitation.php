@@ -38,19 +38,13 @@ class Invitation extends MY_User_Controller {
 
 			if($this->user_groupes->insert($dataUserGroupe) !== false){
 
-				$this->error_message .= 'Vous avez accepter l\'utilisateur';
-                $error_message_type = VALIDATION_MESSAGE;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash("Vous avez accepter l\'utilisateur", VALIDATION_MESSAGE);
 
                 return $this->annule($id, 'user/groupe/'.$id, $id_user);
                 
 			}else {
 
- 				$this->error_message .= 'Une erreur c\'est produite';
-                $error_message_type = VALIDATION_MESSAGE_ERROR;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash("Une erreur c\'est produite", VALIDATION_MESSAGE_ERROR);
 			}
 
 			return redirect("/user/groupe/".$id);
@@ -63,18 +57,12 @@ class Invitation extends MY_User_Controller {
 			$dataUserGroupe['groupes_id']	= $id;
 			if($this->user_groupes->insert($dataUserGroupe) !== false){
 
-				$this->error_message .= 'Vous faite maintenent partis du groupe';
-                $error_message_type = VALIDATION_MESSAGE;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash("Vous faite maintenent partis du groupe", VALIDATION_MESSAGE);
 
                 return $this->annule($id, 'user/groupe/'.$id);
 			}else {
 
- 				$this->error_message .= 'Une erreur c\'est produite';
-                $error_message_type = VALIDATION_MESSAGE_ERROR;    
-                $this->session->set_userdata('error_message', $this->error_message);
-                $this->session->set_userdata('error_message_type', $error_message_type);
+                $this->flash->setFlash("Une erreur c\'est produite", VALIDATION_MESSAGE_ERROR);
 			}
 		}
 
