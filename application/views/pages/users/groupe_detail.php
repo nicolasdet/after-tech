@@ -208,7 +208,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="col-lg-8   account-tab " id="detail-gestion">
+                        <div class="col-lg-8 hidden  account-tab " id="detail-gestion">
                             <div class="titleGroupe mt-4 p-4 bgWheat"> 
                                   <h4>Gestion du groupe</h4>
                                   <hr />
@@ -277,20 +277,41 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="col-lg-8 hidden   account-tab " id="detail-createEvent">
+                        <div class="col-lg-8    account-tab " id="detail-createEvent">
                                 <div class="titleGroupe mt-4 p-4 bgWheat"> 
-                                  <h4>Crée un evenement</h4>
+                                  <h4>Gestion des evenements</h4>
                                   <hr />
-                                  <h5 class="mt-3">Informations Gennerales</h5>
-                                  <form method="POST" action="user/groupe/update/<?= $groupe_detail->groupes_id ?>">
-                                  
-                                 <div class="col-md-3">
-                                <button type="submit" class="btn btn--primary">Crée</button>
+
+                               <div class="modal-instance " id="modalCréeEvement">
+                                <a class=" modal-trigger" href="#">
+                                    <button type="submit" class="btn btn--primary">Crée un evement</button>
+                                </a>
+                                <div class="modal-container">
+                                    <div class="modal-content width-50">
+                                        <div class="boxed boxed--lg">
+                                            <h2>Crée un evenement</h2>
+                                            <hr class="short">
+                                            <p class="lead">
+                                                <form method="POST" action="user/event/create/<?= $groupe_detail->groupes_id ?>">
+                                                <?=  drawInput($getCreateEventForm['nom']); ?>
+                                                <?=  drawInput($getCreateEventForm['description']); ?>
+                                                <?=  drawInput($getCreateEventForm['adresse']); ?>
+                                                <?=  drawInput($getCreateEventForm['ville']); ?>
+                                                <?=  drawInput($getCreateEventForm['date_debut']); ?>
+                                                <?=  drawInput($getCreateEventForm['duree']); ?>
+                                                <?=  drawSelect($getCreateEventForm['type']); ?>
+
+                                                <div class="col-md-3">
+                                                <button type="submit" class="btn btn--primary">Crée l'evenement</button>  
+                                                </div>
+                                                </form>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                </form>
+                            </div>
 
                                 <hr />
-                                <h5 class="mt-3">Configuration</h5>
                                 </div>
                         </div>
 
@@ -302,3 +323,5 @@
                 </div>
                 <!--end of container-->
             </section>
+
+

@@ -79,6 +79,8 @@ $route['user/groupe/invitation/ok/(:num)'] 				 = 'groupe_folder/invitation/ok/$
 $route['user/groupe/invitation/ok/(:num)/(:num)'] 		 = 'groupe_folder/invitation/ok/$1/$2';
 $route['user/groupe/invitation/refuser/(:num)'] 		 = 'groupe_folder/invitation/refuser/$1';
 
+$route['user/event/create/(:num)'] 			 		 	 = 'events/create/index/$1';
+
 //api
 $route['user/groupe/create/imgUpload'] 	 = 'groupe_folder/create/img';
 $route['user/groupe/create/getImgCache'] = 'groupe_folder/create/getImgCache';

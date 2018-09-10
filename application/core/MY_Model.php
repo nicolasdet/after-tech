@@ -204,6 +204,7 @@ class MY_Model extends CI_Model
         if(empty($this->table_fields))
         {
             $this->table_fields = $this->_database->list_fields($this->table);
+
         }
         return TRUE;
     }
@@ -235,7 +236,8 @@ class MY_Model extends CI_Model
     }
 
     public function _prep_before_write($data)
-    {
+    { 
+
         $this->fillable_fields();
         // We make sure we have the fields that can be filled
         $can_fill = $this->_can_be_filled;
@@ -402,6 +404,7 @@ class MY_Model extends CI_Model
      */
     public function insert($data = NULL)
     {
+
         if(!isset($data) && $this->validated!=FALSE)
         {
             $data = $this->validated;

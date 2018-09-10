@@ -1,5 +1,11 @@
 /*! Place your custom styles here */
+.height-400 {
+    height: 400px;
+}
 
+.width-50 {
+    width: 50% !important;
+}
 #menu2 {
 	background-color: #5a5a5a80;
 	padding: 1.357em 0;
@@ -154,9 +160,7 @@ align-items: flex-start;
 .groupe_show_recherche:hover {
     background-color: #ededed;
 }
-.height-400 {
-    height: 400px;
-}
+
 
 .img_groupe_recherche {
     max-height: 250px;
@@ -170,4 +174,9 @@ flex-direction: column;
 
 .button_invit {
  padding: 0.5em !important;
+}
+
+#modalCréeEvement {
+    width: 9em;
+
 }

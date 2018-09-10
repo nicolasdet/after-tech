@@ -61,8 +61,6 @@ class Update extends MY_User_Controller {
 
 		    $this->flash->setFlash("Problem lors de la modification du groupe.", VALIDATION_MESSAGE);
 		}
-
-
 		
 		return redirect('/user/groupe/'.$id);
 	}
@@ -83,7 +81,7 @@ class Update extends MY_User_Controller {
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if ( ! $this->upload->do_upload('userfile'))
+                if ( ! $this->upload->do_upload('userfile')){
   
 						$this->error_message = $this->upload->display_errors(); 
 		   				$this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);

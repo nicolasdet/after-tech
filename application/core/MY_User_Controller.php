@@ -1,8 +1,9 @@
 <?php
 
+# controller donc on hérite quand on est connecter
 class MY_User_Controller extends MY_Controller
 {
-
+	# on charge les donné user 
 	protected $user;
 	protected $userImgPath;
 
@@ -11,6 +12,7 @@ class MY_User_Controller extends MY_Controller
 		parent::__construct($layout);
 		$this->theme->css('user_custom');
 
+		# on vérifie si il ce déconnecte
 		if(isset($_GET['disconnect'])){
 			if($_GET['disconnect'] == true){
 				$this->session->unset_userdata('user');
@@ -19,14 +21,19 @@ class MY_User_Controller extends MY_Controller
 			}
 		}
 
+		# on vérifie si il à le droit d'étre ici
 		if(!$this->session->userdata('loged') || !$this->session->userdata('user'))
 		{
 			redirect('/');
 		}
 
+		# on charge les model & certaines informations
 		$this->getUser();
 		$this->getGroupe();
+		$this->getEvents();
 		$this->load->helper('groupe_form');
+		$this->load->helper('events_form_helper');
+
 	}
 
 	protected function getUser()
@@ -41,6 +48,11 @@ class MY_User_Controller extends MY_Controller
 	{
 		$this->load->model('User_groupes', 'user_groupes');
 		$this->load->model('Groupes', 'groupes');
+	}
+
+	protected function getEvents()
+	{
+		$this->load->model('Evenements', 'events');
 	}
 
 	protected function error_check_email()
@@ -60,6 +72,8 @@ class MY_User_Controller extends MY_Controller
              
 	}
 
+	# il sufil d'apeller cette fonction pour savoir si le user courrant est admin ou pas
+	# on peut l'upgrade avec un $user si besoin
 	public function isAdminOfGroup($idGroupe)
 	{
 		$admin  = $this->user_groupes->isAdmin($idGroupe, $this->session->userdata('user'));
