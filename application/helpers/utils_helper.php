@@ -17,7 +17,8 @@
 	}
 
 	function de($var = null) {
-		var_dump($var);
+		highlight_string("<?php\n\$data =\n" . var_export($var, true) . ";\n?>");
+		//var_dump($var);
 		exit();
 	}
 

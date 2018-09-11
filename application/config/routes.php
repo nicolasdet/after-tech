@@ -80,6 +80,7 @@ $route['user/groupe/invitation/ok/(:num)/(:num)'] 		 = 'groupe_folder/invitation
 $route['user/groupe/invitation/refuser/(:num)'] 		 = 'groupe_folder/invitation/refuser/$1';
 
 $route['user/event/create/(:num)'] 			 		 	 = 'events/create/index/$1';
+$route['user/event/detail/(:num)'] 			 		 	 = 'events/detail/index/$1';
 
 //api
 $route['user/groupe/create/imgUpload'] 	 = 'groupe_folder/create/img';

@@ -22,3 +22,6 @@ CONSTRAINT `fk_groupes`
 FOREIGN KEY (`groupes_id`) 
 REFERENCES `groupes`(`groupes_id`) 
 ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE `evenements_groupes` ADD `status` INT NOT NULL COMMENT '1 = admin | 2 = participant' AFTER `groupes_id`;

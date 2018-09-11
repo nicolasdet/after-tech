@@ -90,6 +90,7 @@ define('VALIDATION_MESSAGE_ERROR', 'danger');
 define('INVITATION_TYPE_USER',  1);
 define('INVITATION_TYPE_GROUPE', 2);
 define('INVITATION_STATUS_PENDING',  1);
+define('ADMIN_GROUPE_EVENT_STATUS',  1);
 
 
 if(ENVIRONMENT == 'development'){

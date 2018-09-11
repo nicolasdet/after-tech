@@ -53,6 +53,7 @@ class MY_User_Controller extends MY_Controller
 	protected function getEvents()
 	{
 		$this->load->model('Evenements', 'events');
+		$this->load->model('Evenements_groupes', 'events_groupes');
 	}
 
 	protected function error_check_email()

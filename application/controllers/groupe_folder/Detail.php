@@ -19,6 +19,7 @@ class Detail extends MY_User_Controller {
 		$Groupe_detail 		 		= $this->groupes->get($id);
 		$Groupe_detail->membres 	= $this->user_groupes->getUsersGroupe($id);
 		$admin 		  		 		= $this->isAdminOfGroup($id);
+		$listEvents					= $this->events_groupes->with_events()->where()->get_all();
 
 		# on charge les formulaires
 		$getSearchUserForm 		    = getSearchUserForm();
@@ -39,6 +40,7 @@ class Detail extends MY_User_Controller {
 		}
 
 		# templating
+		$this->theme->data('listEvents', $listEvents);
 		$this->theme->data('getCreateEventForm', $getCreateEventForm);
 		$this->theme->data('invitationsGroupe', $invitationsGroupe);
 		$this->theme->data('getUpdateGroupeForm', $getUpdateGroupeForm);

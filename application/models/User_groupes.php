@@ -29,6 +29,19 @@ class User_groupes extends MY_Model {
 		return $res->status;
 	}
 
+
+	public function isMemberOfGroup($groupeArray) {
+
+		$allUser = array();
+		foreach ($groupeArray as $key => $value) {
+
+		// $getUsers =  $this->where('groupes_id', 22)->get_all('user_id');
+		
+		 //de($getUsers);
+		}
+
+	}
+
 	public function getUsersGroupe($idGroupe)
 	{
 		$count =  $this->where('groupes_id', $idGroupe)->as_array()->count_rows();

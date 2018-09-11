@@ -51,3 +51,19 @@
 - id_groupe     [ facultatif ]
 - id_entreprise [ facultatif ]
 - creator [bool]
+
+
+# Salon
+
+- Salon_id 
+- Groupe_id
+- Evenement_id
+- Type
+
+
+# Message 
+
+- message_id
+- user_id
+- message
+- date

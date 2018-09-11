@@ -6,7 +6,7 @@ class Create extends MY_User_Controller {
 	
 	# $id = id du groupe de l'event à crée
 	public function index($id = null)
-	{       
+	{   
 
 		# si il ne fait pas partis du groupe
 		$admin = $this->isAdminOfGroup($id);
@@ -34,17 +34,23 @@ class Create extends MY_User_Controller {
 
              	$time = strtotime( $this->input->post('date_debut'));
              	$dateTransformée = date('Y-m-d',$time);
+
              	# gestion de date
              	$tabEvent['evenement_debut'] 		= $dateTransformée;
              	$tabEvent['evenement_duree'] 		= $this->input->post('duree');
              	$tabEvent['evenement_type'] 		= $this->input->post('type');
              	
+                $eventC = $this->events->insert($tabEvent);
 
-               $eventC = $this->events->insert($tabEvent);
+                $tabEventGroupe['groupes_id'] = $id;
+                $tabEventGroupe['evenement_id'] = $eventC;
+                $tabEventGroupe['status'] = ADMIN_GROUPE_EVENT_STATUS;
 
-             	if($eventC){
+               
+            if(!empty($eventC) && $this->events_groupes->insert($tabEventGroupe)){
+    
+             	    $this->flash->setFlash("l'evenement à bien été crée", VALIDATION_MESSAGE);
 
-             		$this->flash->setFlash("l'evenement à bien été crée", VALIDATION_MESSAGE);
              	}else{
                 	$this->flash->setFlash("Erreur lors de la création de l'évenement", VALIDATION_MESSAGE_ERROR);
              	}

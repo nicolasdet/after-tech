@@ -42,7 +42,7 @@
                         <div class="col-lg-8 hidden account-tab" id="detail-chat">
                             <div class="conversation__head boxed boxed--lg bg--primary">
                                 <h4>Espace de discution du groupe <?= $groupe_detail->groupes_nom ?> </h4>
-                                <span>26juillet</span>
+                                <span><?= date("d-m-Y");   ?></span>
                             </div>
                             <div class="conversation__reply boxed boxed--border">
                                 <form>
@@ -99,7 +99,39 @@
                             </div>
                             <!--end comments-->
                         </div>
-                        <div class="col-lg-8 hidden account-tab " id="detail-events">
+                        <div class="col-lg-8  account-tab " id="detail-events">
+
+                            <?php if(!empty($listEvents)): ?>
+                             <?php foreach ($listEvents as $unEvent): ?>
+                             
+                                <div class="titleGroupe mt-4 p-4 bgWheat"> 
+                                  <h4><?= $unEvent->events->evenement_nom ?></h4>
+                                <ul class="pt-3">
+                                    <li class="clearfix">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-3 text-center">
+                                                <div class="icon-circle">
+                                                    <i class="icon icon--lg material-icons">comment</i>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-8 col-7">
+                                                <p><?= $unEvent->events->evenement_debut ?> <br />  
+                                                <?= $unEvent->events->evenement_description ?></p>
+                                                <span class="type--fine-print"></span>
+                                                <p>
+                                                <a href="user/event/detail/<?= $unEvent->events->evenement_id ?>"> 
+                                                    <button type="submit" class="btn btn--primary col-md-2">Detail</button>
+                                                </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+
                             <div class="titleGroupe mt-4 p-4 bgWheat"> 
                                   <h4>Prochain evenement  <span class="countdown" data-date="03/13/2017"></span></h4>
                                 <ul class="pt-3">
@@ -110,6 +142,7 @@
                                                     <i class="icon icon--lg material-icons">comment</i>
                                                 </div>
                                             </div>
+
                                             <div class="col-lg-8 col-7">
                                                 <p>Pas d'évenement à venir</p>
                                                 <span class="type--fine-print"></span>
@@ -121,6 +154,9 @@
                                     </li>
                                 </ul>
                             </div>
+
+
+                        <?php endif; ?>
                         </div>
                         <div class="col-lg-8 hidden account-tab " id="detail-profile">
                             <div class="titleGroupe p-4 bgWheat"> 
@@ -277,7 +313,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <div class="col-lg-8    account-tab " id="detail-createEvent">
+                        <div class="col-lg-8  hidden  account-tab " id="detail-createEvent">
                                 <div class="titleGroupe mt-4 p-4 bgWheat"> 
                                   <h4>Gestion des evenements</h4>
                                   <hr />

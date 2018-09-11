@@ -11,10 +11,15 @@ class Flash extends CI_Session {
 
         }
 
-
         public function setFlash($text, $type)
         {
         	$this->CI->session->set_userdata('error_message', $text);
             $this->CI->session->set_userdata('error_message_type', $type);
+        }
+
+        public function deleteFlash()
+        {
+            $this->session->unset_userdata('error_message');
+            $this->session->unset_userdata('error_message_type');
         }
 }
