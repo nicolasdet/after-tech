@@ -7,7 +7,9 @@ class Detail extends MY_User_Controller {
 	public function __construct($layout = 'user')
 	{
 		parent::__construct($layout);
+		
 		$this->load->model('Invitation_ug', 'invitation');
+		$this->theme->js('chat');
 		
 	}
 
@@ -20,6 +22,9 @@ class Detail extends MY_User_Controller {
 		$Groupe_detail->membres 	= $this->user_groupes->getUsersGroupe($id);
 		$admin 		  		 		= $this->isAdminOfGroup($id);
 		$listEvents					= $this->events_groupes->with_events()->where()->get_all();
+		$SalonChat 					= $this->chat->getAllSalonByGroupe($id);
+
+
 
 		# on charge les formulaires
 		$getSearchUserForm 		    = getSearchUserForm();
@@ -40,6 +45,7 @@ class Detail extends MY_User_Controller {
 		}
 
 		# templating
+		$this->theme->data('SalonChat', $SalonChat);
 		$this->theme->data('listEvents', $listEvents);
 		$this->theme->data('getCreateEventForm', $getCreateEventForm);
 		$this->theme->data('invitationsGroupe', $invitationsGroupe);
@@ -61,15 +67,16 @@ class Detail extends MY_User_Controller {
 			return $this->index();
 		}
 
-		if($this->user_groupes->delete([
-			'user_id' => $id_user,
-			'groupes_id' => $id_groupe ]))
-		{
+		if($this->user_groupes->delete(['user_id' => $id_user,'groupes_id' => $id_groupe ])){
+
 			$this->flash->setFlash("L'utilisateur à bien été supprimer", VALIDATION_MESSAGE);
-			return $this->index($id_groupe);		
-		}else {
-		$this->flash->setFlash("Une erreur c'est produite durant la suppression de l'utilisateur", VALIDATION_MESSAGE_ERROR);
-			return $this->index($id_groupe);				
+			return $this->index($id_groupe);	
+
+		} else {
+
+	$this->flash->setFlash("Une erreur c'est produite durant la suppression de l'utilisateur", VALIDATION_MESSAGE_ERROR);
+			return $this->index($id_groupe);	
+
 		}
 	}
 

@@ -1,5 +1,20 @@
 <?php
 
+
+	/**
+	 * Charge une vue partielle, qui se trouve dans le dossier views/partials
+	 * @param  string  $file   le nom du template
+	 * @param  array   $data   le tableau des données à passer au template
+	 * @param  boolean $return true pour retourner le rendu du template, false pour l'afficher directement. Défaut false
+	 */
+	function partial($file, $data = [], $return = false)
+	{
+		$CI = &get_instance();
+		return $CI->load->view('partials' . DIRECTORY_SEPARATOR . $file, $data, $return);
+	}
+
+
+	
 	function sql() {
 		$CI = &get_instance();
 		d($CI->db->last_query());

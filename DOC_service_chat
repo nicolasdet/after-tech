@@ -1,0 +1,7 @@
+Service chat :
+Library:
+
+
+	public static :: getMessageByGroupe(Int $idGroupe): Array $ListeMessage
+
+	public static :: SetMessageForGroupeUser(int $idGroupe, int $idUser): Bool $result

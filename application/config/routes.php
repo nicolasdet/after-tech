@@ -79,6 +79,10 @@ $route['user/groupe/invitation/ok/(:num)'] 				 = 'groupe_folder/invitation/ok/$
 $route['user/groupe/invitation/ok/(:num)/(:num)'] 		 = 'groupe_folder/invitation/ok/$1/$2';
 $route['user/groupe/invitation/refuser/(:num)'] 		 = 'groupe_folder/invitation/refuser/$1';
 
+// groupe ajax
+$route['user/groupe/ajax/loadChat/(:num)'] 		 		 = 'groupe_folder/ajax/loadChat/$1';
+$route['user/groupe/ajax/addMessage/(:num)/(:num)'] 	 = 'groupe_folder/ajax/addMessage/$1/$2';
+
 $route['user/event/create/(:num)'] 			 		 	 = 'events/create/index/$1';
 $route['user/event/detail/(:num)'] 			 		 	 = 'events/detail/index/$1';
 
@@ -92,6 +96,8 @@ $route['user/update'] 					 = 'users/update';
 $route['user/update/profile'] 			 = 'users/update/profile';
 $route['user/update/password'] 			 = 'users/update/password';
 $route['user/update/do_upload'] 		 = 'users/update/do_upload';
+
+
 
 
 //
