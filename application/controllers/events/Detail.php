@@ -8,9 +8,9 @@ class Detail extends MY_User_Controller {
 	public function index($id = null)
 	{   
 
+        $ActualEvent = $this->events->get($id);
         # si on est membre du groupe qui participe à l'event
         $eventGroupes = $this->events_groupes->with_groupe()->where(['evenement_id' => $id])->get_all();
-
         # on récupére un tableau des groupes participants à l'evenement
         $idGroupes = array();
         foreach ($eventGroupes as $UnEventGroupe) {
@@ -29,6 +29,8 @@ class Detail extends MY_User_Controller {
 
 
         # on affiche
+        $this->theme->data('eventGroupes', $eventGroupes);
+        $this->theme->data('ActualEvent', $ActualEvent);
         $this->render('events/detail');
 
 	}

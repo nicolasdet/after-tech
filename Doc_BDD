@@ -53,6 +53,9 @@
 - creator [bool]
 
 
+
+
+
 # Salon
 
 - Salon_id 
@@ -65,5 +68,6 @@
 
 - message_id
 - user_id
+- salon_id
 - message
 - date
