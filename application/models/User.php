@@ -9,6 +9,33 @@ class User extends MY_Model {
 
 	public $protected_attributes = array('user_id');
 
+	
+	public function __construct()
+	{
+
+		$this->after_get[] = 'hidepassword';
+		parent::__construct();
+	}
+
+
+	protected function hidepassword($data)
+	{
+
+		if(is_string($data)) {
+			unset($data['user_password']);
+		}else if(is_array($data)){
+
+			foreach ($data as &$unResultat) {
+				if(!empty($unResultat['user_password'])){
+					
+				unset($unResultat['user_password']);
+				}
+			}
+		}
+
+
+		return $data;
+	}
 
 	public function match_email($email)
 	{

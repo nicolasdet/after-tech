@@ -1,5 +1,5 @@
 <?php
-class Chat extends CI_Session {
+class Chat {
 
 		protected $CI;
 
@@ -10,6 +10,7 @@ class Chat extends CI_Session {
 
             $this->CI->load->model('Salon', 'salon');
             $this->CI->load->model('Message', 'message');
+            $this->CI->load->model('User', 'MYuser');
 
         }
 
@@ -52,7 +53,7 @@ class Chat extends CI_Session {
         }
         # retourne les messages d'un salon ? 
         public function loadMessageBySalon($idSalon){
-            $SalonActuel = $this->CI->message->where(['salon_id' => $idSalon])->get();
+            $SalonActuel = $this->CI->message->with_user()->where(['salon_id' => $idSalon])->order_by('date', 'DESC')->get_all();
             $SalonActuel = json_encode($SalonActuel);
             echo $SalonActuel;
             die();
@@ -63,12 +64,11 @@ class Chat extends CI_Session {
 
             $tabMessage['user_id']          = $idUser;
             $tabMessage['salon_id']         = $idSalon;
-            $tabMessage['message_text']     = $this->input->post('text');
+            $tabMessage['message_text']     = $this->CI->input->post('text');
             $tabMessage['date']             = date("Y-m-d H:i:s");
 
             $res = $this->CI->message->insert($tabMessage);
-            $res = json_encode($res);
-            echo $res;
+            return $res;
             die();
         }
 

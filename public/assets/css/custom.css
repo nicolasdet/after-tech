@@ -220,3 +220,7 @@ flex-direction: column;
 #groupeChatZone {
     display: none ;
 }
+
+.comments__list li {
+    padding: 1.2em 2em !important;
+}

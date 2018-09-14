@@ -26,7 +26,7 @@
                             </div>
                             <div class="comments conversation__comments">
                                 <div id="TitreZoneConversation"></div>
-                                <ul class="comments__list">
+                                <ul class="comments__list" id="chatUl">
                                     <!--
                                     <li>
                                         <div class="comment">

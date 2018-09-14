@@ -1,5 +1,5 @@
 <?php
-class Flash extends CI_Session {
+class Flash {
 
 		public $error_message = '';
 		protected $CI;

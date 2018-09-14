@@ -35,7 +35,7 @@ CREATE TABLE `message`
 	PRIMARY KEY (`message_id`)
 ) ENGINE = InnoDB;
 
-ALTER TABLE `message` ADD UNIQUE `idx_chat` (`user_id`, `salon_id`);
+ALTER TABLE `message` ADD INDEX `idx_chat` (`user_id`, `salon_id`);
 
 ALTER TABLE `message` ADD CONSTRAINT `user_id_fk_chat` 
 FOREIGN KEY (`user_id`) 
@@ -48,3 +48,6 @@ FOREIGN KEY (`salon_id`)
 REFERENCES `salon`(`salon_id`) 
 ON DELETE NO ACTION 
 ON UPDATE NO ACTION;
+
+
+ALTER TABLE `message` ADD CONSTRAINT `fk_salon_` FOREIGN KEY (`salon_id`) REFERENCES `salon`(`salon_id`) ON DELETE NO ACTION ON UPDATE NO ACTION; ALTER TABLE `message` ADD CONSTRAINT `fk_msg-` FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

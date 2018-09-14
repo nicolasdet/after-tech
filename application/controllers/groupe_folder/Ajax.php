@@ -19,8 +19,8 @@ class Ajax extends MY_Ajax {
 		die();
 	}
 
-	public function addMessage($idSalon){
-		$res = $this->chat->addMessageBySalon($idSalon);
+	public function addMessage($idSalon, $idUser){
+		$res = $this->chat->addMessageBySalon($idSalon, $idUser);
 		$res = json_encode($res);
 		echo $res;
 		die();

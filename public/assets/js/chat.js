@@ -19,29 +19,62 @@ $(function() {
 		  $.ajax({
                    type: 'GET',
                    url: 'user/groupe/ajax/loadChat/'+idSalon,
+                   dataType: 'json',
                     success: function(data) {
                          if(data != false){
                          	if(data !== "false"){
-                         		return SuccessChat()
+                         		return SuccessChat(data)
                          	}
-               				return SuccessChat();
+               				return SuccessChat(data);
 
                           }else {
-                          	return ErrorChat();
+                          	SuccessChat(data);
                           }
                        },
                     error: function(){
                     	return ErrorChat();
                     }
-            }, "JSON");
+            });
 	};
 
-	function SuccessChat(){
+	function SuccessChat(data){
 		State = 2;
+		if(data !== false && data !== "false"){
+			data.forEach(function(item){
+				setMessage(item);
+			});
+		}
+		
+
 		$('#loadingChatZone').fadeOut("400", "swing").promise().done(function(){
 			$('#groupeChatZone').fadeIn();
 		});
 	};
+
+	function setMessage(item){
+			console.log(item);
+			Msg = `
+				<li>
+		           <div class='comment'>
+		              <div class='comment__avatar'>
+		                <img alt='Image' src='`+item.user.user_img+`' />
+		              </div>
+		               <div class='comment__body'>
+		                   <h5 class='type--fine-print'>`+ item.user.user_prenom +` ` + item.user.user_nom + `</h5>
+		                    <div class='comment__meta'>
+		                        <span>`+ item.date +`</span>
+		                    </div>
+		                      <p>
+		                         `+item.message_text +`
+		                      </p>
+		          </div>
+		          </div>                      
+		         </li>`;
+
+         $('#chatUl').append(Msg);
+
+
+	}
 
     function NoMessageChat(){
 
@@ -60,14 +93,12 @@ $(function() {
 	};
 
 	function SendMessage(message){
-		console.log(idSalon);
-		console.log(message);
 
 		$.post("user/groupe/ajax/addMessage/"+idSalon+"/"+idUser, { text: message }, 
 			function(data, status){
 	        		if(status == "success"){
 	        			if(data !== "false"){
-	        				//return reloadChat();
+	        				return reloadChat();
 	        				//return;
 	        			}
 	        		}else {
@@ -75,14 +106,36 @@ $(function() {
 	        		}
 	        		
 	    	}, "JSON");
+
+		$('#chatText').val("");
 	};
+
+	function setLoadDiv() {
+
+		$("#chatUl").empty();
+
+
+		$('#groupeChatZone').fadeOut("400", "swing").promise().done(function(){
+			$('#loadingChatZone').fadeIn();
+		});	
+
+
+	}
+
+	function reloadChat(){
+		
+		setLoadDiv();
+		// On remet une moulinette 
+
+		LoadChat();
+		// requete ajax
+	}
 
 	function initChat()
 	{
 
 		LoadChat();
 	}
-
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 	//  ON LANCE L'APPLI DE CHAT
