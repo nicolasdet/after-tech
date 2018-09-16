@@ -18,3 +18,5 @@ AFTER `evenement_duree`;
 
 
 ALTER TABLE `evenements` CHANGE `evenemnt_description` `evenement_description` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+
+ALTER TABLE `evenements` ADD `evenement_img` VARCHAR(255) NULL AFTER `evenement_type`;

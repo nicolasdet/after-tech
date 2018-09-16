@@ -85,6 +85,10 @@ $route['user/groupe/ajax/addMessage/(:num)/(:num)'] 	 = 'groupe_folder/ajax/addM
 
 $route['user/event/create/(:num)'] 			 		 	 = 'events/create/index/$1';
 $route['user/event/detail/(:num)'] 			 		 	 = 'events/detail/index/$1';
+$route['user/event/update/(:num)'] 			 		 	 = 'events/update/index/$1';
+$route['user/event/do_upload/(:num)'] 					 = 'events/update/do_upload/$1';
+
+
 
 //api
 $route['user/groupe/create/imgUpload'] 	 = 'groupe_folder/create/img';
@@ -98,9 +102,7 @@ $route['user/update/password'] 			 = 'users/update/password';
 $route['user/update/do_upload'] 		 = 'users/update/do_upload';
 
 
-
-
-//
+// Auth
 $route['inscription'] 					 = 'Auth/inscription';
 $route['connexion'] 					 = 'Auth/connexion';
 

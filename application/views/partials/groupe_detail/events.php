@@ -1,4 +1,4 @@
-                        <div class="col-lg-8 hidden account-tab " id="detail-events">
+                        <div class="col-lg-8  account-tab " id="detail-events">
 
                             <?php if(!empty($listEvents)): ?>
                              <?php foreach ($listEvents as $unEvent): ?>
@@ -18,11 +18,12 @@
                                                 <p><?= $unEvent->events->evenement_debut ?> <br />  
                                                 <?= $unEvent->events->evenement_description ?></p>
                                                 <span class="type--fine-print"></span>
-                                                <p>
+                                                <div class="d-flex justify-content-start">
                                                 <a href="user/event/detail/<?= $unEvent->events->evenement_id ?>"> 
-                                                    <button type="submit" class="btn btn--primary col-md-2">Detail</button>
+                                                    <button type="submit" class="btn btn--primary btn-event">Detail</button>
                                                 </a>
-                                                </p>
+                                              
+                                                </div>
                                             </div>
                                         </div>
                                     </li>

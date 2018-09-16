@@ -20,9 +20,9 @@ class User_groupes extends MY_Model {
 	}
 
 	public function isAdmin($idGroupe, $idAdmin)
-	{
+	{	
+		
 		$res = $this->where([ 'user_id' => $idAdmin, 'groupes_id' => $idGroupe])->get();
-
 		if(!$res)
 			return false;
 

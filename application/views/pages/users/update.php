@@ -98,7 +98,7 @@
                                        
                                     <img id="img_groupe_create" src="<?= $user->user_img ?>" alt="pas encore d'image">
                                      <div id="dropfile" class="mt-5 mb-5">Glisse / Dépose une image ici !</div>
-                                    <?php echo form_open_multipart('user/update/do_upload');?>
+                                        <?php echo form_open_multipart('user/update/do_upload');?>
                                         <input type="file" class="mt-1" id="upl_img_user" name="userfile" size="20" />
                                         <br /><br />
                                         <button type="submit" class="btn btn--primary" >telecharger l'image </button>

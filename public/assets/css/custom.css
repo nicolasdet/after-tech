@@ -14,6 +14,11 @@
     background-color: white;
 }
 
+.sectionNoPadding {
+     padding-top: 1.71428571em !important;
+    padding-bottom: 1.71428571em !important;   
+}
+
 #menu2 {
 	background-color: #5a5a5a80;
 	padding: 1.357em 0;
@@ -183,7 +188,7 @@ flex-direction: column;
 }
 
 #modalCréeEvement {
-    width: 9em;
+    width: 9.5em;
 
 }
 
@@ -223,4 +228,59 @@ flex-direction: column;
 
 .comments__list li {
     padding: 1.2em 2em !important;
+}
+
+.btn-event {
+    min-width: 150px;
+}
+
+.buttonModifierContainer {
+
+    top: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+}
+
+.IModifierElement {
+
+    font-size: 2em !important;
+    margin: 0;
+    padding: 0;
+    top: 0 !important;
+    color: #fefefe !important;
+
+}
+
+.eventzonegroupe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+    border: 1px solid black;
+}
+
+
+.modalUpdateEvent {
+    width: 9em;
+    float: right;
+    padding-top: 21px;
+    margin-right: 30px;
+}
+
+.detail_event {
+    padding-top: 10px !important;
+}
+
+.eventGroupeMembreCount {
+    /* border: 1px solid black; */
+}
+
+.evenementTitre {
+    font-size: 2rem;
+    border: 1px dashed black;
+    padding: 1em;
+    border-radius: 1em;
 }

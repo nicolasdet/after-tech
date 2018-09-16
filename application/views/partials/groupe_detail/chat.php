@@ -1,5 +1,5 @@
 
-                        <div class="col-lg-8  account-tab" id="detail-chat">
+                        <div class="col-lg-8 hidden  account-tab" id="detail-chat">
                             <input type="hidden" name="" id="salon_id" value="<?= $SalonChat->salon_id ?>">
                             <input type="hidden" name="" id="user_id"  value="<?= $user->user_id ?>">
 
