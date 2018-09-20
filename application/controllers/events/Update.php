@@ -60,7 +60,7 @@ class Update extends MY_User_Controller {
         {
                 $config['upload_path']          = './public/assets/img/upload/event/';
                 $config['allowed_types']        = 'jpg|png';
-                $config['max_size']             = 1000
+                $config['max_size']             = 1000;
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
                 $config['overwrite']            = true;
@@ -71,7 +71,7 @@ class Update extends MY_User_Controller {
 
                 if (!$this->upload->do_upload('userfile'))
                 {
-                de($config['upload_path'].$this->upload->data('file_name'));
+                    //de($config['upload_path'].$this->upload->data('file_name'));
                     $error_message_type = array('error' => $this->upload->display_errors());
                     //$error_message_type = VALIDATION_MESSAGE_ERROR;  
                     $this->flash->setFlash($this->error_message, VALIDATION_MESSAGE_ERROR);
@@ -80,7 +80,7 @@ class Update extends MY_User_Controller {
                 else
                 {
                     $data['evenement_img'] = $config['upload_path'].$this->upload->data('file_name');
-                    $this->Evenements->update($data, $idEvent);  
+                    $this->events->update($data, $idEvent);  
 
                     redirect('user/event/detail/'.$idEvent);
                 }

@@ -2,27 +2,28 @@
 
 
 <div id="user_groupe" class="detail_event">
-                       
+               <div class="background-image-holder ">
+                    <img alt="background" src="<?= $ActualEvent->evenement_img ?>" />
+                </div>
             <section class="text-center sectionNoPadding">
-
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 col-lg-8">
-                <h2 class="evenementTitre"><?= $ActualEvent->evenement_nom ?> <span class="h3 countdown" data-date="09/18/2018" data-date-fallback="Timer Done"  data-days-text="jours"></span></h2>
-                            <p class="lead">
+                <h2 class="evenementTitre bgWhite"><?= $ActualEvent->evenement_nom ?> <span class="h3 countdown" data-date="09/18/2018" data-date-fallback="Timer Done"  data-days-text="jours"></span></h2>
+                            <p class="lead bgWhite">
                                 <?= $ActualEvent->evenement_description ?> <Br />
                                  
                             </p>
                         </div>
                     </div>
                     <!--end of row-->
-                </div>
+                </div>  
                 <!--end of container-->
             </section>
             <section class="switchable">
                 <div class="container">
                     <div class="row justify-content-around">
-                        <div class="col-lg-6 col-md-7 pt-5">
+                        <div class="col-lg-6 col-md-7 pt-5 eventMiddleCol">
 
 <style> #map { height: 50vh; }</style>
  <span id="adresse" class="hidden"><?php echo $ActualEvent->evenement_adresse . $ActualEvent->evement_ville;  ?></span>
@@ -144,7 +145,7 @@ request.send();
                                 </div>
 </div>
 
-                        <div class="col-lg-5 col-md-5">
+                        <div class="col-lg-5 col-md-5 eventMiddleCol">
                             <div class="switchable__text">
                                 <h3 ><?= $ActualEvent->evenement_adresse ?>
                                     <br /><?= $ActualEvent->evement_ville ?></h3>

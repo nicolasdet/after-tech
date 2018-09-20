@@ -13,7 +13,9 @@
 .bgWheat {
     background-color: white;
 }
-
+.bgWhite {
+    background-color: white;
+}
 .sectionNoPadding {
      padding-top: 1.71428571em !important;
     padding-bottom: 1.71428571em !important;   
@@ -283,4 +285,8 @@ flex-direction: column;
     border: 1px dashed black;
     padding: 1em;
     border-radius: 1em;
+}
+.eventMiddleCol {
+    background-color: white;
+    padding: 2% !important;
 }
