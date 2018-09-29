@@ -119,7 +119,7 @@ class MY_Controller extends CI_Controller
 */
 	}
 
-	public function render($viewFile)
+	public function render($viewFile, $data = null)
 	{
 		$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
 		$this->output->set_header("Cache-Control: post-check=0, pre-check=0");
@@ -129,7 +129,7 @@ class MY_Controller extends CI_Controller
 		$this->theme->title($this->title);
 
 		$this->_includeSlice();
-		$this->theme->paint($viewFile);
+		$this->theme->paint($viewFile, $data);
 	}
 
 	protected function _includeSlice()

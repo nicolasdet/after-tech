@@ -85,6 +85,19 @@ div[class*="col-"] .text-block + .text-block {
     top: 100px;
     position: relative;
 }
+#admin_groupe {
+    background-color: whitesmoke;
+    width: 60%;
+    margin: auto;
+    height: 80%;
+    top: 100px;
+    position: relative;
+}
+
+#custimSection {
+    padding: 2em;
+}
+
 #user_groupe section {
     padding-top: 1em;
 }

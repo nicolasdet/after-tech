@@ -19,6 +19,13 @@ class User_groupes extends MY_Model {
 		return $this->with_groupe()->where([ 'user_id' => $id ])->get_all();
 	}
 
+	public function getByUserAndAdminCount($id) {
+
+		$res = $this->getByUserAndAdmin($id);
+		$res['count'] = count($res);
+		return $res;
+	}
+
 	public function isAdmin($idGroupe, $idAdmin)
 	{	
 		

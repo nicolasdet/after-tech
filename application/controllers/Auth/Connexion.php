@@ -39,7 +39,15 @@ class Connexion extends MY_Controller {
 
         	$this->session->set_userdata('loged', true);
         	$this->session->set_userdata('user', $user);
-        	redirect('/user');
+
+            if($this->user->isAdmin($user)){
+
+                $this->session->set_userdata('admin', 'loged');
+                return redirect('/admin');
+            }
+
+
+        	return redirect('/user');
         }
          $this->flash->setFlash("Erreur d'email ou de mot de passe.", VALIDATION_MESSAGE_ERROR);
          return  redirect('/');

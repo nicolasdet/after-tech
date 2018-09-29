@@ -107,3 +107,17 @@ $route['inscription'] 					 = 'Auth/inscription';
 $route['connexion'] 					 = 'Auth/connexion';
 
 
+//Admin
+$route['admin']							= 'Admin/home';
+
+$route['admin/user/gestion']			= 'Admin/user/gestion';
+$route['admin/user/change/(:num)']		= 'Admin/user/gestion/change/$1';
+$route['admin/user/delete/(:num)']		= 'Admin/user/gestion/delete/$1';
+
+$route['admin/groupe/gestion']			= 'Admin/groupe/gestion';
+$route['admin/groupe/change/(:num)']	= 'Admin/groupe/gestion/change/$1';
+$route['admin/groupe/delete/(:num)']	= 'Admin/groupe/gestion/delete/$1';
+
+$route['admin/event/gestion']			= 'Admin/event/gestion';
+$route['admin/event/change/(:num)']		= 'Admin/event/gestion/change/$1';
+$route['admin/event/delete/(:num)']		= 'Admin/event/gestion/delete/$1';
