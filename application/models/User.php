@@ -18,23 +18,35 @@ class User extends MY_Model {
 	}
 
 
-	protected function hidepassword($data)
-	{
-
+	protected function hidepassword($data){
 		if(is_string($data)) {
 			unset($data['user_password']);
+			return $data;
 		}else if(is_array($data)){
+
+			if(isset($data['user_password'])){
+				unset($data['user_password']);
+				return $data;
+			}
 
 			foreach ($data as &$unResultat) {
 				if(!empty($unResultat['user_password'])){
 					
-				unset($unResultat['user_password']);
+					unset($unResultat['user_password']);
 				}
 			}
 		}
 
 
 		return $data;
+	}
+
+	public function isAdmin($id) {
+		$res = $this->get($id);
+		if($res->user_status === '2'){
+			return true;
+		}
+		return false;
 	}
 
 	public function match_email($email)

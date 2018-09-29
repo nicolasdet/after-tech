@@ -41,11 +41,11 @@
                                     </li>
                                     <li class="col-md-4 col-6">
                                         <span class="h6 type--uppercase type--fade">Groupes</span>
-                                        <span class="h3">0</span>
+                                        <span class="h3"><?= $listGroupes['count'] ?></span>
                                     </li>
                                     <li class="col-md-4 col-6">
                                         <span class="h6 type--uppercase type--fade">Message</span>
-                                        <span class="h3">0</span>
+                                        <span class="h3"><?= $listeMessages['count'] ?></span>
                                     </li>
                                 </ul>
                             </div>
@@ -70,6 +70,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            <!--
                             <div class="boxed boxed--border">
                                 <h4>Activitée récente</h4>
                                 <ul class="pt-3">
@@ -110,6 +111,7 @@
                                 </ul>
                                 <a href="#" class="type--fine-print pull-right">View All</a>
                             </div>
+                        -->
                         </div>
                     </div>
                     <!--end of row-->

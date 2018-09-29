@@ -17,6 +17,7 @@ class MY_User_Controller extends MY_Controller
 			if($_GET['disconnect'] == true){
 				$this->session->unset_userdata('user');
 				$this->session->unset_userdata('loged');
+				$this->session->unset_userdata('admin');
 				redirect('/');
 			}
 		}
@@ -25,6 +26,10 @@ class MY_User_Controller extends MY_Controller
 		if(!$this->session->userdata('loged') || !$this->session->userdata('user'))
 		{
 			redirect('/');
+		}
+
+		if($this->session->userdata('admin') || $this->session->userdata('admin') == 'loged'){
+			redirect('/admin');
 		}
 
 		# on charge les model & certaines informations

@@ -17,5 +17,9 @@ class Message extends MY_Model {
 		parent::__construct();
 	}
 
-
+	public function loadByUserIdCount ($id){
+		$res = $this->where([ 'user_id' => $id ])->get_all();
+		$res['count'] = count($res);
+		return $res;
+	}
 }

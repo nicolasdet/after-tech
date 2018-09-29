@@ -102,6 +102,71 @@ if (!function_exists('getInscriptionForm'))
  		return $validationData;
  	}
 }
+   
+if (!function_exists('getAdminUserUpdateForm'))
+{
+ 	function getAdminUserUpdateForm($form = true, $user = null)
+ 	{
+ 		$formData = array();
+ 		$validationData = array();
+
+		$formData['form']  = array('class' => 'form');
+		$formData['nom']   = array(
+				'name' => 'nom',
+				'placeholder'=>'nom',
+				'label' => 'Nom',
+				'wrapper' => 'col-12',
+				'value' => isset($user->user_nom) ? $user->user_nom : ''
+		);
+		$validationData['nom'] = array (
+					'field' => 'nom',
+			        'label' => 'Nom',
+			        'rules' => 'required',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			       ),
+		);
+
+		$formData['prenom']   = array(
+				'name' => 'prenom',
+				'placeholder'=>'prenom',
+				'label' => 'Prenom',
+				'wrapper' => 'col-12',
+				'value' => isset($user->user_prenom) ? $user->user_prenom : ''
+		);
+		$validationData['prenom'] = array (
+					'field' => 'prenom',
+			        'label' => 'prenom',
+			        'rules' => 'required',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			       ),
+		);
+
+		$formData['email']   = array(
+				'name' => 'email',
+				'placeholder'=>'email',
+				'type' => 'email',
+				'label' => 'Email',
+				'wrapper' => 'col-12',
+				'value' => isset($user->user_email) ? $user->user_email : ''
+		);
+		$validationData['email'] = array (
+					'field' => 'email',
+			        'label' => 'Email',
+			        'rules' => 'required|valid_email',
+			        'errors' => array(
+			             'required' => 'Vous devez remplir le %s.',
+			             'valid_email' => 'L\'email doit étre valise'
+			       ),
+		);
+
+		if($form)
+ 			return $formData;
+ 
+ 		return $validationData;
+ 	}
+}
 
 if (!function_exists('getConnexionForm'))
 {
