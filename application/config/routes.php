@@ -89,7 +89,6 @@ $route['user/event/update/(:num)'] 			 		 	 = 'events/update/index/$1';
 $route['user/event/do_upload/(:num)'] 					 = 'events/update/do_upload/$1';
 
 
-
 //api
 $route['user/groupe/create/imgUpload'] 	 = 'groupe_folder/create/img';
 $route['user/groupe/create/getImgCache'] = 'groupe_folder/create/getImgCache';
@@ -118,6 +117,10 @@ $route['admin/groupe/gestion']			= 'Admin/groupe/gestion';
 $route['admin/groupe/change/(:num)']	= 'Admin/groupe/gestion/change/$1';
 $route['admin/groupe/delete/(:num)']	= 'Admin/groupe/gestion/delete/$1';
 
+// event
 $route['admin/event/gestion']			= 'Admin/event/gestion';
 $route['admin/event/change/(:num)']		= 'Admin/event/gestion/change/$1';
 $route['admin/event/delete/(:num)']		= 'Admin/event/gestion/delete/$1';
+// event - ajax
+$route['events/ajax/search/(:any)']				= 'events/ajax/search/index/$1';
+$route['events/ajax/search/ListeEvents']		= 'events/ajax/search/ListeEvents';

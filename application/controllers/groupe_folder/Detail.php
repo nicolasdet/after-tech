@@ -10,6 +10,7 @@ class Detail extends MY_User_Controller {
 		
 		$this->load->model('Invitation_ug', 'invitation');
 		$this->theme->js('chat');
+		$this->theme->js('LoadEventSearch');
 		
 	}
 

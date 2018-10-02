@@ -7,6 +7,7 @@ class Detail extends MY_User_Controller {
 	# $id = id du groupe de l'event à crée
 	public function index($id = null)
 	{   
+       
 
         $ActualEvent = $this->events->get($id);
         # si on est membre du groupe qui participe à l'event
@@ -30,14 +31,16 @@ class Detail extends MY_User_Controller {
 
 
 
-        # on charge les info de l'event
+        # on charge les info de l'event + form de recherche de groupe
         $getUpdateEventForm         = getUpdateEventForm(true, $ActualEvent);
+        $getSearchGroupeForm        = getSearchGroupeForm();
 
 
         # on affiche
         $this->theme->data('getUpdateEventForm', $getUpdateEventForm);
         $this->theme->data('eventGroupes', $eventGroupes);
         $this->theme->data('ActualEvent', $ActualEvent);
+        $this->theme->data('getSearchGroupeForm', $getSearchGroupeForm);
         $this->render('events/detail');
 
 	}

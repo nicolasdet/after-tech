@@ -79,13 +79,13 @@ request.send();
                                 <div class="modal-container">
                                     <div class="modal-content width-50">
                                         <div class="boxed boxed--lg">
-                                            <h2>Modifier l'image de l'evenement</h2>
+                                            <h2>Recherche de groupes</h2>
                                             <hr class="short">
                                             <p class="lead">
                                                 <form method="POST" action="user/event/update/<?= $ActualEvent->evenement_id ?>">
-
+                                                <?=  drawInput($getSearchGroupeForm['nom']); ?>
                                                 <div class="col-md-3">
-                                                <button type="submit" class="btn btn--primary">Upload l'image</button>  
+                                                <button type="submit" class="btn btn--primary">recherche</button>  
                                                 </div>
                                                 </form>
                                             </p>

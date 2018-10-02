@@ -11,9 +11,9 @@ public function index($id = null)
 	$listGroupes 		= $this->user_groupes->getByUserAndAdminCount($this->session->userdata('user'));
 	$listeMessages		= $this->message->loadByUserIdCount($this->session->userdata('user'));
 	$getEventsByGroupes = $this->events_groupes->getEventsByGroupeArray($listGroupes['id']); 
-	
 	$intervalString 	= false;
 	$FirstEvent 		= array();
+	$dateToday 			= new DateTime($this->today);
 
 	if(!empty($getEventsByGroupes[0])){
 
@@ -23,11 +23,8 @@ public function index($id = null)
 			if($UnEvent->events->evenement_debut < $FirstEvent->events->evenement_debut)
 					$FirstEvent = $UnEvent;
 		}
-
 		$date1 			= new DateTime($FirstEvent->events->evenement_debut);
-		$date2 			= new DateTime($this->today);
-		$interval 		= $date2->diff($date1);
-		//$intervalString = $interval->d.' / '.$interval->m. ' / '.$interval->y;
+		$interval 		= $dateToday->diff($date1);
 	}
 
 	$data = array(

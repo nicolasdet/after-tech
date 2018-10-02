@@ -1,4 +1,4 @@
-                        <div class="col-lg-8  account-tab " id="detail-events">
+                        <div class="col-lg-8 hidden account-tab " id="detail-events">
 
                             <?php if(!empty($listEvents)): ?>
                              <?php foreach ($listEvents as $unEvent): ?>
