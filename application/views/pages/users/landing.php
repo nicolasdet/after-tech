@@ -1,6 +1,3 @@
-
-       
-
                 <section class="bg--secondary space--sm">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -50,7 +47,11 @@
                                 </ul>
                             </div>
                             <div class="boxed boxed--border">
-                                <h4>Prochain evenement </h4>
+                               <?php if(!empty($FirstEvent)): ?>
+                                <h4>Prochain evenement dans : <span class=" countdown" data-date="<?= $FirstEvent->events->evenement_debut ?>" data-date-fallback="Timer Done"  data-days-text="jours"></span></h4>
+                             
+                                <div class="titleGroupe p-2 bgWheat"> 
+                                  <h4><?= $FirstEvent->events->evenement_nom ?></h4>
                                 <ul class="pt-3">
                                     <li class="clearfix">
                                         <div class="row">
@@ -59,6 +60,35 @@
                                                     <i class="icon icon--lg material-icons">comment</i>
                                                 </div>
                                             </div>
+
+                                            <div class="col-lg-8 col-7">
+                                                <p><?= $FirstEvent->events->evenement_debut ?> <br />  
+                                                <?= $FirstEvent->events->evenement_description ?></p>
+                                                <span class="type--fine-print"></span>
+                                                <div class="d-flex justify-content-start">
+                                                <a href="user/event/detail/<?= $FirstEvent->events->evenement_id ?>"> 
+                                                    <button type="submit" class="btn btn--primary btn-event">Detail</button>
+                                                </a>
+                                              
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <?php else: ?>
+
+                            <div class="titleGroupe mt-4 p-4 bgWheat"> 
+                                  <h4>Prochain evenement  <span class="countdown" data-date="03/13/2017"></span></h4>
+                                <ul class="pt-3">
+                                    <li class="clearfix">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-3 text-center">
+                                                <div class="icon-circle">
+                                                    <i class="icon icon--lg material-icons">comment</i>
+                                                </div>
+                                            </div>
+
                                             <div class="col-lg-8 col-7">
                                                 <p>Pas d'évenement à venir</p>
                                                 <span class="type--fine-print"></span>
@@ -69,6 +99,10 @@
                                         </div>
                                     </li>
                                 </ul>
+                            </div>
+
+
+                            <?php endif; ?>
                             </div>
                             <!--
                             <div class="boxed boxed--border">

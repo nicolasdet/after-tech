@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller
 	protected $tracking_page = '';
 	protected $tracking_params = [];
 	protected $error_message = '';
+	protected $today;
 
 	
 
@@ -27,6 +28,7 @@ class MY_Controller extends CI_Controller
 
 		date_default_timezone_set('Europe/Paris');
 
+ 		$this->today = date("Y-m-d H:i:s");
 		//$this->forceHttps();
 		$this->initTheme($layout);
 

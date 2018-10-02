@@ -15,4 +15,35 @@ class Evenements_groupes extends MY_Model {
 		parent::__construct();
 	}
 
+
+	public function getEventsByGroupeArray($listeId) {
+
+		$EventsGroupes = array();
+		foreach ($listeId as $GroupesId) {
+
+		$res = $this
+		->with_events('fields:*', 'where:`evenement_debut`> \''.date("Y-m-d").'\'')
+		->where(['groupes_id' => $GroupesId ])
+		->get_all();
+
+
+
+		 	if(is_array($res)){
+		 		foreach ($res as $unEvent) {
+		 			if($unEvent != false && !empty($unEvent->events))
+		 				array_push($EventsGroupes, $unEvent);
+		 		}
+		 	}else{
+		 		if($res != false && !empty($res)){
+		 			foreach ($res as $UnRes) {
+		 				array_push($EventsGroupes, $UnRes);
+		 			}
+		 		}
+		 	}
+		} 
+
+		return $EventsGroupes;
+		
+	}
+
 }

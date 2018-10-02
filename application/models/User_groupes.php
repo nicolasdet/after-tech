@@ -22,6 +22,14 @@ class User_groupes extends MY_Model {
 	public function getByUserAndAdminCount($id) {
 
 		$res = $this->getByUserAndAdmin($id);
+
+		$listeId = array();
+		foreach ($res as $UnGroupe) {
+			array_push($listeId, $UnGroupe->groupes_id);
+		}					
+
+
+		$res['id'] = $listeId;
 		$res['count'] = count($res);
 		return $res;
 	}

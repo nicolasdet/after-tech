@@ -9,7 +9,6 @@ class Welcome extends MY_Controller {
 		if($this->session->userdata('loged') || $this->session->userdata('user') )
 		{
 			redirect('/user');
-
 		}
 		
 		$InscriptionFormData = getInscriptionForm();

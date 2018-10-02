@@ -20,6 +20,8 @@
 		d($CI->db->last_query());
 	}
 
+
+
 	function d($key = null) {
 		echo "<pre>";
 		print_r($key);
@@ -31,11 +33,24 @@
 		exit();
 	}
 
+	function vd($var = null) {
+		highlight_string("<?php\n\$data =\n" . var_export($var, true) . ";\n?>");
+		return;
+	}
+
+	function dv($var = null) {
+		return vd();
+	}
+	
+
 	function de($var = null) {
 		highlight_string("<?php\n\$data =\n" . var_export($var, true) . ";\n?>");
-		//var_dump($var);
 		exit();
 	}
+
+
+
+
 
 	function passVerificationOr404($params = [])
 	{
@@ -390,3 +405,10 @@ function date2Bdd ($str) {
 
 		return $url . '?' . implode('&amp;', $tab);
 	}
+
+	/**
+
+	function date_sort($a, $b) {
+	    return strtotime($a) - strtotime($b);
+	}
+	 */

@@ -22,4 +22,6 @@ class Message extends MY_Model {
 		$res['count'] = count($res);
 		return $res;
 	}
+
+
 }
