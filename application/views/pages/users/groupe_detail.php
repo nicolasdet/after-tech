@@ -1,7 +1,7 @@
            <section class="bg--secondary space--sm conversation">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-md-3 offset-md-1">
                             <div class="boxed boxed--lg boxed--border" data-scroll-class="180px:pos-fixed">
                                 <div class="text-block text-center">
                                     <img class="groupe_span image_groupe_detail padding11" id="groupe-<?= $groupe_detail->groupes_id ?>" alt="" src="<?= isset($groupe_detail->groupes_img) ? $groupe_detail->groupes_img : '' ?>" />

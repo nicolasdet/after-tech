@@ -1,5 +1,10 @@
 $(function() {
+$('#loadingEventZone').hide();
+/*
 
+limit system + 
+
+*/
 	 start = 0;
 	 end   = 0 
 	 groupe_id  = $('#groupeIDHidden').val();
@@ -12,6 +17,7 @@ $(function() {
                     success: function(data) {
                          if(data != false && data !== "false"){
                     			listeEvent = data;
+                    			console.log(listeEvent);
 
                           }else {
                           }
@@ -22,7 +28,11 @@ $(function() {
          }); 
 
 	$("#recherche_events").on('click', function(){
+
+		$('#loadingEventZone').show();
+
 		var SearchText = $('#event_search_label').val();
+		$('#displayEventZone').empty();
 		  $.ajax({
                    type: 'GET',
                    url: 'events/ajax/search/'+SearchText+'?groupe='+groupe_id,
@@ -30,8 +40,10 @@ $(function() {
                     success: function(data) {
                          if(data != false && data !== "false"){
                     			LoadSuccess(data);
+                    			$('#loadingEventZone').hide();
 
                           }else {
+                          	$('#loadingEventZone').hide();
                           }
                        },
                     error: function(){
@@ -42,8 +54,6 @@ $(function() {
 	});
 
 	function LoadSuccess(data){
-		console.log('--');
-		console.log(listeEvent);
 		if(typeof(data) == 'object' && 1==2){
 			html = `
 				<div class='titleGroupe p-4 mt-2 bgWheat'>
@@ -67,6 +77,8 @@ $(function() {
 		}else{
 
 			for(unEvent of data){
+
+				console.log(listeEvent.indexOf(unEvent.evenement_id));
 				html = `
 				<div class='titleGroupe p-4 mt-2 bgWheat'>
 				<div class='row'>
@@ -75,11 +87,22 @@ $(function() {
 					<p>`+ unEvent.evenement_description +`</p>
 					<p>`+ unEvent.evenement_debut +`</p>
 					<p>`+ unEvent.evement_ville +`</p>
+					`;
 
-					<a href="/events/add/`+unEvent.evenement_id+`/`+groupe_id+`">
+					 if(listeEvent.indexOf(unEvent.evenement_id) == -1) {
+					 	html += `
+					 	<a href="/events/add/`+unEvent.evenement_id+`/`+groupe_id+`">
 						<button class="btn btn-success p-3">Participer</button> 
-					</a>
+						</a>
+							`;
+					}else {
+					 	html += `
+						<button class="btn btn-danger p-3">Deja participant</button> 
+						`;
+					}
 
+
+					html += `
 					</div>
 					<div class='col-md-3'>
 					<img src='`+unEvent.evenement_img+`' alt="L\'evenement n'a pas d'image "/>

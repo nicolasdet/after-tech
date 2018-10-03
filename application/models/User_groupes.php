@@ -29,8 +29,8 @@ class User_groupes extends MY_Model {
 		}					
 
 
-		$res['id'] = $listeId;
 		$res['count'] = count($res);
+		$res['id'] = $listeId;
 		return $res;
 	}
 

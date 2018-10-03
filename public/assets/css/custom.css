@@ -1,4 +1,8 @@
 /*! Place your custom styles here */
+.nav-sidebar-column {
+
+    width: 17.429em !important;
+}
 .height-400 {
     height: 400px;
 }

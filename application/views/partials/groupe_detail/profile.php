@@ -26,6 +26,13 @@
                             </div>
 
                             <div id="displayEventZone">
-                                
+
+                            </div>
+
+                             <div class="bgWheat boxed boxed--border" id="loadingEventZone">
+                                    <h4 id="titleLoader"> Chargement des evenements...</h4>
+                                    <div id="customLoaderEvent" class="customLoader"></div>
+                            </div>
+
                             </div>
                         </div>

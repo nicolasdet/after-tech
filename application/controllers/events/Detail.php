@@ -35,12 +35,14 @@ class Detail extends MY_User_Controller {
         $getUpdateEventForm         = getUpdateEventForm(true, $ActualEvent);
         $getSearchGroupeForm        = getSearchGroupeForm();
 
-
+        
         # on affiche
         $this->theme->data('getUpdateEventForm', $getUpdateEventForm);
         $this->theme->data('eventGroupes', $eventGroupes);
         $this->theme->data('ActualEvent', $ActualEvent);
         $this->theme->data('getSearchGroupeForm', $getSearchGroupeForm);
+
+        
         $this->render('events/detail');
 
 	}

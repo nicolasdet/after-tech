@@ -55,10 +55,8 @@
                                 <ul class="pt-3">
                                     <li class="clearfix">
                                         <div class="row">
-                                            <div class="col-lg-2 col-3 text-center">
-                                                <div class="icon-circle">
-                                                    <i class="icon icon--lg material-icons">comment</i>
-                                                </div>
+                                             <div class="col-lg-2 col-3 text-center">
+                                                   <img src="<?= $FirstEvent->events->evenement_img ?>" alt="Le groupe n'a pas d'image">
                                             </div>
 
                                             <div class="col-lg-8 col-7">
@@ -69,7 +67,6 @@
                                                 <a href="user/event/detail/<?= $FirstEvent->events->evenement_id ?>"> 
                                                     <button type="submit" class="btn btn--primary btn-event">Detail</button>
                                                 </a>
-                                              
                                                 </div>
                                             </div>
                                         </div>

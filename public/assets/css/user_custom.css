@@ -14,11 +14,19 @@ section.space--sm, footer.space--sm {
 .background-image-user {
 	height: 155vh;
 }
-
+/*
 #change_user_info {
 	width: 138px;
 	display: flex;
 	padding: 10px 100px;
 	justify-content: center;
 	font-size: 0.95714286em;
+}
+*/
+#change_user_info {
+    width: 97px;
+    display: flex;
+    padding: 10px 75px;
+    justify-content: center;
+    font-size: 0.850em;
 }

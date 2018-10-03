@@ -54,7 +54,7 @@
                 </div>
                 <div class="text-block">
                     <a class="btn block btn--primary type--uppercase" id="user_btn_deconnecter" href="/user?disconnect=disconnect">
-                        <span class="btn__text">Ce déconnecter</span>
+                        <span class="btn__text">Se déconnecter</span>
                     </a>
                 </div>
             

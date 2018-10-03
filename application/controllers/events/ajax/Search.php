@@ -34,10 +34,16 @@ class Search extends MY_User_Controller {
         $retour = $this
         ->events_groupes
         ->where('groupes_id', $groupe)
+        ->fields('evenement_id')
         ->get_all();
 
+        $idArray = array();
+
+        foreach ($retour as $key => $value) {
+            array_push($idArray, $value->evenement_id);
+        }
         
-        echo json_encode($retour);
+        echo json_encode($idArray);
         exit();
     }
 }

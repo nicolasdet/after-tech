@@ -5,6 +5,11 @@
                <div class="background-image-holder ">
                     <img alt="background" src="<?= $ActualEvent->evenement_img ?>" />
                 </div>
+                <?php if($this->session->has_userdata('groupe')): ?>
+                <a href="user/groupe/<?= $this->session->userdata('groupe'); ?>">
+                    <button class="btn btn-info p-2 ml-1">retour</button>
+                </a>
+            <?php endif; ?>
             <section class="text-center sectionNoPadding">
                 <div class="container">
                     <div class="row">
@@ -71,7 +76,7 @@ request.send();
 
        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh7g2N-Ka1iDp3e8Tv5LULDWmHqA--kDk&callback=initMap"
     async defer></script>
-
+        
                         <div class="modal-instance modalUpdateEvent" id="modalCréeEvement">
                                 <a class=" modal-trigger" href="#">
                                     <button type="submit" class="btn btn--primary btn-event buttonModifierContainer"><i class="material-icons groupe_icon IModifierElement">person</i>Inviter d'autre groupes</button>
@@ -114,8 +119,7 @@ request.send();
                                     </div>
                                 </div>
                                 </div>
-
-                            <div class="modal-instance modalUpdateEvent" id="modalCréeEvement">
+                         <div class="modal-instance modalUpdateEvent" id="modalCréeEvement">
                                 <a class=" modal-trigger" href="#">
                                     <button type="submit" class="btn btn--primary btn-event buttonModifierContainer"><i class="material-icons groupe_icon IModifierElement">person</i>Modifier l'evement</button>
                                 </a>
@@ -159,7 +163,7 @@ request.send();
                                     $MonGroupe       = $UnGroupe->groupe;
                                     $UnGroupeMembre  = $UnGroupe->membres;
                              ?>
-                            <div class="eventzonegroupe col-md-6">
+                            <div class="eventzonegroupe col-md-5 m-1">
                             
                                     <img src="<?= $MonGroupe->groupes_img ?>"> 
                                     <h5 class=""> <?= $MonGroupe->groupes_nom ?> </h5>

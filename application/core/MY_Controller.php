@@ -77,6 +77,7 @@ class MY_Controller extends CI_Controller
 		$this->theme->js('datepicker');
 		$this->theme->js('isotope.min');
 		$this->theme->js('ytplayer.min');
+
 		//$this->theme->js('lightbox.min');
 		$this->theme->js('granim.min');
 		$this->theme->js('jquery.steps.min');
@@ -85,6 +86,7 @@ class MY_Controller extends CI_Controller
 		$this->theme->js('twitterfetcher.min');
 		$this->theme->js('smooth-scroll.min');
 		$this->theme->js('scripts');
+		$this->theme->js('custom');
 		/*
 		//$this->theme->css('main');
 		//$this->theme->js('jquery-3.2.0.min');

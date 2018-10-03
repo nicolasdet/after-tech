@@ -9,9 +9,7 @@
                                     <li class="clearfix">
                                         <div class="row">
                                             <div class="col-lg-2 col-3 text-center">
-                                                <div class="icon-circle">
-                                                    <i class="icon icon--lg material-icons">comment</i>
-                                                </div>
+                                                <img src="<?= $unEvent->events->evenement_img ?>" alt="Le groupe n'a pas d'image">
                                             </div>
 
                                             <div class="col-lg-8 col-7">

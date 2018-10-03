@@ -83,10 +83,19 @@ $route['user/groupe/invitation/refuser/(:num)'] 		 = 'groupe_folder/invitation/r
 $route['user/groupe/ajax/loadChat/(:num)'] 		 		 = 'groupe_folder/ajax/loadChat/$1';
 $route['user/groupe/ajax/addMessage/(:num)/(:num)'] 	 = 'groupe_folder/ajax/addMessage/$1/$2';
 
+// Event
 $route['user/event/create/(:num)'] 			 		 	 = 'events/create/index/$1';
 $route['user/event/detail/(:num)'] 			 		 	 = 'events/detail/index/$1';
 $route['user/event/update/(:num)'] 			 		 	 = 'events/update/index/$1';
 $route['user/event/do_upload/(:num)'] 					 = 'events/update/do_upload/$1';
+$route['events/add/(:num)/(:num)']						 = 'events/add/index/$1/$2';
+$route['user/events/all']						 		 = 'user/events/all';
+
+
+// event - ajax
+$route['events/ajax/search/ListeEvents']				 = 'events/ajax/search/ListeEvents';
+#Slug - à l'aisser en dernier
+$route['events/ajax/search/(:any)']						 = 'events/ajax/search/index/$1';
 
 
 //api
@@ -121,6 +130,7 @@ $route['admin/groupe/delete/(:num)']	= 'Admin/groupe/gestion/delete/$1';
 $route['admin/event/gestion']			= 'Admin/event/gestion';
 $route['admin/event/change/(:num)']		= 'Admin/event/gestion/change/$1';
 $route['admin/event/delete/(:num)']		= 'Admin/event/gestion/delete/$1';
-// event - ajax
-$route['events/ajax/search/(:any)']				= 'events/ajax/search/index/$1';
-$route['events/ajax/search/ListeEvents']		= 'events/ajax/search/ListeEvents';
+
+
+
+

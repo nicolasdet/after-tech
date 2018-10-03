@@ -50,6 +50,7 @@ class Detail extends MY_User_Controller {
 			return redirect('/user/groupe/recherche');
 		}
 
+		$this->session->set_userdata('groupe', $id);
 		# templating
 		$this->theme->data('SalonChat', $SalonChat);
 		$this->theme->data('listEvents', $listEvents);
