@@ -11,6 +11,7 @@ public function index($id = null)
 	$listGroupes 		= $this->user_groupes->getByUserAndAdminCount($this->session->userdata('user'));
 	$listeMessages		= $this->message->loadByUserIdCount($this->session->userdata('user'));
 	$getEventsByGroupes = $this->events_groupes->getEventsByGroupeArray($listGroupes['id']); 
+	$getCountAllEvents	= $this->events_groupes->getCountEventsByGroupeArray($listGroupes['id']); 
 	$intervalString 	= false;
 	$FirstEvent 		= array();
 	$dateToday 			= new DateTime($this->today);

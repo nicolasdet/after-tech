@@ -44,6 +44,35 @@ class Evenements_groupes extends MY_Model {
 		return $EventsGroupes;
 	}
 
+	public function getCountEventsByGroupeArray($listeId) {
+
+		$EventsGroupes = array();
+		foreach ($listeId as $GroupesId) {
+
+		$res = $this
+		->where(['groupes_id' => $GroupesId ])
+		->get_all();
+
+		 	if(is_array($res)){
+		 		foreach ($res as $unEvent) {
+		 			if($unEvent != false && !empty($unEvent->events))
+		 				array_push($EventsGroupes, $unEvent);
+		 		}
+		 	}else{
+		 		if($res != false && !empty($res)){
+		 			foreach ($res as $UnRes) {
+		 				array_push($EventsGroupes, $UnRes);
+		 			}
+		 		}
+		 	}
+		} 
+
+		
+		return $EventsGroupes;
+	}
+
+	
+
 	public function getEventsByGroupeArrayOld($listeId) {
 
 		$EventsGroupes = array();

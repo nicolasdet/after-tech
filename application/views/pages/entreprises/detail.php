@@ -1,4 +1,7 @@
  <div id="user_groupe">
+    <a href="entreprise/quit/<?= $entreprise->entreprise_id ?>">
+        <button class="btn btn-danger pl-2 pr-2 ml-1"> quitter le groupe </button>
+    </a>
  	            <section id="section_groupe_create">
                 <div class="container">
                     <div class="row">
