@@ -14,6 +14,12 @@ public function index($id = null)
 	$intervalString 	= false;
 	$FirstEvent 		= array();
 	$dateToday 			= new DateTime($this->today);
+	$entreprise 		= $this
+							->entreprise_user
+							->where(['user_id' => $idUser])
+							->with_entreprise()
+							->get();
+
 
 	if(!empty($getEventsByGroupes[0])){
 
@@ -33,6 +39,7 @@ public function index($id = null)
 		'listeMessages' => $listeMessages,
 		'FirstEvent'	=> $FirstEvent,
 		'interval'		=> $interval,
+		'entreprise'	=> $entreprise
 	);
 
 	$this->render('users/landing', $data);

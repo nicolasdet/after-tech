@@ -5,20 +5,17 @@ class Create extends MY_User_Controller {
 
 	public function index($id = null)
 	{       
-
 		$idUser 			= $this->session->userdata('user');
-
 		$entrepriseForm 	= getCreateEntrepriseForm();
 
 		$data = array(
 			'idUser' 		=> $idUser,
 			'entrepriseForm'=> $entrepriseForm
 		);
-
 		$this->render('entreprises/create', $data);
 	}
 
-	public function create($id = null){
+	public function createE($id = null){
 
 		if(!$this->input->post()){
 			$this->flash->setFlash("erreur de création de l'entreprise", VALIDATION_MESSAGE_ERROR);
@@ -40,14 +37,35 @@ class Create extends MY_User_Controller {
              	return $this->createEntreprise();
             }
 
-		redirect('user/entreprise/createEntreprise');
+		redirect('user/entreprise/create');
 	}
 
 	public function createEntreprise(){
 
-		$tabEntreprise['nom'] 		  = $this->input->post('nom');
-		$tabEntreprise['description'] = $this->input->post('description');
+		$tabEntreprise['entreprise_nom'] 		  = $this->input->post('nom');
+		$tabEntreprise['entreprise_description']  = $this->input->post('description');
 
-		if($this->)
+		$id = $this->entreprise->insert($tabEntreprise);
+		if($id) {
+
+			$tabEntrepriseUser['user_id']		= $this->session->userdata('user');
+			$tabEntrepriseUser['entreprise_id'] = $id;
+
+			if($this->entreprise_user->insert($tabEntrepriseUser)){
+
+			$this->flash->setFlash("l'entreprise à bien éte crée", VALIDATION_MESSAGE);
+			redirect('user/entreprise/'.$id);
+
+			}else {
+
+			$this->entreprise->delete($id);
+			$this->flash->setFlash("erreur de création de l'entreprise", VALIDATION_MESSAGE_ERROR);
+			redirect('user/entreprise/create');
+			}
+
+		}else {	
+			$this->flash->setFlash("erreur de création de l'entreprise", VALIDATION_MESSAGE_ERROR);
+			redirect('user/entreprise/create');
+		}
 	}
 }

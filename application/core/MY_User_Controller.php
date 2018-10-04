@@ -36,6 +36,7 @@ class MY_User_Controller extends MY_Controller
 		$this->getUser();
 		$this->getGroupe();
 		$this->getEvents();
+		$this->getEntreprise();
 		$this->load->helper('groupe_form');
 		$this->load->helper('events_form_helper');
 		$this->load->helper('entreprise_form_helper');
@@ -59,9 +60,16 @@ class MY_User_Controller extends MY_Controller
 
 	protected function getEvents()
 	{
+		$this->load->model('Entreprise', 'entreprise');
+		$this->load->model('Entreprise_user', 'entreprise_user');
+	}
+
+	protected function getEntreprise(){
+
 		$this->load->model('Evenements', 'events');
 		$this->load->model('Evenements_groupes', 'events_groupes');
 	}
+
 
 	protected function error_check_email()
 	{

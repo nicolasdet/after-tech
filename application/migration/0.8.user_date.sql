@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `user_dateCreation` DATETIME NULL AFTER `user_img`;

@@ -93,10 +93,10 @@ $route['user/events/all/old']						 	 = 'events/all/old';
 $route['events/add/(:num)/(:num)']						 = 'events/add/index/$1/$2';
 
 //entreprise
-$route['user/entreprise']						 	 	 = 'entreprise/detail';
+$route['user/entreprise']						 		 = 'entreprise/detail/getByUser';
+$route['user/entreprise/(:num)']						 = 'entreprise/detail/index/$1';
 $route['user/entreprise/create']						 = 'entreprise/create/index';
-$route['user/entreprise/createEntreprise']				 = 'entreprise/create/create';
-
+$route['user/entreprise/createEntreprise']				 = 'entreprise/create/createE';
 
 
 // event - ajax
@@ -116,15 +116,12 @@ $route['user/update/profile'] 			 = 'users/update/profile';
 $route['user/update/password'] 			 = 'users/update/password';
 $route['user/update/do_upload'] 		 = 'users/update/do_upload';
 
-
 // Auth
 $route['inscription'] 					 = 'Auth/inscription';
 $route['connexion'] 					 = 'Auth/connexion';
 
-
 //Admin
 $route['admin']							= 'Admin/home';
-
 $route['admin/user/gestion']			= 'Admin/user/gestion';
 $route['admin/user/change/(:num)']		= 'Admin/user/gestion/change/$1';
 $route['admin/user/delete/(:num)']		= 'Admin/user/gestion/delete/$1';

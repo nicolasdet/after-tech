@@ -17,7 +17,15 @@
                                     <ul class="row row--list">
                                         <li class="col-md-4">
                                             <span class="type--fine-print block ">Entreprise:</span>
-                                            <span>Pas encore d'entreprise</span>
+
+                                            <?php if(!$entreprise): ?>
+                                                <span>Pas encore d'entreprise</span>    
+                                            <?php else: ?>
+                                                <a href="user/entreprise/<?= $entreprise->entreprise->entreprise_id; ?>">
+                                                     <span><?= $entreprise->entreprise->entreprise_nom ?></span>   
+                                                </a>
+                                            <?php endif; ?>
+
                                         </li>
                                         <li class="col-md-4">
                                             <span class="type--fine-print block">Menbre depuis:</span>
