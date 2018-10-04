@@ -94,6 +94,11 @@ $route['events/add/(:num)/(:num)']						 = 'events/add/index/$1/$2';
 
 //entreprise
 $route['user/entreprise']						 		 = 'entreprise/detail/getByUser';
+$route['user/entreprise/search']						 = 'entreprise/search';
+$route['user/entreprise/join/(:num)']							 = 'entreprise/join/index/$1';
+
+$route['entreprise/ajax/search/(:any)']					 = 'entreprise/ajax/search/index/$1';
+
 $route['user/entreprise/(:num)']						 = 'entreprise/detail/index/$1';
 $route['user/entreprise/create']						 = 'entreprise/create/index';
 $route['user/entreprise/createEntreprise']				 = 'entreprise/create/createE';

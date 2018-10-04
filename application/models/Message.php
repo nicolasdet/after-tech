@@ -19,7 +19,12 @@ class Message extends MY_Model {
 
 	public function loadByUserIdCount ($id){
 		$res = $this->where([ 'user_id' => $id ])->get_all();
-		$res['count'] = count($res);
+		if(is_array($res) || is_object($res)){
+
+			$res['count'] = count($res);
+		}else {
+			$res['count'] = 0;
+		}
 		return $res;
 	}
 

@@ -38,7 +38,7 @@ public function index($id = null)
 		'listGroupes'	=> $listGroupes,
 		'listeMessages' => $listeMessages,
 		'FirstEvent'	=> $FirstEvent,
-		'interval'		=> $interval,
+		'interval'		=> isset($interval) ? $interval : null,
 		'entreprise'	=> $entreprise
 	);
 

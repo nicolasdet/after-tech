@@ -6,6 +6,17 @@ class Create extends MY_User_Controller {
 	public function index($id = null)
 	{       
 		$idUser 			= $this->session->userdata('user');
+		$entreprise 		= $this
+							->entreprise_user
+							->where(['user_id' => $idUser])
+							->with_entreprise()
+							->get();
+							
+		if($entreprise != false){
+			$this->flash->setFlash("Vous avez deja une entreprise", VALIDATION_MESSAGE_ERROR);
+			redirect('user/entreprise');
+		}		
+
 		$entrepriseForm 	= getCreateEntrepriseForm();
 
 		$data = array(

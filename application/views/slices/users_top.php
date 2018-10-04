@@ -67,6 +67,12 @@
                                             </a>
                                         </li>   
                                         <li>
+                                            <a href="user/entreprise/search">
+                                                Rechercher une Entreprise
+                                            </a>
+                                        </li>   
+
+                                        <li>
                                             <a href="user/entreprise/create">
                                                 Crée une entreprise
                                             </a>

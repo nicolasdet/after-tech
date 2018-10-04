@@ -1,5 +1,5 @@
  <div id="user_groupe">
-    <div class="container">
+    <div class="container pb-2">
     	<h2>Anciens evenements</h2>
     	<?php if(!empty($allEvents)): ?>
                              <?php foreach ($allEvents as $unEvent): ?>

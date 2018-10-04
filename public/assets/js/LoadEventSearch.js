@@ -89,17 +89,12 @@ limit system +
 					<p>`+ unEvent.evement_ville +`</p>
 					`;
 
-					 if(listeEvent.indexOf(unEvent.evenement_id) == -1) {
-					 	html += `
-					 	<a href="/events/add/`+unEvent.evenement_id+`/`+groupe_id+`">
-						<button class="btn btn-success p-3">Participer</button> 
+				html += `
+					 	<a href="/events/add/">
+						<button class="btn btn-success p-3">Rejoindre</button> 
 						</a>
-							`;
-					}else {
-					 	html += `
-						<button class="btn btn-danger p-3">Deja participant</button> 
-						`;
-					}
+					`;
+					
 
 
 					html += `
@@ -111,7 +106,7 @@ limit system +
 				</div>
 				`;
 
-				$("#displayEventZone").append(html);
+				$("#displayEntepriseZone").append(html);
 			}
 		}
 
