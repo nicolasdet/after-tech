@@ -38,6 +38,7 @@ class MY_User_Controller extends MY_Controller
 		$this->getEvents();
 		$this->load->helper('groupe_form');
 		$this->load->helper('events_form_helper');
+		$this->load->helper('entreprise_form_helper');
 		$this->load->library('Chat', 'chat');
 
 	}

@@ -13,4 +13,14 @@ class All extends MY_User_Controller {
         $this->theme->data('allEvents', $allEvents);
         $this->render('events/all');
     }
+
+ 	public function old($id = null)
+	{      
+        $idUser             = $this->session->userdata('user');
+        $listGroupes        = $this->user_groupes->getByUserAndAdminCount($this->session->userdata('user'));
+        $allEvents          = $this->events_groupes->getEventsByGroupeArrayOld($listGroupes['id']); 
+
+        $this->theme->data('allEvents', $allEvents);
+        $this->render('events/old');
+    }
 }

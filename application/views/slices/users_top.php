@@ -62,10 +62,15 @@
                                 <div class="dropdown__content">
                                     <ul class="menu-vertical ml-5">
                                         <li>
-                                            <a href="user">
+                                            <a href="user/entreprise">
                                                 Mon Entreprise
                                             </a>
-                                        </li>                               
+                                        </li>   
+                                        <li>
+                                            <a href="user/entreprise/create">
+                                                Crée une entreprise
+                                            </a>
+                                        </li>                                
                                     </ul>
                                 </div>
                             </div>
@@ -77,7 +82,12 @@
                                     <ul class="menu-vertical ml-5">
                                         <li>
                                             <a href="user/events/all">
-                                                Mes Evenements
+                                                Mes Evenements à venir
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="user/events/all/old">
+                                                Mes Evenements passer
                                             </a>
                                         </li>
                                     </ul>

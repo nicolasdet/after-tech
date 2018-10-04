@@ -89,7 +89,14 @@ $route['user/event/detail/(:num)'] 			 		 	 = 'events/detail/index/$1';
 $route['user/event/update/(:num)'] 			 		 	 = 'events/update/index/$1';
 $route['user/event/do_upload/(:num)'] 					 = 'events/update/do_upload/$1';
 $route['user/events/all']						 		 = 'events/all';
+$route['user/events/all/old']						 	 = 'events/all/old';
 $route['events/add/(:num)/(:num)']						 = 'events/add/index/$1/$2';
+
+//entreprise
+$route['user/entreprise']						 	 	 = 'entreprise/detail';
+$route['user/entreprise/create']						 = 'entreprise/create/index';
+$route['user/entreprise/createEntreprise']				 = 'entreprise/create/create';
+
 
 
 // event - ajax
